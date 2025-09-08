@@ -3,6 +3,7 @@
 
 # virtualenv files
 bookenv/
+*env/
 
 
 # Byte-compiled / optimized / DLL files
