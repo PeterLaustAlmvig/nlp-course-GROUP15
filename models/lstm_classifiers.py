@@ -2,7 +2,7 @@ import math
 import os
 import random
 import argparse
-import nltk
+import sys
 
 import pandas as pd
 import numpy as np
@@ -15,24 +15,24 @@ from utils.models import *
 from utils.train_eval import *
 from utils.visualisation import *
 
-nltk.download('punkt_tab')
+import logging
 
 seed = 42
-# Sets seed manually for both CPU and CUDA
 torch.manual_seed(seed)
 torch.cuda.manual_seed_all(seed)
-# For atomic operations there is currently
-# no simple way to enforce determinism, as
-# the order of parallel operations is not known.
-# CUDNN
 torch.backends.cudnn.deterministic = True
 torch.backends.cudnn.benchmark = False
-# System based
 random.seed(seed)
 np.random.seed(seed)
 
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s %(message)s",
+    handlers=[logging.StreamHandler(sys.stdout)]
+)
+logger = logging.getLogger(__name__)
+
 def hyperparameter_tuning(train_dataset, train_dataloader, best_results_path):
-    # Define hyperparameters
     embedding_dims = [16, 32, 64, 128]
     hidden_sizes = [32, 64, 128, 256]
     num_layerss = [1, 5, 10]
@@ -40,39 +40,33 @@ def hyperparameter_tuning(train_dataset, train_dataloader, best_results_path):
     lr = 0.01
     max_epochs = 500
 
-    last_best_acc = math.inf
+    last_best_acc = float("-inf")
     all_best_accs = []
 
     for embedding_dim in embedding_dims:
         for hidden_size in hidden_sizes:
             for num_layers in num_layerss:
                 for drop_out in drop_outs:
-                    # Define the model
                     model = LSTMModel(device, embedding_dim, hidden_size, len(train_dataset.vocab), num_layers, drop_out)
                     criterion = nn.CrossEntropyLoss()
                     optimizer = SGD(model.parameters(), lr=lr)
 
-                    # Train the model
+                    logger.info(f"[INFO] Training with embedding_dim={embedding_dim}, hidden_size={hidden_size}, num_layers={num_layers}, drop_out={drop_out}")
                     train_losses, accuracies = sentence_train(device, epochs=max_epochs, model=model, dataloader=train_dataloader, 
-                                                    optimizer=optimizer, criterion=criterion, padding_token_idx=train_dataset.pad_idx, print_interval=max_epochs+1)
+                                                    optimizer=optimizer, criterion=criterion, padding_token_idx=train_dataset.pad_idx, logger=logger, print_interval=max_epochs+1)
 
-                    # Save the best accuracy for this hyperparameter combination
                     best_acc = max(accuracies)
-                    all_best_accs.append({'embedding_dim': embedding_dim, 'hidden_size': hidden_size, 
-                                                            'num_layers': num_layers, 'drop_out': drop_out, 
-                                                            'best_acc': best_acc})
-                    if best_acc > last_best_acc and best_acc > 0.0:
+                    all_best_accs.append({'embedding_dim': embedding_dim, 'hidden_size': hidden_size, 'num_layers': num_layers, 'drop_out': drop_out, 'best_acc': best_acc})
+                    if best_acc > last_best_acc:
                         last_best_acc = best_acc
-                        print(f"New best setting found with embedding_dim={embedding_dim}, hidden_size={hidden_size}, num_layers={num_layers}, drop_out={drop_out}, best_acc={best_acc:.4f}")
+                        logger.info(f"[SUCCESS] New best setting found with embedding_dim={embedding_dim}, hidden_size={hidden_size}, num_layers={num_layers}, drop_out={drop_out}, best_acc={best_acc:.4f}")
                         plot_loss_and_acc(train_losses, accuracies, title=f"Train Metrics (emb={embedding_dim}, hid={hidden_size}, layers={num_layers}, drop={drop_out})", 
                                     save_path=f"lstm_results/ko_models/{embedding_dim}_{hidden_size}_{num_layers}_{drop_out}_train_metrics.png")
 
-    # Save all results to a CSV file
     all_best_accs = pd.DataFrame(all_best_accs)
     all_best_accs.to_csv(best_results_path, index=False)
-    print(f"Hyperparameter tuning completed. Results saved to '{best_results_path}'.")
+    logger.info(f"[INFO] Hyperparameter tuning completed. Results saved to '{best_results_path}'.")
 
-    # Find the hyperparameters with the highest accuracy
     best_row = all_best_accs.loc[all_best_accs['best_acc'].idxmax()]
     embedding_dim = best_row['embedding_dim']
     hidden_size   = best_row['hidden_size']
@@ -80,12 +74,12 @@ def hyperparameter_tuning(train_dataset, train_dataloader, best_results_path):
     drop_out      = best_row['drop_out']
     best_acc      = best_row['best_acc']
 
-    print("\nThe best hyperparameters seem to be:")
-    print(f"    embedding_dim: {embedding_dim}")
-    print(f"    hidden_size:   {hidden_size}")
-    print(f"    num_layers:    {num_layers}")
-    print(f"    drop_out:      {drop_out}")
-    print(f"    best_acc:      {best_acc}")
+    logger.info("\nThe best hyperparameters seem to be:")
+    logger.info(f"    embedding_dim: {embedding_dim}")
+    logger.info(f"    hidden_size:   {hidden_size}")
+    logger.info(f"    num_layers:    {num_layers}")
+    logger.info(f"    drop_out:      {drop_out}")
+    logger.info(f"    best_acc:      {best_acc}")
 
     return embedding_dim, hidden_size, num_layers, drop_out
 
@@ -93,12 +87,12 @@ def find_hyperparameters_lstm(result_folder, train_dataset, train_dataloader):
     embedding_dim, hidden_size, num_layers, drop_out = hyperparameter_tuning(train_dataset, train_dataloader, f"{result_folder}/lstm_hyperparameter_tuning_results.csv")
     return embedding_dim, hidden_size, num_layers, drop_out
 
-def train_hyper_model(embedding_dim, hidden_size, num_layers, drop_out, df_train_ko, df_val_ko):
+def train_hyper_model(embedding_dim, hidden_size, num_layers, drop_out, df_train_ko):
     batch_size = 32
     train_dataset = WordDataset(df_train_ko["question"])
     train_dataloader = DataLoader(train_dataset, collate_fn=collate_fn, batch_size=batch_size, shuffle=True)
     result_folder = "lstm_results/ko_models/"
-    # Train a model using the hyperparameters found above
+
     model = LSTMModel(device, embedding_dim, hidden_size, len(train_dataset.vocab), num_layers, drop_out)
     criterion = nn.CrossEntropyLoss()
     optimizer = SGD(model.parameters(), lr=0.01)
@@ -107,12 +101,11 @@ def train_hyper_model(embedding_dim, hidden_size, num_layers, drop_out, df_train
     plot_loss_and_acc(train_losses, accuracies, title=f"Train Metrics (emb={embedding_dim}, hid={hidden_size}, layers={num_layers}, drop={drop_out})", 
                     save_path=f"{result_folder}/{embedding_dim}_{hidden_size}_{num_layers}_{drop_out}_final_train_metrics.png")
     torch.save(model.state_dict(), f"{result_folder}/ko_lstm_model.pth")
-    print("Korean model training complete and saved.")
+    logger.info("[INFO] Model training complete and saved.")
 
-def validate_hyper_model(model, df_val):
-    # Validate the model on the validation set
+def validate_hyper_model(model, val_dataloader):
     val_accuracy = sentence_validate(device, model, val_dataloader)
-    print(f"Validation Accuracy: {val_accuracy:.4f}")
+    logger.info(f"[INFO] Validation Accuracy: {val_accuracy:.4f}")
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Run hyperparameter tuning.")
@@ -121,11 +114,11 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-
+    
     splits = {'train': 'train.parquet', 'validation': 'validation.parquet'}
     df_train = pd.read_parquet("hf://datasets/coastalcph/tydi_xor_rc/" + splits["train"], engine='fastparquet')
     df_val = pd.read_parquet("hf://datasets/coastalcph/tydi_xor_rc/" + splits["validation"], engine='fastparquet')
-    print(f"Train size: {len(df_train)}, Validation size: {len(df_val)}")
+    logger.info(f"[INFO] Train size: {len(df_train)}, Validation size: {len(df_val)}")
     
     if args.language in ['ko', 'te', 'ar']:
         df_train = df_train[df_train['lang'] == args.language]
@@ -142,4 +135,5 @@ if __name__ == "__main__":
     os.makedirs(result_folder, exist_ok=True)
     
     embedding_dim, hidden_size, num_layers, drop_out = find_hyperparameters_lstm(result_folder, train_dataset, train_dataloader)
-    train_hyper_model(embedding_dim, hidden_size, num_layers, drop_out, df_train, df_val)
+    train_hyper_model(embedding_dim, hidden_size, num_layers, drop_out, df_train)
+    validate_hyper_model(torch.load(f"{result_folder}/{args.language}_lstm_model.pth"), val_dataloader)

@@ -1,7 +1,7 @@
 import torch
 
 # Training function for the probability of a sentence
-def sentence_train(device, epochs, model, dataloader, optimizer, criterion, padding_token_idx, print_interval=1):
+def sentence_train(device, epochs, model, dataloader, optimizer, criterion, padding_token_idx, logger, print_interval=1):
     model = model.to(device)
     model.train()
     losses = []
@@ -39,21 +39,22 @@ def sentence_train(device, epochs, model, dataloader, optimizer, criterion, padd
         losses.append(avg_loss)
         accuracies.append(avg_acc)
         
-        if avg_acc < min(accuracies, default=float('inf')) and avg_acc > 0.5:
+        if avg_acc > max(accuracies, default=float("-inf")) and avg_acc > 0.5:
             since_better_model = 3  # model was better than current best
         elif avg_acc > 0.5:
             since_better_model -= 1 # model was worse than current best
         
         if (epoch + 1) % print_interval == 0:
-            print(f"Epoch {epoch+1}/{epochs}, Loss: {avg_loss:.4f}, Accuracy: {avg_acc:.4f}")
+            logger.info(f"[INFO] Epoch {epoch+1}/{epochs}, Loss: {avg_loss:.4f}, Accuracy: {avg_acc:.4f}")
             
         if since_better_model == 0:
+            logger.info(f"[STOPPING] Epoch {epoch+1}/{epochs}, Loss: {avg_loss:.4f}, Accuracy: {avg_acc:.4f}")
             return losses, accuracies
 
     return losses, accuracies
 
 # Validation function for the probability of a sentence
-def sentence_validate(device, model, dataloader):
+def sentence_validate(device, model, dataloader, logger):
     model = model.to(device)
     model.eval()
     total_sentences = 0
@@ -70,6 +71,6 @@ def sentence_validate(device, model, dataloader):
 
     accuracy = correct_sentences / total_sentences
 
-    print(f"Validation Accuracy: {accuracy*100:.2f}%")
+    logger.info(f"[INFO] Validation Accuracy: {accuracy*100:.2f}%")
 
     return accuracy
