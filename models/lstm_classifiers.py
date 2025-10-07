@@ -2,6 +2,7 @@ import math
 import os
 import pandas as pd
 import argparse
+import nltk
 
 from torch.utils.data import DataLoader
 from torch.optim import *
@@ -10,6 +11,8 @@ from utils.datasets import *
 from utils.models import *
 from utils.train_eval import *
 from utils.visualisation import *
+
+nltk.download('punkt_tab')
 
 def hyperparameter_tuning(train_dataset, train_dataloader, best_results_path):
     # Define hyperparameters

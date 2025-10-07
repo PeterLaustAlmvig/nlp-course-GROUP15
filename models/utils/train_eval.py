@@ -2,6 +2,7 @@ import torch
 
 # Training function for the probability of a sentence
 def sentence_train(device, epochs, model, dataloader, optimizer, criterion, padding_token_idx, print_interval=1):
+    model = model.to(device)
     model.train()
     losses = []
     accuracies = []
@@ -53,6 +54,7 @@ def sentence_train(device, epochs, model, dataloader, optimizer, criterion, padd
 
 # Validation function for the probability of a sentence
 def sentence_validate(device, model, dataloader):
+    model = model.to(device)
     model.eval()
     total_sentences = 0
     correct_sentences = 0
