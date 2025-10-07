@@ -51,12 +51,12 @@ def hyperparameter_tuning(train_dataset, train_dataloader, best_results_path):
                     criterion = nn.CrossEntropyLoss()
                     optimizer = SGD(model.parameters(), lr=lr)
 
-                    logger.info(f"[INFO] Training with embedding_dim={embedding_dim}, hidden_size={hidden_size}, num_layers={num_layers}, drop_out={drop_out}")
                     train_losses, accuracies = sentence_train(device, epochs=max_epochs, model=model, dataloader=train_dataloader, 
                                                     optimizer=optimizer, criterion=criterion, padding_token_idx=train_dataset.pad_idx, logger=logger, print_interval=max_epochs+1)
 
                     best_acc = max(accuracies)
                     all_best_accs.append({'embedding_dim': embedding_dim, 'hidden_size': hidden_size, 'num_layers': num_layers, 'drop_out': drop_out, 'best_acc': best_acc})
+                    logger.info(f"[INFO] Trained with embedding_dim={embedding_dim}, hidden_size={hidden_size}, num_layers={num_layers}, drop_out={drop_out}, and got best_acc={best_acc:.4f} after {len(accuracies)} epochs")
                     if best_acc > last_best_acc:
                         last_best_acc = best_acc
                         logger.info(f"[SUCCESS] New best setting found with embedding_dim={embedding_dim}, hidden_size={hidden_size}, num_layers={num_layers}, drop_out={drop_out}, best_acc={best_acc:.4f}")
