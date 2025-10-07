@@ -1,8 +1,11 @@
 import math
 import os
-import pandas as pd
+import random
 import argparse
 import nltk
+
+import pandas as pd
+import numpy as np
 
 from torch.utils.data import DataLoader
 from torch.optim import *
@@ -13,6 +16,20 @@ from utils.train_eval import *
 from utils.visualisation import *
 
 nltk.download('punkt_tab')
+
+seed = 42
+# Sets seed manually for both CPU and CUDA
+torch.manual_seed(seed)
+torch.cuda.manual_seed_all(seed)
+# For atomic operations there is currently
+# no simple way to enforce determinism, as
+# the order of parallel operations is not known.
+# CUDNN
+torch.backends.cudnn.deterministic = True
+torch.backends.cudnn.benchmark = False
+# System based
+random.seed(seed)
+np.random.seed(seed)
 
 def hyperparameter_tuning(train_dataset, train_dataloader, best_results_path):
     # Define hyperparameters
