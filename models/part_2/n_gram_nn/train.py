@@ -6,7 +6,7 @@ from logger import divider_logger, info_logger
 def train(model, device, train_dataloader, val_dataloader, optimizer, criterion, num_epochs=10):
     model.to(device)
     
-    val_losses, val_accs = [], []
+    val_losses, val_accs, val_pp, val_topk = [], [], [], []
     
     for epoch in range(num_epochs):
         # ---- Training phase (silent) ----
@@ -21,28 +21,13 @@ def train(model, device, train_dataloader, val_dataloader, optimizer, criterion,
             optimizer.step()
 
         # ---- Validation phase ----
-        model.eval()
-        val_loss, val_correct, val_examples = 0, 0, 0
-        
-        with torch.no_grad():
-            for context, target in val_dataloader:
-                context, target = context.to(device), target.to(device)
-                log_probs = model(context)
-                loss = criterion(log_probs, target)
-                
-                preds = torch.argmax(log_probs, dim=1)
-                val_loss += loss.item() * context.size(0)
-                val_correct += (preds == target).sum().item()
-                val_examples += target.size(0)
-        
-        avg_val_loss = val_loss / val_examples
-        avg_val_acc = val_correct / val_examples * 100
-        val_losses.append(avg_val_loss)
-        val_accs.append(avg_val_acc)
-        
-        info_logger(f"Epoch {epoch+1:02d} | Validation Loss: {avg_val_loss:.4f} | Validation Accuracy: {avg_val_acc:.2f}%")
-    
-    return val_losses, val_accs
+        avg_loss, perplexity, accuracy, topk_accuracy = evaluate(model, device, val_dataloader, criterion)
+        val_losses.append(avg_loss)
+        val_accs.append(accuracy)
+        val_pp.append(perplexity)
+        val_topk.append(topk_accuracy)
+            
+    return val_losses, val_accs, val_pp, val_topk
 
 # Evaluation function
 def evaluate(model, device, dataloader, criterion, top_k=5):
@@ -70,12 +55,14 @@ def evaluate(model, device, dataloader, criterion, top_k=5):
 
     avg_loss = total_loss / total_examples
     perplexity = torch.exp(torch.tensor(avg_loss)).item()
-    accuracy = total_correct / total_examples * 100
-    topk_accuracy = total_topk_correct / total_examples * 100
+    accuracy = total_correct / total_examples
+    topk_accuracy = total_topk_correct / total_examples
 
     info_logger(
         f"Eval Loss: {avg_loss:.4f} | "
         f"Perplexity: {perplexity:.2f} | "
-        f"Accuracy: {accuracy:.2f}% | "
-        f"Top-{top_k} Accuracy: {topk_accuracy:.2f}%"
+        f"Accuracy: {accuracy*100:.2f}% | "
+        f"Top-{top_k} Accuracy: {topk_accuracy*100:.2f}%"
     )
+    
+    return avg_loss, perplexity, accuracy, topk_accuracy

@@ -43,19 +43,24 @@ def parameter_tuning(language):
     replace_fraction_options = [0.1, 0.05, 0.01]
     embedding_dim_options = [64, 128, 256]
     hidden_dim_options = [64, 128, 256]
-    batch_size = 16
+    if language == "en":
+        batch_size = 64
+        epochs = 10
+    else:
+        batch_size = 16
+        epochs = 20
     max_window = [calculate_max_context_window(language)]
     context_window_options = calculate_possible_windows(max_window)
     info_logger(f"For {language} possible context windows are: {context_window_options}")
     info_logger(f"The max context window is: {max_window}")
     
     parameters = {
-        "replace_freq": [],
+        "replace_type": [],
         "top_fraction": [],
         "embedding_dim": [],
         "hidden_dim": [],
-        "batch_size": [],
         "context_window": [],
+        "replace_frac": [],
         "loss": []
     }
     # -------------------------
@@ -73,7 +78,7 @@ def parameter_tuning(language):
         
         info_logger(f"\n=== Running combination ===")
         info_logger(f"Embed: {embed_dim}, Hidden: {hidden_dim}, Top fraction: {top_frac}, "
-            f"Replace: {replace_type}, Context: {context_window}, Batch: {batch_size}")
+            f"Replace: {replace_type}, Context: {context_window}")
         divider_logger()
 
         # -------------------------
@@ -85,22 +90,23 @@ def parameter_tuning(language):
         # Step 4: Create model
         # -------------------------
         model = SentenceModel(len(vocab), embed_dim, hidden_dim, context_window).to(device)
-        optimizer = optim.Adam(model.parameters(), lr=1e-3)
+        optimizer = optim.Adam(model.parameters(), lr=2e-5)
         criterion = nn.NLLLoss()
 
         # -------------------------
         # Step 5: Train model (few epochs for hyperparameter estimate)
         # -------------------------
-        losses, _ = train(model, device, train_loader, val_dataloader, optimizer, criterion, num_epochs=20)
+        losses, _ = train(model, device, train_loader, val_dataloader, optimizer, criterion, epochs)
         
         # -------------------------
         # Step 6: Save current parameters and loss
         # -------------------------
-        parameters["replace_freq"].append(replace_type)
+        parameters["replace_type"].append(replace_type)
         parameters["top_fraction"].append(top_frac)
         parameters["embedding_dim"].append(embed_dim)
         parameters["hidden_dim"].append(hidden_dim)
         parameters["context_window"].append(context_window)
+        parameters["replace_frac"].append(replace_fraction)
         parameters["loss"].append(losses[-1])
         divider_logger()
         divider_logger()
@@ -125,4 +131,4 @@ if __name__ == "__main__":
     # Save results
     folder = "n_gram_nn_results"
     filename = f"{language}_tuning_results.csv"
-    save_parameters_to_csv(parameters, f"{folder}/{filename}")
+    save_parameters_to_csv(parameters, folder, filename)
