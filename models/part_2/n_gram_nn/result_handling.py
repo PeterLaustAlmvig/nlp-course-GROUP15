@@ -6,19 +6,19 @@ import torch.optim as optim
 import pandas as pd
 from tabulate import tabulate
 
-from n_gram_nn.dataset import prepare_dataset_loaders, calculate_max_context_window
-from n_gram_nn.model import SentenceModel
-from n_gram_nn.train import *
-from n_gram_nn.seeding import enforce_reproducibility
-from n_gram_nn.visualisation import *
-from n_gram_nn.tuning import calculate_possible_windows
-from n_gram_nn.result_handling import best_configuration
+from dataset import prepare_dataset_loaders, calculate_max_context_window
+from model import SentenceModel
+from train import *
+from seeding import enforce_reproducibility
+from visualisation import *
+from tuning import calculate_possible_windows
 
 REPLACE_FREQ_KEY = "replace_type"
 TOP_FRACTION_KEY = "top_fraction"
 EMBEDDING_DIM_KEY = "embedding_dim"
 HIDDEN_DIM_KEY = "hidden_dim"
-CONTEXT_WINDOW_KEY = "context_window_norm"
+CONTEXT_WINDOW_NORM_KEY = "context_window_norm"
+CONTEXT_WINDOW_KEY = "context_window"
 REPLACE_FRAC_KEY = "replace_frac"
 LOSS_KEY = "loss"
 
@@ -26,6 +26,33 @@ device = torch.device("cpu")
 if torch.cuda.is_available():
     device = torch.device("cuda")
     info_logger("CUDA detected")
+    
+def best_configuration(result_files, result_folder):
+    dfs = []
+    for lang, file in result_files.items():
+        df = pd.read_csv(f"{result_folder}/{file}")
+        df["language"] = lang
+        df = normalize_context_windows(df)
+        dfs.append(df)
+
+    combined = pd.concat(dfs, ignore_index=True)
+
+    param_cols = ["replace_type", "top_fraction", "embedding_dim", "hidden_dim", "context_window_norm", "replace_frac"]
+
+    # Pivot to have each language's loss as a separate column
+    pivot_df = combined.pivot_table(
+        index=param_cols,
+        columns="language",
+        values="loss"
+    ).reset_index()
+
+    # Compute mean and std across the three languages (row-wise)
+    pivot_df["mean_loss"] = pivot_df[["ko", "ar", "te"]].mean(axis=1)
+    pivot_df["std_loss"] = pivot_df[["ko", "ar", "te"]].std(axis=1)
+
+    # Keep only configurations that have loss for all languages
+    pivot_df = pivot_df.dropna(subset=["ko", "ar", "te"])
+    return pivot_df, dfs
     
 def normalize_context_windows(df):
     normalized = df.copy()
@@ -83,6 +110,7 @@ def calculate_best_configuration(result_folder, language="cross"):
     if language == "en":
         result_file = "en_tuning_results.csv"
         best_configs = pd.read_csv(f"{result_folder}/{result_file}")
+        best_configs = best_configs.sort_values("loss").head(5)
     else:
         result_files = {
             "ko": "ko_tuning_results.csv",
@@ -92,8 +120,9 @@ def calculate_best_configuration(result_folder, language="cross"):
 
         best_configs, language_dfs = best_configuration(result_files, result_folder)
 
-    # # Sort by mean_loss
-    best_configs = best_configs.sort_values("mean_loss").head(5)
+        # Sort by mean_loss
+        best_configs = best_configs.sort_values("mean_loss").head(5)
+        
     best_configs.to_csv(f"{result_folder}/{language}_top_5_configs.csv")
 
     # Print the best results
@@ -107,7 +136,7 @@ def calculate_best_configuration(result_folder, language="cross"):
     top_frac = best_config[TOP_FRACTION_KEY]
     replace_type = best_config[REPLACE_FREQ_KEY]
     replace_fraction = best_config[REPLACE_FRAC_KEY]
-    context_window_norm = best_config[CONTEXT_WINDOW_KEY]
+    context_window_norm = best_config[CONTEXT_WINDOW_KEY if language == "en" else CONTEXT_WINDOW_NORM_KEY]
 
     print("\n=== Best Model Configuration ===")
     print(f"Embedding dimension       : {embed_dim}")
