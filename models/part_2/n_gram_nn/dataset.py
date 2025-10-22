@@ -9,7 +9,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 
-from torch.utils.data import DataLoader
+from torch.utils.data import DataLoader, Dataset
 from collections import Counter
 from nltk.tokenize import word_tokenize
 from datasets import load_dataset
@@ -121,7 +121,7 @@ def calculate_max_context_window(language):
     return max_context_window
 
 # SENTENCE DATASET CLASS
-class SentenceDataset(torch.utils.data.Dataset):
+class SentenceDataset(Dataset):
     def __init__(self, tokenized_sentences, word_to_idx, context_window):
         self.tokenized_sentences = tokenized_sentences
         self.word_to_idx = word_to_idx
