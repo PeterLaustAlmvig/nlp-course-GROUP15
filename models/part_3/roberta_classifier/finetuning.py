@@ -1,11 +1,7 @@
 import itertools
-import json
 import os
 from sklearn.metrics import confusion_matrix
-import torch
 import argparse
-import logging
-import sys
 import numpy as np
 import pandas as pd
 from transformers import (
