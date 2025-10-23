@@ -1,0 +1,64 @@
+import numpy as np
+
+from datasets import load_dataset, concatenate_datasets, ClassLabel, Dataset
+from collections import Counter
+from transformers import (
+    AutoTokenizer
+)
+
+from logger import divider_logger, info_logger
+
+QUESTION_KEY = "question"
+CONTEXT_KEY = "context"
+ANSWER_KEY = "answer_inlang"
+LANGUAGE_KEY = "lang"
+
+#### LOADING DATASETS FOR TRAINING AND VALIDATION
+def load_datasets(language=None, val_split=0.1):
+    dataset = load_dataset("coastalcph/tydi_xor_rc")
+    dataset = dataset.filter(lambda x: x[LANGUAGE_KEY] in ["te"] and x[ANSWER_KEY] is not None)
+    
+    split_set = dataset["train"].train_test_split(test_size=val_split, seed=42)
+    train_set, val_set = split_set["train"], split_set["test"]
+    
+    test_set = dataset["validation"]
+    
+    return train_set, val_set, test_set
+
+def preprocess(samples, tokenizer, max_input_length=256, max_target_length=128):
+    inputs = tokenizer(
+        samples[QUESTION_KEY],
+        samples[CONTEXT_KEY],
+        truncation=True,
+        max_length=max_input_length,
+        padding="max_length" if pad_to_max_length else False,
+    )
+    
+    answers = tokenizer(
+        samples[ANSWER_KEY],
+        truncation=True,
+        max_length=max_input_length,
+        padding="max_length" if pad_to_max_length else False,
+    )
+    inputs["label"] = answers["input_ids"]
+    return inputs
+
+def prepare_datasets(model_name, oversample_ratio=1.0, undersample_ratio=1.0, language=None):
+    train_set, val_set, test_set = load_datasets(language)
+    
+    info_logger(f"Train dataset has total of {len(train_set)} samples")
+    info_logger(f"Validation dataset has total of {len(val_set)} samples")
+    info_logger(f"Test dataset dataset has total of {len(test_set)} samples")
+    divider_logger()
+    
+    tokenizer = AutoTokenizer.from_pretrained(model_name, use_fast=True)
+    if getattr(tokenizer, "pad_token_id") is None:
+        tokenizer.pad_token = tokenizer.eos_token
+        tokenizer.pad_token_id = tokenizer.eos_token_id
+        info_logger("No pad token detected. Setting pad token to eos token.")
+        
+    train_set = train_set.map(preprocess, fn_kwargs={"tokenizer": tokenizer}, batched=True)
+    val_set = val_set.map(preprocess, fn_kwargs={"tokenizer": tokenizer}, batched=True)
+    test_set = test_set.map(preprocess, fn_kwargs={"tokenizer": tokenizer}, batched=True)
+    
+    return train_set, val_set, test_set, tokenizer
