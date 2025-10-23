@@ -42,13 +42,13 @@ def parameter_tuning(language):
     top_fraction_options = [0.01, 0.05, 0.1]               # Top fraction of words to replace
     replace_fraction_options = [0.1, 0.05, 0.01]
     embedding_dim_options = [64, 128, 256]
-    hidden_dim_options = [64, 128, 256]
+    hidden_dim_options = [128, 256, 512]
     if language == "en":
         batch_size = 64
-        epochs = 10
+        epochs = 5
     else:
         batch_size = 16
-        epochs = 20
+        epochs = 10
     max_window = [calculate_max_context_window(language)]
     context_window_options = calculate_possible_windows(max_window)
     info_logger(f"For {language} possible context windows are: {context_window_options}")
