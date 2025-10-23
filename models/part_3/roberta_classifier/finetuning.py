@@ -71,7 +71,7 @@ def compute_metrics_tuning(eval_pred):
         "false_accuracy": false_accuracy
     }
 
-def sampling_tuning(language):
+def sampling_tuning(language, model_name, output_dir):
     # -------------------------
     # Hyperparameter options
     # -------------------------
@@ -108,7 +108,7 @@ def sampling_tuning(language):
         )
 
         # ==== TRAIN MODEL ====
-        model, tokenizer, epoch_history = train_binary(model, train_set, val_set, tokenizer, 1, results_dir)
+        model, tokenizer, _ = train_binary(model, train_set, val_set, tokenizer, 1, output_dir)
 
         # ==== EVALUATE MODEL ====
         eval_results = evaluate_binary(model, tokenizer, test_sets[language], compute_metrics_tuning)
@@ -130,8 +130,8 @@ if __name__ == "__main__":
     language = args.language
     model_name = "FacebookAI/xlm-roberta-base"
     
-    results_dir = "roberta_classifier_results"
+    results_dir = f"roberta_classifier_results_{language}"
     
-    results = sampling_tuning(language)
+    results = sampling_tuning(language, model_name, results_dir)
     
-    save_tuning_results(results)
+    save_tuning_results(results_dir, language, results)

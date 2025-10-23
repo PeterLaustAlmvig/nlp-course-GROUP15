@@ -40,20 +40,22 @@ def balance_dataset(dataset, column="label", oversample_ratio=1.0, undersample_r
     
     majority_set = dataset.filter(lambda x: x[column] == majority_class)
     minority_set = dataset.filter(lambda x: x[column] == minority_class)
-    
-    # Oversample minority class
     total_majority = len(majority_set)
     total_minority = len(minority_set)
-    samples_to_add = int(total_majority * oversample_ratio) - total_minority
-    if samples_to_add > 0:
-        indices = np.random.choice(total_minority, size=samples_to_add)
-        oversampled = minority_set.select(indices)
-        minority_set = concatenate_datasets([minority_set, oversampled])
+    
+    # Oversample minority class
+    if oversample_ratio > 0.0:
+        samples_to_add = int(total_majority * oversample_ratio) - total_minority
+        if samples_to_add > 0:
+            indices = np.random.choice(total_minority, size=samples_to_add)
+            oversampled = minority_set.select(indices)
+            minority_set = concatenate_datasets([minority_set, oversampled])
         
     # Undersample majority class
-    samples_to_keep = int(total_majority * undersample_ratio)
-    if samples_to_keep < total_majority:
-        majority_set = majority_set.shuffle().select(range(samples_to_keep))
+    if undersample_ratio > 0.0:
+        samples_to_keep = int(total_majority * undersample_ratio)
+        if samples_to_keep < total_majority:
+            majority_set = majority_set.shuffle().select(range(samples_to_keep))
     
     balanced_set = concatenate_datasets([majority_set, minority_set])
     return balanced_set.shuffle()

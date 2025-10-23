@@ -96,7 +96,7 @@ def parameter_tuning(language):
         # -------------------------
         # Step 5: Train model (few epochs for hyperparameter estimate)
         # -------------------------
-        losses, _ = train(model, device, train_loader, val_dataloader, optimizer, criterion, epochs)
+        val_losses, val_accs, val_pp, val_topk = train(model, device, train_loader, val_dataloader, optimizer, criterion, epochs)
         
         # -------------------------
         # Step 6: Save current parameters and loss
@@ -107,7 +107,7 @@ def parameter_tuning(language):
         parameters["hidden_dim"].append(hidden_dim)
         parameters["context_window"].append(context_window)
         parameters["replace_frac"].append(replace_fraction)
-        parameters["loss"].append(losses[-1])
+        parameters["loss"].append(val_losses[-1])
         divider_logger()
         divider_logger()
     

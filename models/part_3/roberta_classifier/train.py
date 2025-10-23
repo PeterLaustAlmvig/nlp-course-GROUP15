@@ -1,5 +1,6 @@
 import evaluate
 import torch
+import math
 
 import numpy as np
 import torch.nn as nn
@@ -73,7 +74,8 @@ class WeightedTrainer(Trainer):
 
 def train_binary(model, train_set, val_set, tokenizer, epochs, output_dir):
     data_collator = DataCollatorWithPadding(tokenizer=tokenizer, pad_to_multiple_of=8)
-    no_steps_pr_eval = len(train_set) / 10
+    no_steps_pr_eval = max(1, ((len(train_set) / 8) * epochs) // 10)
+    print(no_steps_pr_eval)
     
     training_args = TrainingArguments(
         output_dir=output_dir,
@@ -83,6 +85,7 @@ def train_binary(model, train_set, val_set, tokenizer, epochs, output_dir):
         num_train_epochs=epochs,
         save_total_limit=1,
         save_strategy="steps",
+        save_steps=no_steps_pr_eval,
         eval_strategy="steps",
         eval_steps=no_steps_pr_eval,
         load_best_model_at_end=True,
