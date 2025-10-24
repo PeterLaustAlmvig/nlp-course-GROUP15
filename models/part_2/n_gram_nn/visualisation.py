@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 
-def plot_one_curve(data, title="Training Loss", ylabel="Loss"):
+def plot_one_curve(data, title="Training Loss", ylabel="Loss", save_path=None):
     """Plot one loss curve over time
 
     Args:
@@ -8,14 +8,19 @@ def plot_one_curve(data, title="Training Loss", ylabel="Loss"):
         title (str, optional): Title of the diagram. Defaults to "Training Loss".
         ylabel (str, optional): Label of the y axis. Defaults to "Loss".
     """
-    plt.figure(figsize=(8, 5))
-    plt.plot(data, label=ylabel)
-    plt.xlabel("Epoch")
-    plt.ylabel(ylabel)
-    plt.title(title)
-    plt.legend()
-    plt.grid(True)
-    plt.show()
+    fig, ax = plt.subplots(figsize=(8, 5))
+    ax.plot(data, label=ylabel)
+    ax.set_xlabel("Epoch")
+    ax.set_ylabel(ylabel)
+    ax.set_title(title)
+    ax.legend()
+    ax.grid(True)
+    
+    if save_path is not None:
+        fig.savefig(save_path, dpi=300, bbox_inches='tight')
+        plt.close(fig)
+    else:
+        plt.show()
 
 def plot_two_curves(first, second, title="Training Metrics", first_label="Loss", second_label="Accuracy", save_path=None):
     """Plot the loss and accuracy in one diagram.
@@ -49,7 +54,7 @@ def plot_two_curves(first, second, title="Training Metrics", first_label="Loss",
 
     if save_path is not None:
         plt.savefig(save_path, dpi=300, bbox_inches='tight')
+        plt.close(fig)
     else:
         plt.show()
 
-    plt.close(fig)

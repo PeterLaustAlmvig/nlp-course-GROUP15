@@ -9,7 +9,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 
-from torch.utils.data import DataLoader
+from torch.utils.data import DataLoader, Dataset
 from collections import Counter
 from nltk.tokenize import word_tokenize
 from datasets import load_dataset
@@ -121,7 +121,7 @@ def calculate_max_context_window(language):
     return max_context_window
 
 # SENTENCE DATASET CLASS
-class SentenceDataset(torch.utils.data.Dataset):
+class SentenceDataset(Dataset):
     def __init__(self, tokenized_sentences, word_to_idx, context_window):
         self.tokenized_sentences = tokenized_sentences
         self.word_to_idx = word_to_idx
@@ -177,12 +177,6 @@ def prepare_dataset_loaders(language, freq_threshold, replace_freq, batch_size, 
     replaced_test_sentence_tokens = replace_freq_word_to_unknown(vocab, freq_words, test_sentence_tokens, true_replace_fraction)
     test_dataset = SentenceDataset(replaced_test_sentence_tokens, word_to_idx, context_window)
     test_loader = DataLoader(test_dataset, batch_size=batch_size, shuffle=False)
-    
-    divider_logger()
-    info_logger(f"==== Example Sentence ====")
-    info_logger(f"Original:  {train_set[0]}")
-    info_logger(f"Tokenized: {train_sentence_tokens[0]}")
-    info_logger(f"Replaced:  {replaced_train_sentence_tokens[0]}")
-    info_logger(f"Window:    {train_dataset[context_window-1]}")
+
     
     return train_loader, val_loader, test_loader, vocab
