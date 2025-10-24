@@ -5,7 +5,6 @@ import math
 import numpy as np
 import torch.nn as nn
 
-from sklearn.metrics import confusion_matrix
 from transformers import (
     Seq2SeqTrainer,
     DataCollatorForSeq2Seq,
@@ -22,46 +21,47 @@ metric_bertscore = evaluate.load("bertscore")
 def compute_metrics(eval_pred, tokenizer):
     predictions, labels = eval_pred
 
-    # Replace -100 with pad_token_id so tokenizer can decode
-    labels = np.where(labels != -100, labels, tokenizer.pad_token_id)
+    # If predictions are token IDs, decode them
+    if isinstance(predictions, tuple):
+        predictions = predictions[0]  # sometimes returned as (logits, …)
 
-    # Decode predictions and labels
     preds = tokenizer.batch_decode(predictions, skip_special_tokens=True)
-    refs  = tokenizer.batch_decode(labels, skip_special_tokens=True)
+    # Replace -100 with pad_token_id before decoding labels
+    labels = np.where(labels != -100, labels, tokenizer.pad_token_id)
+    refs = tokenizer.batch_decode(labels, skip_special_tokens=True)
 
-    # Remove any examples where reference is empty
-    filtered = [(p, r) for p, r in zip(preds, refs) if r.strip() != ""]
-    if len(filtered) == 0:
-        # avoid ZeroDivisionError
-        return {"bleu": 0.0, "rougeL": 0.0, "bertscore_f1": 0.0}
+    # ---------------------------
+    # Character-level BLEU
+    # ---------------------------
+    preds_char = [list(p) for p in preds]              # list of chars
+    refs_char = [[list(r)] for r in refs]              # wrap each ref in a list
+    bleu = metric_bleu.compute(predictions=preds_char, references=refs_char)["bleu"]
 
-    preds, refs = zip(*filtered)
+    # ---------------------------
+    # Character-level ROUGE-L
+    # ---------------------------
+    # ROUGE expects "tokens" as space-separated strings, so join chars
+    preds_rouge = [' '.join(list(p)) for p in preds]
+    refs_rouge = [' '.join(list(r)) for r in refs]
+    rouge_l = metric_rouge.compute(predictions=preds_rouge, references=refs_rouge)["rougeL"]
 
-    # BLEU expects a list of strings for predictions, list of list of strings for references
-    bleu = metric_bleu.compute(
-        predictions=list(preds),
-        references=[[r] for r in refs]
-    )["bleu"]
-
-    rouge_l = metric_rouge.compute(predictions=list(preds), references=list(refs))["rougeL"]
-
-    bertscore_f1 = np.mean(metric_bertscore.compute(
-        predictions=list(preds),
-        references=list(refs),
-        lang="te"
-    )["f1"])
+    # ---------------------------
+    # BERTScore (works at text level)
+    # ---------------------------
+    bertscore = metric_bertscore.compute(predictions=preds, references=refs, lang="te")
+    bert_f1 = np.mean(bertscore["f1"])
 
     return {
         "bleu": bleu,
         "rougeL": rouge_l,
-        "bertscore_f1": bertscore_f1
+        "bertscore_f1": bert_f1
     }
 
 
 def train_seq2seq(model, train_set, val_set, tokenizer, epochs, output_dir):
     data_collator = DataCollatorForSeq2Seq(tokenizer=tokenizer, model=model)
 
-    no_steps_pr_eval = max(1, ((len(train_set) / 2) * epochs) // 10)
+    no_steps_pr_eval = max(1, ((len(train_set) / 2) * epochs) // 20)
 
     training_args = Seq2SeqTrainingArguments(
         output_dir=output_dir,

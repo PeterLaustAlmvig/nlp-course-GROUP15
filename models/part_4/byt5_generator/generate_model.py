@@ -33,7 +33,7 @@ def save_model(model, tokenizer, model_dir):
 if __name__ == "__main__":
     model_name = "google/byt5-large"
     output_dir = f"byt5_training_results"
-    epochs = 3
+    epochs = 5
 
     enforce_reproducibility(42)
 
