@@ -8,7 +8,7 @@ def train(model, device, train_dataloader, val_dataloader, optimizer, criterion,
     model.to(device)
     
     val_losses, val_accs, val_pp, val_topk = [], [], [], []
-    last_perplexity = math.Inf
+    last_perplexity = math.inf
     
     for _ in tqdm.tqdm(range(num_epochs)):
         # ---- Training phase (silent) ----
