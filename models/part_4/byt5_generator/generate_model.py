@@ -1,24 +1,23 @@
 import os
-import argparse
 import pandas as pd
 
-from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
+from transformers import AutoModelForSeq2SeqLM
 from logger import divider_logger, info_logger
 from seeding import enforce_reproducibility
 from dataset import prepare_datasets
 from train import train_seq2seq, evaluate_seq2seq
 
-def save_results(result_dir, language, step_logs, test_logs):
+def save_results(result_dir, step_logs, test_logs):
     if not os.path.exists(result_dir):
         os.makedirs(result_dir)
 
     # Save per-step logs for visualization
-    step_file = os.path.join(result_dir, f"{language}_train_metrics_per_step.csv")
+    step_file = os.path.join(result_dir, f"train_metrics_per_step.csv")
     pd.DataFrame(step_logs).to_csv(step_file, index=False)
     info_logger(f"Saved training step logs at: {step_file}")
 
     # Save test evaluation logs
-    test_file = os.path.join(result_dir, f"{language}_test_evaluation_metrics.csv")
+    test_file = os.path.join(result_dir, f"test_evaluation_metrics.csv")
     pd.DataFrame(test_logs).to_json(test_file)
     info_logger(f"Saved test evaluation metrics at: {test_file}")
     divider_logger()
@@ -45,15 +44,15 @@ if __name__ == "__main__":
     model = AutoModelForSeq2SeqLM.from_pretrained(model_name)
     
     # ==== TRAIN MODEL ====
-    model, tokenizer, step_logs = train_seq2seq_with_logs(
+    model, tokenizer, step_logs = train_seq2seq(
         model, train_set, val_set, tokenizer, epochs, output_dir
     )
     
     # ==== EVALUATE MODEL ====
-    test_logs = evaluate_seq2seq(model, tokenizer, test_set)
+    test_logs = evaluate_seq2seq(model, tokenizer, test_set, output_dir)
     
     # ==== SAVE RESULTS ====
-    save_results(output_dir, language, step_logs, test_logs)
+    save_results(output_dir, step_logs, test_logs)
     
     # ==== SAVE MODEL ====
     save_model(model, tokenizer, output_dir)

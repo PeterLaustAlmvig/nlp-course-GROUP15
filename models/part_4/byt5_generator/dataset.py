@@ -27,18 +27,18 @@ def load_datasets(language=None, val_split=0.1):
 
 def preprocess(samples, tokenizer, max_input_length=256, max_target_length=128):
     inputs = tokenizer(
-        samples[QUESTION_KEY],
-        samples[CONTEXT_KEY],
+        text=samples[QUESTION_KEY],
+        text_pair=samples[CONTEXT_KEY],
         truncation=True,
         max_length=max_input_length,
-        padding="max_length" if pad_to_max_length else False,
+        padding="max_length",
     )
     
     answers = tokenizer(
         samples[ANSWER_KEY],
         truncation=True,
         max_length=max_input_length,
-        padding="max_length" if pad_to_max_length else False,
+        padding="max_length",
     )
     inputs["label"] = answers["input_ids"]
     return inputs
