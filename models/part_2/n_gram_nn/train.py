@@ -8,7 +8,6 @@ def train(model, device, train_dataloader, val_dataloader, optimizer, criterion,
     model.to(device)
     
     val_losses, val_accs, val_pp, val_topk = [], [], [], []
-    last_perplexity = math.inf
     
     for _ in tqdm.tqdm(range(num_epochs)):
         # ---- Training phase (silent) ----
@@ -28,10 +27,6 @@ def train(model, device, train_dataloader, val_dataloader, optimizer, criterion,
         val_accs.append(accuracy)
         val_pp.append(perplexity)
         val_topk.append(topk_accuracy)
-        if perplexity > last_perplexity:
-            return val_losses, val_accs, val_pp, val_topk
-        else:
-            last_perplexity = perplexity
             
     return val_losses, val_accs, val_pp, val_topk
 
