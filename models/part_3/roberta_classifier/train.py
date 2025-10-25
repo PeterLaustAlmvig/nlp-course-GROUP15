@@ -27,25 +27,20 @@ def compute_metrics(eval_pred):
     # Accuracy
     accuracy = metric_acc.compute(predictions=preds, references=labels)["accuracy"]
 
-    # Weighted metrics (account for class imbalance)
-    precision_weighted = metric_prec.compute(predictions=preds, references=labels, average="weighted")["precision"]
-    recall_weighted = metric_rec.compute(predictions=preds, references=labels, average="weighted")["recall"]
-    f1_weighted = metric_f1.compute(predictions=preds, references=labels, average="weighted")["f1"]
-
-    # Macro F1 to highlight minority class performance
-    f1_macro = metric_f1.compute(predictions=preds, references=labels, average="macro")["f1"]
+    # Plain precision, recall, F1 (no averaging argument)
+    precision = metric_prec.compute(predictions=preds, references=labels)["precision"]
+    recall = metric_rec.compute(predictions=preds, references=labels)["recall"]
+    f1 = metric_f1.compute(predictions=preds, references=labels)["f1"]
 
     # Confusion matrix
     cm = confusion_matrix(labels, preds)
-    # Flatten for logging in Trainer: [TN, FP, FN, TP] for binary classification
     cm_flat = cm.flatten().tolist()
 
     return {
         "accuracy": accuracy,
-        "precision_weighted": precision_weighted,
-        "recall_weighted": recall_weighted,
-        "f1_weighted": f1_weighted,
-        "f1_macro": f1_macro,
+        "precision": precision,
+        "recall": recall,
+        "f1": f1,
         "confusion_matrix": cm_flat
     }
     
