@@ -1,0 +1,503 @@
+Starting model training...
+[2025-10-22 14:39:42,855] - [INFO] - 
+=== Running combination ===
+[2025-10-22 14:39:42,856] - [INFO] - Over Sampling Ratio: 0.0, Under Sampling Ratio: 0.0
+[2025-10-22 14:39:44,879] - [INFO] - Original Train dataset class split: Counter({1: 2073, 0: 229}), with a total of 2302 samples
+[2025-10-22 14:39:44,984] - [INFO] - Sampled Train dataset class split: Counter({1: 2073, 0: 229}), with a total of 2302 samples
+[2025-10-22 14:39:44,990] - [INFO] - Validation dataset class split: Counter({1: 230, 0: 26}), with a total of 256 samples
+[2025-10-22 14:39:44,994] - [INFO] - Test dataset class split: Counter({1: 363, 0: 52}), with a total of 415 samples
+28.0
+[2025-10-22 14:39:46,828] - [INFO] - Starting training of model (answerability classification).
+{'eval_loss': 0.9182405471801758, 'eval_accuracy': 0.8984375, 'eval_precision_weighted': 0.80718994140625, 'eval_recall_weighted': 0.8984375, 'eval_f1_weighted': 0.8503729423868313, 'eval_f1_macro': 0.4732510288065844, 'eval_confusion_matrix': [0, 26, 0, 230], 'eval_runtime': 0.2348, 'eval_samples_per_second': 1090.362, 'eval_steps_per_second': 136.295, 'epoch': 0.1}
+{'eval_loss': 0.9647030234336853, 'eval_accuracy': 0.8984375, 'eval_precision_weighted': 0.80718994140625, 'eval_recall_weighted': 0.8984375, 'eval_f1_weighted': 0.8503729423868313, 'eval_f1_macro': 0.4732510288065844, 'eval_confusion_matrix': [0, 26, 0, 230], 'eval_runtime': 1.0717, 'eval_samples_per_second': 238.869, 'eval_steps_per_second': 29.859, 'epoch': 0.19}
+{'eval_loss': 0.6707520484924316, 'eval_accuracy': 0.8984375, 'eval_precision_weighted': 0.80718994140625, 'eval_recall_weighted': 0.8984375, 'eval_f1_weighted': 0.8503729423868313, 'eval_f1_macro': 0.4732510288065844, 'eval_confusion_matrix': [0, 26, 0, 230], 'eval_runtime': 0.8077, 'eval_samples_per_second': 316.933, 'eval_steps_per_second': 39.617, 'epoch': 0.29}
+{'eval_loss': 0.6572690010070801, 'eval_accuracy': 0.8984375, 'eval_precision_weighted': 0.80718994140625, 'eval_recall_weighted': 0.8984375, 'eval_f1_weighted': 0.8503729423868313, 'eval_f1_macro': 0.4732510288065844, 'eval_confusion_matrix': [0, 26, 0, 230], 'eval_runtime': 0.2243, 'eval_samples_per_second': 1141.415, 'eval_steps_per_second': 142.677, 'epoch': 0.39}
+{'eval_loss': 0.6776467561721802, 'eval_accuracy': 0.8984375, 'eval_precision_weighted': 0.80718994140625, 'eval_recall_weighted': 0.8984375, 'eval_f1_weighted': 0.8503729423868313, 'eval_f1_macro': 0.4732510288065844, 'eval_confusion_matrix': [0, 26, 0, 230], 'eval_runtime': 0.2268, 'eval_samples_per_second': 1128.832, 'eval_steps_per_second': 141.104, 'epoch': 0.49}
+{'eval_loss': 0.6308850049972534, 'eval_accuracy': 0.91015625, 'eval_precision_weighted': 0.8952103055077453, 'eval_recall_weighted': 0.91015625, 'eval_f1_weighted': 0.8860740099323084, 'eval_f1_macro': 0.6275068007844626, 'eval_confusion_matrix': [5, 21, 2, 228], 'eval_runtime': 0.4122, 'eval_samples_per_second': 621.099, 'eval_steps_per_second': 77.637, 'epoch': 0.58}
+{'eval_loss': 1.0573605298995972, 'eval_accuracy': 0.8984375, 'eval_precision_weighted': 0.80718994140625, 'eval_recall_weighted': 0.8984375, 'eval_f1_weighted': 0.8503729423868313, 'eval_f1_macro': 0.4732510288065844, 'eval_confusion_matrix': [0, 26, 0, 230], 'eval_runtime': 0.2619, 'eval_samples_per_second': 977.413, 'eval_steps_per_second': 122.177, 'epoch': 0.68}
+{'eval_loss': 0.6180031895637512, 'eval_accuracy': 0.90625, 'eval_precision_weighted': 0.885836693548387, 'eval_recall_weighted': 0.90625, 'eval_f1_weighted': 0.8831989908934286, 'eval_f1_macro': 0.6219542210189515, 'eval_confusion_matrix': [5, 21, 3, 227], 'eval_runtime': 0.3524, 'eval_samples_per_second': 726.389, 'eval_steps_per_second': 90.799, 'epoch': 0.78}
+{'eval_loss': 0.7188880443572998, 'eval_accuracy': 0.87890625, 'eval_precision_weighted': 0.868311486828774, 'eval_recall_weighted': 0.87890625, 'eval_f1_weighted': 0.873116134751773, 'eval_f1_macro': 0.6368794326241135, 'eval_confusion_matrix': [8, 18, 13, 217], 'eval_runtime': 0.2405, 'eval_samples_per_second': 1064.613, 'eval_steps_per_second': 133.077, 'epoch': 0.88}
+{'eval_loss': 0.9799953699111938, 'eval_accuracy': 0.87890625, 'eval_precision_weighted': 0.8540045816044259, 'eval_recall_weighted': 0.87890625, 'eval_f1_weighted': 0.8640760123763658, 'eval_f1_macro': 0.589042514628968, 'eval_confusion_matrix': [5, 21, 10, 220], 'eval_runtime': 0.2567, 'eval_samples_per_second': 997.13, 'eval_steps_per_second': 124.641, 'epoch': 0.97}
+{'train_runtime': 87.0782, 'train_samples_per_second': 26.436, 'train_steps_per_second': 3.307, 'train_loss': 0.7232366138034396, 'epoch': 1.0}
+[2025-10-22 14:41:14,268] - [INFO] - Training completed.
+[2025-10-22 14:41:14,316] - [INFO] - Running evaluation...
+[2025-10-22 14:41:15,006] - [INFO] - Evaluation Results:
+[2025-10-22 14:41:15,006] - [INFO] - eval_loss: 0.40461042523384094
+[2025-10-22 14:41:15,006] - [INFO] - eval_model_preparation_time: 0.0015
+[2025-10-22 14:41:15,006] - [INFO] - eval_accuracy: 0.8674698795180723
+[2025-10-22 14:41:15,006] - [INFO] - eval_true_accuracy: 0.977961432506887
+[2025-10-22 14:41:15,006] - [INFO] - eval_false_accuracy: 0.09615384615384616
+[2025-10-22 14:41:15,006] - [INFO] - eval_runtime: 0.681
+[2025-10-22 14:41:15,006] - [INFO] - eval_samples_per_second: 609.41
+[2025-10-22 14:41:15,006] - [INFO] - eval_steps_per_second: 76.36
+[2025-10-22 14:41:15,006] - [INFO] - 
+=== Running combination ===
+[2025-10-22 14:41:15,006] - [INFO] - Over Sampling Ratio: 0.0, Under Sampling Ratio: 0.25
+[2025-10-22 14:41:16,546] - [INFO] - Original Train dataset class split: Counter({1: 2073, 0: 229}), with a total of 2302 samples
+[2025-10-22 14:41:16,689] - [INFO] - Sampled Train dataset class split: Counter({1: 518, 0: 229}), with a total of 747 samples
+[2025-10-22 14:41:16,694] - [INFO] - Validation dataset class split: Counter({1: 230, 0: 26}), with a total of 256 samples
+[2025-10-22 14:41:16,698] - [INFO] - Test dataset class split: Counter({1: 363, 0: 52}), with a total of 415 samples
+9.0
+[2025-10-22 14:41:18,464] - [INFO] - Starting training of model (answerability classification).
+{'eval_loss': 0.7534471750259399, 'eval_accuracy': 0.13671875, 'eval_precision_weighted': 0.9091282894736842, 'eval_recall_weighted': 0.13671875, 'eval_f1_weighted': 0.08700998704921299, 'eval_f1_macro': 0.1328949990037856, 'eval_confusion_matrix': [26, 0, 221, 9], 'eval_runtime': 0.2398, 'eval_samples_per_second': 1067.508, 'eval_steps_per_second': 133.438, 'epoch': 0.1}
+{'eval_loss': 0.6334576606750488, 'eval_accuracy': 0.89453125, 'eval_precision_weighted': 0.8713670267489713, 'eval_recall_weighted': 0.89453125, 'eval_f1_weighted': 0.8784024841437632, 'eval_f1_macro': 0.625304927630509, 'eval_confusion_matrix': [6, 20, 7, 223], 'eval_runtime': 0.239, 'eval_samples_per_second': 1071.271, 'eval_steps_per_second': 133.909, 'epoch': 0.19}
+{'eval_loss': 0.6094233989715576, 'eval_accuracy': 0.91015625, 'eval_precision_weighted': 0.8933978576248314, 'eval_recall_weighted': 0.91015625, 'eval_f1_weighted': 0.8899380428271938, 'eval_f1_macro': 0.647319556753519, 'eval_confusion_matrix': [6, 20, 3, 227], 'eval_runtime': 0.2514, 'eval_samples_per_second': 1018.242, 'eval_steps_per_second': 127.28, 'epoch': 0.29}
+{'eval_loss': 0.598137617111206, 'eval_accuracy': 0.88671875, 'eval_precision_weighted': 0.8688334512675363, 'eval_recall_weighted': 0.88671875, 'eval_f1_weighted': 0.8759506557742848, 'eval_f1_macro': 0.6318738533247384, 'eval_confusion_matrix': [7, 19, 10, 220], 'eval_runtime': 0.3275, 'eval_samples_per_second': 781.562, 'eval_steps_per_second': 97.695, 'epoch': 0.38}
+{'eval_loss': 0.5991221070289612, 'eval_accuracy': 0.84765625, 'eval_precision_weighted': 0.8784682219662059, 'eval_recall_weighted': 0.84765625, 'eval_f1_weighted': 0.8606753355704698, 'eval_f1_macro': 0.6563758389261745, 'eval_confusion_matrix': [13, 13, 26, 204], 'eval_runtime': 0.349, 'eval_samples_per_second': 733.595, 'eval_steps_per_second': 91.699, 'epoch': 0.48}
+{'eval_loss': 0.634962797164917, 'eval_accuracy': 0.7265625, 'eval_precision_weighted': 0.8751463014981273, 'eval_recall_weighted': 0.7265625, 'eval_f1_weighted': 0.7774969362745099, 'eval_f1_macro': 0.5776772247360483, 'eval_confusion_matrix': [17, 9, 61, 169], 'eval_runtime': 0.2242, 'eval_samples_per_second': 1142.043, 'eval_steps_per_second': 142.755, 'epoch': 0.57}
+{'eval_loss': 0.5550439953804016, 'eval_accuracy': 0.8359375, 'eval_precision_weighted': 0.8798978880789022, 'eval_recall_weighted': 0.8359375, 'eval_f1_weighted': 0.8536906108597285, 'eval_f1_macro': 0.6524886877828054, 'eval_confusion_matrix': [14, 12, 30, 200], 'eval_runtime': 0.2243, 'eval_samples_per_second': 1141.532, 'eval_steps_per_second': 142.691, 'epoch': 0.67}
+{'eval_loss': 0.5577207803726196, 'eval_accuracy': 0.80859375, 'eval_precision_weighted': 0.8737259385461501, 'eval_recall_weighted': 0.80859375, 'eval_f1_weighted': 0.834166013584117, 'eval_f1_macro': 0.625496342737722, 'eval_confusion_matrix': [14, 12, 37, 193], 'eval_runtime': 0.2708, 'eval_samples_per_second': 945.219, 'eval_steps_per_second': 118.152, 'epoch': 0.77}
+{'eval_loss': 0.560061514377594, 'eval_accuracy': 0.76953125, 'eval_precision_weighted': 0.8664584646910466, 'eval_recall_weighted': 0.76953125, 'eval_f1_weighted': 0.806400016903313, 'eval_f1_macro': 0.5915077755240027, 'eval_confusion_matrix': [14, 12, 47, 183], 'eval_runtime': 0.2282, 'eval_samples_per_second': 1121.864, 'eval_steps_per_second': 140.233, 'epoch': 0.86}
+{'eval_loss': 0.5466614961624146, 'eval_accuracy': 0.7734375, 'eval_precision_weighted': 0.8720667401064183, 'eval_recall_weighted': 0.7734375, 'eval_f1_weighted': 0.8101616102058319, 'eval_f1_macro': 0.6020583190394511, 'eval_confusion_matrix': [15, 11, 47, 183], 'eval_runtime': 0.553, 'eval_samples_per_second': 462.956, 'eval_steps_per_second': 57.869, 'epoch': 0.96}
+{'train_runtime': 76.0711, 'train_samples_per_second': 9.82, 'train_steps_per_second': 1.236, 'train_loss': 0.6437732209550574, 'epoch': 1.0}
+[2025-10-22 14:42:34,795] - [INFO] - Training completed.
+[2025-10-22 14:42:34,859] - [INFO] - Running evaluation...
+[2025-10-22 14:42:35,167] - [INFO] - Evaluation Results:
+[2025-10-22 14:42:35,167] - [INFO] - eval_loss: 0.5992653965950012
+[2025-10-22 14:42:35,167] - [INFO] - eval_model_preparation_time: 0.0015
+[2025-10-22 14:42:35,167] - [INFO] - eval_accuracy: 0.8530120481927711
+[2025-10-22 14:42:35,167] - [INFO] - eval_true_accuracy: 0.9559228650137741
+[2025-10-22 14:42:35,167] - [INFO] - eval_false_accuracy: 0.1346153846153846
+[2025-10-22 14:42:35,167] - [INFO] - eval_runtime: 0.3
+[2025-10-22 14:42:35,167] - [INFO] - eval_samples_per_second: 1383.144
+[2025-10-22 14:42:35,167] - [INFO] - eval_steps_per_second: 173.31
+[2025-10-22 14:42:35,168] - [INFO] - 
+=== Running combination ===
+[2025-10-22 14:42:35,168] - [INFO] - Over Sampling Ratio: 0.0, Under Sampling Ratio: 0.5
+[2025-10-22 14:42:36,614] - [INFO] - Original Train dataset class split: Counter({1: 2073, 0: 229}), with a total of 2302 samples
+[2025-10-22 14:42:36,725] - [INFO] - Sampled Train dataset class split: Counter({1: 1036, 0: 229}), with a total of 1265 samples
+[2025-10-22 14:42:36,730] - [INFO] - Validation dataset class split: Counter({1: 230, 0: 26}), with a total of 256 samples
+[2025-10-22 14:42:36,734] - [INFO] - Test dataset class split: Counter({1: 363, 0: 52}), with a total of 415 samples
+15.0
+[2025-10-22 14:42:38,613] - [INFO] - Starting training of model (answerability classification).
+{'eval_loss': 0.5700958371162415, 'eval_accuracy': 0.86328125, 'eval_precision_weighted': 0.8396331989908934, 'eval_recall_weighted': 0.86328125, 'eval_f1_weighted': 0.8502852742103437, 'eval_f1_macro': 0.5557098229781325, 'eval_confusion_matrix': [4, 22, 13, 217], 'eval_runtime': 0.3244, 'eval_samples_per_second': 789.203, 'eval_steps_per_second': 98.65, 'epoch': 0.09}
+{'eval_loss': 0.6382808685302734, 'eval_accuracy': 0.734375, 'eval_precision_weighted': 0.8607862903225806, 'eval_recall_weighted': 0.734375, 'eval_f1_weighted': 0.7811999198717949, 'eval_f1_macro': 0.5641025641025641, 'eval_confusion_matrix': [14, 12, 56, 174], 'eval_runtime': 0.2694, 'eval_samples_per_second': 950.372, 'eval_steps_per_second': 118.797, 'epoch': 0.19}
+{'eval_loss': 0.587053656578064, 'eval_accuracy': 0.73046875, 'eval_precision_weighted': 0.8601868814236772, 'eval_recall_weighted': 0.73046875, 'eval_f1_weighted': 0.7783757452490374, 'eval_f1_macro': 0.5611973667867345, 'eval_confusion_matrix': [14, 12, 57, 173], 'eval_runtime': 0.2618, 'eval_samples_per_second': 977.951, 'eval_steps_per_second': 122.244, 'epoch': 0.28}
+{'eval_loss': 0.5544357299804688, 'eval_accuracy': 0.82421875, 'eval_precision_weighted': 0.8677282932088657, 'eval_recall_weighted': 0.82421875, 'eval_f1_weighted': 0.8425001840219845, 'eval_f1_macro': 0.6231229757581705, 'eval_confusion_matrix': [12, 14, 31, 199], 'eval_runtime': 0.7344, 'eval_samples_per_second': 348.585, 'eval_steps_per_second': 43.573, 'epoch': 0.38}
+{'eval_loss': 0.5636929869651794, 'eval_accuracy': 0.85546875, 'eval_precision_weighted': 0.8763443358112476, 'eval_recall_weighted': 0.85546875, 'eval_f1_weighted': 0.8646887835774781, 'eval_f1_macro': 0.6557013558213078, 'eval_confusion_matrix': [12, 14, 23, 207], 'eval_runtime': 0.2271, 'eval_samples_per_second': 1127.215, 'eval_steps_per_second': 140.902, 'epoch': 0.47}
+{'eval_loss': 0.5753899216651917, 'eval_accuracy': 0.87109375, 'eval_precision_weighted': 0.8732803149765486, 'eval_recall_weighted': 0.87109375, 'eval_f1_weighted': 0.8721694259464792, 'eval_f1_macro': 0.6527315328647183, 'eval_confusion_matrix': [10, 16, 17, 213], 'eval_runtime': 1.2337, 'eval_samples_per_second': 207.507, 'eval_steps_per_second': 25.938, 'epoch': 0.57}
+{'eval_loss': 0.5296313166618347, 'eval_accuracy': 0.87890625, 'eval_precision_weighted': 0.8768330627705628, 'eval_recall_weighted': 0.87890625, 'eval_f1_weighted': 0.8778503944961932, 'eval_f1_macro': 0.6624558717196206, 'eval_confusion_matrix': [10, 16, 15, 215], 'eval_runtime': 1.0604, 'eval_samples_per_second': 241.413, 'eval_steps_per_second': 30.177, 'epoch': 0.66}
+{'eval_loss': 0.5446808338165283, 'eval_accuracy': 0.8046875, 'eval_precision_weighted': 0.8729319852941176, 'eval_recall_weighted': 0.8046875, 'eval_f1_weighted': 0.8313892089093703, 'eval_f1_macro': 0.6218834928512348, 'eval_confusion_matrix': [14, 12, 38, 192], 'eval_runtime': 1.2285, 'eval_samples_per_second': 208.378, 'eval_steps_per_second': 26.047, 'epoch': 0.75}
+{'eval_loss': 0.4912750720977783, 'eval_accuracy': 0.8203125, 'eval_precision_weighted': 0.8856464460784313, 'eval_recall_weighted': 0.8203125, 'eval_f1_weighted': 0.8448780721966206, 'eval_f1_macro': 0.652132813423136, 'eval_confusion_matrix': [16, 10, 36, 194], 'eval_runtime': 0.9152, 'eval_samples_per_second': 279.708, 'eval_steps_per_second': 34.964, 'epoch': 0.85}
+{'eval_loss': 0.46135634183883667, 'eval_accuracy': 0.79296875, 'eval_precision_weighted': 0.8951979712041884, 'eval_recall_weighted': 0.79296875, 'eval_f1_weighted': 0.8277432558534102, 'eval_f1_macro': 0.6458458406201875, 'eval_confusion_matrix': [19, 7, 46, 184], 'eval_runtime': 0.7193, 'eval_samples_per_second': 355.899, 'eval_steps_per_second': 44.487, 'epoch': 0.94}
+{'train_runtime': 62.1455, 'train_samples_per_second': 20.355, 'train_steps_per_second': 2.559, 'train_loss': 0.6315459725241991, 'epoch': 1.0}
+[2025-10-22 14:43:41,009] - [INFO] - Training completed.
+[2025-10-22 14:43:41,050] - [INFO] - Running evaluation...
+[2025-10-22 14:43:41,327] - [INFO] - Evaluation Results:
+[2025-10-22 14:43:41,327] - [INFO] - eval_loss: 0.38917022943496704
+[2025-10-22 14:43:41,327] - [INFO] - eval_model_preparation_time: 0.0015
+[2025-10-22 14:43:41,327] - [INFO] - eval_accuracy: 0.8506024096385543
+[2025-10-22 14:43:41,327] - [INFO] - eval_true_accuracy: 0.931129476584022
+[2025-10-22 14:43:41,327] - [INFO] - eval_false_accuracy: 0.28846153846153844
+[2025-10-22 14:43:41,327] - [INFO] - eval_runtime: 0.2698
+[2025-10-22 14:43:41,327] - [INFO] - eval_samples_per_second: 1538.166
+[2025-10-22 14:43:41,327] - [INFO] - eval_steps_per_second: 192.734
+[2025-10-22 14:43:41,327] - [INFO] - 
+=== Running combination ===
+[2025-10-22 14:43:41,328] - [INFO] - Over Sampling Ratio: 0.0, Under Sampling Ratio: 1.0
+[2025-10-22 14:43:42,710] - [INFO] - Original Train dataset class split: Counter({1: 2073, 0: 229}), with a total of 2302 samples
+[2025-10-22 14:43:42,808] - [INFO] - Sampled Train dataset class split: Counter({1: 2073, 0: 229}), with a total of 2302 samples
+[2025-10-22 14:43:42,813] - [INFO] - Validation dataset class split: Counter({1: 230, 0: 26}), with a total of 256 samples
+[2025-10-22 14:43:42,817] - [INFO] - Test dataset class split: Counter({1: 363, 0: 52}), with a total of 415 samples
+28.0
+[2025-10-22 14:43:45,233] - [INFO] - Starting training of model (answerability classification).
+{'eval_loss': 0.9182405471801758, 'eval_accuracy': 0.8984375, 'eval_precision_weighted': 0.80718994140625, 'eval_recall_weighted': 0.8984375, 'eval_f1_weighted': 0.8503729423868313, 'eval_f1_macro': 0.4732510288065844, 'eval_confusion_matrix': [0, 26, 0, 230], 'eval_runtime': 0.2763, 'eval_samples_per_second': 926.49, 'eval_steps_per_second': 115.811, 'epoch': 0.1}
+{'eval_loss': 0.9647030234336853, 'eval_accuracy': 0.8984375, 'eval_precision_weighted': 0.80718994140625, 'eval_recall_weighted': 0.8984375, 'eval_f1_weighted': 0.8503729423868313, 'eval_f1_macro': 0.4732510288065844, 'eval_confusion_matrix': [0, 26, 0, 230], 'eval_runtime': 0.6702, 'eval_samples_per_second': 381.96, 'eval_steps_per_second': 47.745, 'epoch': 0.19}
+{'eval_loss': 0.6707520484924316, 'eval_accuracy': 0.8984375, 'eval_precision_weighted': 0.80718994140625, 'eval_recall_weighted': 0.8984375, 'eval_f1_weighted': 0.8503729423868313, 'eval_f1_macro': 0.4732510288065844, 'eval_confusion_matrix': [0, 26, 0, 230], 'eval_runtime': 0.2846, 'eval_samples_per_second': 899.482, 'eval_steps_per_second': 112.435, 'epoch': 0.29}
+{'eval_loss': 0.6572690010070801, 'eval_accuracy': 0.8984375, 'eval_precision_weighted': 0.80718994140625, 'eval_recall_weighted': 0.8984375, 'eval_f1_weighted': 0.8503729423868313, 'eval_f1_macro': 0.4732510288065844, 'eval_confusion_matrix': [0, 26, 0, 230], 'eval_runtime': 0.2933, 'eval_samples_per_second': 872.824, 'eval_steps_per_second': 109.103, 'epoch': 0.39}
+{'eval_loss': 0.6776467561721802, 'eval_accuracy': 0.8984375, 'eval_precision_weighted': 0.80718994140625, 'eval_recall_weighted': 0.8984375, 'eval_f1_weighted': 0.8503729423868313, 'eval_f1_macro': 0.4732510288065844, 'eval_confusion_matrix': [0, 26, 0, 230], 'eval_runtime': 0.275, 'eval_samples_per_second': 930.812, 'eval_steps_per_second': 116.351, 'epoch': 0.49}
+{'eval_loss': 0.6308850049972534, 'eval_accuracy': 0.91015625, 'eval_precision_weighted': 0.8952103055077453, 'eval_recall_weighted': 0.91015625, 'eval_f1_weighted': 0.8860740099323084, 'eval_f1_macro': 0.6275068007844626, 'eval_confusion_matrix': [5, 21, 2, 228], 'eval_runtime': 0.5412, 'eval_samples_per_second': 473.038, 'eval_steps_per_second': 59.13, 'epoch': 0.58}
+{'eval_loss': 1.0573605298995972, 'eval_accuracy': 0.8984375, 'eval_precision_weighted': 0.80718994140625, 'eval_recall_weighted': 0.8984375, 'eval_f1_weighted': 0.8503729423868313, 'eval_f1_macro': 0.4732510288065844, 'eval_confusion_matrix': [0, 26, 0, 230], 'eval_runtime': 0.5801, 'eval_samples_per_second': 441.294, 'eval_steps_per_second': 55.162, 'epoch': 0.68}
+{'eval_loss': 0.6180031895637512, 'eval_accuracy': 0.90625, 'eval_precision_weighted': 0.885836693548387, 'eval_recall_weighted': 0.90625, 'eval_f1_weighted': 0.8831989908934286, 'eval_f1_macro': 0.6219542210189515, 'eval_confusion_matrix': [5, 21, 3, 227], 'eval_runtime': 0.8434, 'eval_samples_per_second': 303.55, 'eval_steps_per_second': 37.944, 'epoch': 0.78}
+{'eval_loss': 0.7188880443572998, 'eval_accuracy': 0.87890625, 'eval_precision_weighted': 0.868311486828774, 'eval_recall_weighted': 0.87890625, 'eval_f1_weighted': 0.873116134751773, 'eval_f1_macro': 0.6368794326241135, 'eval_confusion_matrix': [8, 18, 13, 217], 'eval_runtime': 0.288, 'eval_samples_per_second': 888.841, 'eval_steps_per_second': 111.105, 'epoch': 0.88}
+{'eval_loss': 0.9799953699111938, 'eval_accuracy': 0.87890625, 'eval_precision_weighted': 0.8540045816044259, 'eval_recall_weighted': 0.87890625, 'eval_f1_weighted': 0.8640760123763658, 'eval_f1_macro': 0.589042514628968, 'eval_confusion_matrix': [5, 21, 10, 220], 'eval_runtime': 0.2354, 'eval_samples_per_second': 1087.554, 'eval_steps_per_second': 135.944, 'epoch': 0.97}
+{'train_runtime': 44.6872, 'train_samples_per_second': 51.514, 'train_steps_per_second': 6.445, 'train_loss': 0.7232366138034396, 'epoch': 1.0}
+[2025-10-22 14:44:30,224] - [INFO] - Training completed.
+[2025-10-22 14:44:30,265] - [INFO] - Running evaluation...
+[2025-10-22 14:44:30,723] - [INFO] - Evaluation Results:
+[2025-10-22 14:44:30,723] - [INFO] - eval_loss: 0.40461042523384094
+[2025-10-22 14:44:30,723] - [INFO] - eval_model_preparation_time: 0.0015
+[2025-10-22 14:44:30,723] - [INFO] - eval_accuracy: 0.8674698795180723
+[2025-10-22 14:44:30,723] - [INFO] - eval_true_accuracy: 0.977961432506887
+[2025-10-22 14:44:30,723] - [INFO] - eval_false_accuracy: 0.09615384615384616
+[2025-10-22 14:44:30,723] - [INFO] - eval_runtime: 0.4414
+[2025-10-22 14:44:30,723] - [INFO] - eval_samples_per_second: 940.219
+[2025-10-22 14:44:30,723] - [INFO] - eval_steps_per_second: 117.811
+[2025-10-22 14:44:30,723] - [INFO] - 
+=== Running combination ===
+[2025-10-22 14:44:30,723] - [INFO] - Over Sampling Ratio: 0.25, Under Sampling Ratio: 0.0
+[2025-10-22 14:44:35,973] - [INFO] - Original Train dataset class split: Counter({1: 2073, 0: 229}), with a total of 2302 samples
+[2025-10-22 14:44:36,114] - [INFO] - Sampled Train dataset class split: Counter({1: 2073, 0: 518}), with a total of 2591 samples
+[2025-10-22 14:44:36,119] - [INFO] - Validation dataset class split: Counter({1: 230, 0: 26}), with a total of 256 samples
+[2025-10-22 14:44:36,123] - [INFO] - Test dataset class split: Counter({1: 363, 0: 52}), with a total of 415 samples
+32.0
+[2025-10-22 14:44:39,004] - [INFO] - Starting training of model (answerability classification).
+{'eval_loss': 0.6873196363449097, 'eval_accuracy': 0.32421875, 'eval_precision_weighted': 0.8814805327868852, 'eval_recall_weighted': 0.32421875, 'eval_f1_weighted': 0.38637368607236705, 'eval_f1_macro': 0.3113464259613441, 'eval_confusion_matrix': [24, 2, 171, 59], 'eval_runtime': 0.3289, 'eval_samples_per_second': 778.253, 'eval_steps_per_second': 97.282, 'epoch': 0.1}
+{'eval_loss': 0.66017746925354, 'eval_accuracy': 0.78515625, 'eval_precision_weighted': 0.8643352838082315, 'eval_recall_weighted': 0.78515625, 'eval_f1_weighted': 0.8163880116582165, 'eval_f1_macro': 0.5966887227521411, 'eval_confusion_matrix': [13, 13, 42, 188], 'eval_runtime': 1.4271, 'eval_samples_per_second': 179.38, 'eval_steps_per_second': 22.423, 'epoch': 0.2}
+{'eval_loss': 0.5526461601257324, 'eval_accuracy': 0.85546875, 'eval_precision_weighted': 0.8807897152289275, 'eval_recall_weighted': 0.85546875, 'eval_f1_weighted': 0.8663161302011525, 'eval_f1_macro': 0.6651465337434157, 'eval_confusion_matrix': [13, 13, 24, 206], 'eval_runtime': 0.4234, 'eval_samples_per_second': 604.652, 'eval_steps_per_second': 75.582, 'epoch': 0.3}
+{'eval_loss': 0.5788440108299255, 'eval_accuracy': 0.73828125, 'eval_precision_weighted': 0.8767846454880295, 'eval_recall_weighted': 0.73828125, 'eval_f1_weighted': 0.7861662420804124, 'eval_f1_macro': 0.5868083158680831, 'eval_confusion_matrix': [17, 9, 58, 172], 'eval_runtime': 0.5995, 'eval_samples_per_second': 427.049, 'eval_steps_per_second': 53.381, 'epoch': 0.4}
+{'eval_loss': 0.6267253160476685, 'eval_accuracy': 0.58203125, 'eval_precision_weighted': 0.9031842267899652, 'eval_recall_weighted': 0.58203125, 'eval_f1_weighted': 0.6606095260684919, 'eval_f1_macro': 0.5049787656998284, 'eval_confusion_matrix': [24, 2, 105, 125], 'eval_runtime': 0.4193, 'eval_samples_per_second': 610.474, 'eval_steps_per_second': 76.309, 'epoch': 0.49}
+{'eval_loss': 0.14498773217201233, 'eval_accuracy': 0.95703125, 'eval_precision_weighted': 0.9669168148028443, 'eval_recall_weighted': 0.95703125, 'eval_f1_weighted': 0.9597723410635746, 'eval_f1_macro': 0.897640943622551, 'eval_confusion_matrix': [25, 1, 10, 220], 'eval_runtime': 0.2553, 'eval_samples_per_second': 1002.646, 'eval_steps_per_second': 125.331, 'epoch': 0.59}
+{'eval_loss': 0.15861627459526062, 'eval_accuracy': 0.9609375, 'eval_precision_weighted': 0.9690687930577637, 'eval_recall_weighted': 0.9609375, 'eval_f1_weighted': 0.9631959808259586, 'eval_f1_macro': 0.9056047197640118, 'eval_confusion_matrix': [25, 1, 9, 221], 'eval_runtime': 0.2629, 'eval_samples_per_second': 973.924, 'eval_steps_per_second': 121.741, 'epoch': 0.69}
+{'eval_loss': 0.17470280826091766, 'eval_accuracy': 0.9609375, 'eval_precision_weighted': 0.9690687930577637, 'eval_recall_weighted': 0.9609375, 'eval_f1_weighted': 0.9631959808259586, 'eval_f1_macro': 0.9056047197640118, 'eval_confusion_matrix': [25, 1, 9, 221], 'eval_runtime': 0.2293, 'eval_samples_per_second': 1116.303, 'eval_steps_per_second': 139.538, 'epoch': 0.79}
+{'eval_loss': 0.18610627949237823, 'eval_accuracy': 0.9609375, 'eval_precision_weighted': 0.9690687930577637, 'eval_recall_weighted': 0.9609375, 'eval_f1_weighted': 0.9631959808259586, 'eval_f1_macro': 0.9056047197640118, 'eval_confusion_matrix': [25, 1, 9, 221], 'eval_runtime': 0.2273, 'eval_samples_per_second': 1126.172, 'eval_steps_per_second': 140.771, 'epoch': 0.89}
+{'eval_loss': 0.18635335564613342, 'eval_accuracy': 0.9609375, 'eval_precision_weighted': 0.9690687930577637, 'eval_recall_weighted': 0.9609375, 'eval_f1_weighted': 0.9631959808259586, 'eval_f1_macro': 0.9056047197640118, 'eval_confusion_matrix': [25, 1, 9, 221], 'eval_runtime': 0.5495, 'eval_samples_per_second': 465.898, 'eval_steps_per_second': 58.237, 'epoch': 0.99}
+{'train_runtime': 58.2978, 'train_samples_per_second': 44.444, 'train_steps_per_second': 5.558, 'train_loss': 0.47166179138937114, 'epoch': 1.0}
+[2025-10-22 14:45:37,775] - [INFO] - Training completed.
+[2025-10-22 14:45:37,813] - [INFO] - Running evaluation...
+[2025-10-22 14:45:38,084] - [INFO] - Evaluation Results:
+[2025-10-22 14:45:38,084] - [INFO] - eval_loss: 0.09832428395748138
+[2025-10-22 14:45:38,084] - [INFO] - eval_model_preparation_time: 0.0015
+[2025-10-22 14:45:38,084] - [INFO] - eval_accuracy: 0.9783132530120482
+[2025-10-22 14:45:38,084] - [INFO] - eval_true_accuracy: 0.9807162534435262
+[2025-10-22 14:45:38,084] - [INFO] - eval_false_accuracy: 0.9615384615384616
+[2025-10-22 14:45:38,084] - [INFO] - eval_runtime: 0.2631
+[2025-10-22 14:45:38,084] - [INFO] - eval_samples_per_second: 1577.309
+[2025-10-22 14:45:38,084] - [INFO] - eval_steps_per_second: 197.639
+[2025-10-22 14:45:38,084] - [INFO] - 
+=== Running combination ===
+[2025-10-22 14:45:38,084] - [INFO] - Over Sampling Ratio: 0.25, Under Sampling Ratio: 0.25
+[2025-10-22 14:45:39,383] - [INFO] - Original Train dataset class split: Counter({1: 2073, 0: 229}), with a total of 2302 samples
+[2025-10-22 14:45:39,480] - [INFO] - Sampled Train dataset class split: Counter({0: 518, 1: 518}), with a total of 1036 samples
+[2025-10-22 14:45:39,485] - [INFO] - Validation dataset class split: Counter({1: 230, 0: 26}), with a total of 256 samples
+[2025-10-22 14:45:39,489] - [INFO] - Test dataset class split: Counter({1: 363, 0: 52}), with a total of 415 samples
+12.0
+[2025-10-22 14:45:41,538] - [INFO] - Starting training of model (answerability classification).
+{'eval_loss': 0.7307482957839966, 'eval_accuracy': 0.1015625, 'eval_precision_weighted': 0.01031494140625, 'eval_recall_weighted': 0.1015625, 'eval_f1_weighted': 0.01872783687943262, 'eval_f1_macro': 0.09219858156028368, 'eval_confusion_matrix': [26, 0, 230, 0], 'eval_runtime': 1.0815, 'eval_samples_per_second': 236.7, 'eval_steps_per_second': 29.587, 'epoch': 0.09}
+{'eval_loss': 0.7355034351348877, 'eval_accuracy': 0.1015625, 'eval_precision_weighted': 0.01031494140625, 'eval_recall_weighted': 0.1015625, 'eval_f1_weighted': 0.01872783687943262, 'eval_f1_macro': 0.09219858156028368, 'eval_confusion_matrix': [26, 0, 230, 0], 'eval_runtime': 0.2615, 'eval_samples_per_second': 979.105, 'eval_steps_per_second': 122.388, 'epoch': 0.18}
+{'eval_loss': 0.7082940340042114, 'eval_accuracy': 0.28125, 'eval_precision_weighted': 0.8919270833333333, 'eval_recall_weighted': 0.28125, 'eval_f1_weighted': 0.32548960831334933, 'eval_f1_macro': 0.2759023550390457, 'eval_confusion_matrix': [25, 1, 183, 47], 'eval_runtime': 0.2564, 'eval_samples_per_second': 998.383, 'eval_steps_per_second': 124.798, 'epoch': 0.28}
+{'eval_loss': 0.45121949911117554, 'eval_accuracy': 0.85546875, 'eval_precision_weighted': 0.885212653609831, 'eval_recall_weighted': 0.85546875, 'eval_f1_weighted': 0.8678201901565995, 'eval_f1_macro': 0.6739975907761142, 'eval_confusion_matrix': [14, 12, 25, 205], 'eval_runtime': 0.333, 'eval_samples_per_second': 768.674, 'eval_steps_per_second': 96.084, 'epoch': 0.37}
+{'eval_loss': 0.5427185297012329, 'eval_accuracy': 0.703125, 'eval_precision_weighted': 0.8719805509413068, 'eval_recall_weighted': 0.703125, 'eval_f1_weighted': 0.7599756897331523, 'eval_f1_macro': 0.5600180913613749, 'eval_confusion_matrix': [17, 9, 67, 163], 'eval_runtime': 0.3342, 'eval_samples_per_second': 765.943, 'eval_steps_per_second': 95.743, 'epoch': 0.46}
+{'eval_loss': 0.6847128868103027, 'eval_accuracy': 0.30078125, 'eval_precision_weighted': 0.8939935461009387, 'eval_recall_weighted': 0.30078125, 'eval_f1_weighted': 0.3523430628635796, 'eval_f1_macro': 0.29291588871572516, 'eval_confusion_matrix': [25, 1, 178, 52], 'eval_runtime': 0.2722, 'eval_samples_per_second': 940.359, 'eval_steps_per_second': 117.545, 'epoch': 0.55}
+{'eval_loss': 0.6629387736320496, 'eval_accuracy': 0.37890625, 'eval_precision_weighted': 0.9000047954562467, 'eval_recall_weighted': 0.37890625, 'eval_f1_weighted': 0.45127744682362975, 'eval_f1_macro': 0.3572409872566204, 'eval_confusion_matrix': [25, 1, 158, 72], 'eval_runtime': 1.5429, 'eval_samples_per_second': 165.92, 'eval_steps_per_second': 20.74, 'epoch': 0.65}
+{'eval_loss': 0.47941213846206665, 'eval_accuracy': 0.7734375, 'eval_precision_weighted': 0.8770345052083333, 'eval_recall_weighted': 0.7734375, 'eval_f1_weighted': 0.8110666798314903, 'eval_f1_macro': 0.6090573986308584, 'eval_confusion_matrix': [16, 10, 48, 182], 'eval_runtime': 1.1325, 'eval_samples_per_second': 226.044, 'eval_steps_per_second': 28.255, 'epoch': 0.74}
+{'eval_loss': 0.42826586961746216, 'eval_accuracy': 0.82421875, 'eval_precision_weighted': 0.877105231344803, 'eval_recall_weighted': 0.82421875, 'eval_f1_weighted': 0.8452980193153805, 'eval_f1_macro': 0.6405279745373982, 'eval_confusion_matrix': [14, 12, 33, 197], 'eval_runtime': 1.2746, 'eval_samples_per_second': 200.847, 'eval_steps_per_second': 25.106, 'epoch': 0.83}
+{'eval_loss': 0.41811978816986084, 'eval_accuracy': 0.8203125, 'eval_precision_weighted': 0.8856464460784313, 'eval_recall_weighted': 0.8203125, 'eval_f1_weighted': 0.8448780721966206, 'eval_f1_macro': 0.652132813423136, 'eval_confusion_matrix': [16, 10, 36, 194], 'eval_runtime': 0.5467, 'eval_samples_per_second': 468.275, 'eval_steps_per_second': 58.534, 'epoch': 0.92}
+{'train_runtime': 86.5386, 'train_samples_per_second': 11.972, 'train_steps_per_second': 1.502, 'train_loss': 0.6608670748197115, 'epoch': 1.0}
+[2025-10-22 14:47:08,547] - [INFO] - Training completed.
+[2025-10-22 14:47:08,572] - [INFO] - Running evaluation...
+[2025-10-22 14:47:08,883] - [INFO] - Evaluation Results:
+[2025-10-22 14:47:08,883] - [INFO] - eval_loss: 0.45544102787971497
+[2025-10-22 14:47:08,883] - [INFO] - eval_model_preparation_time: 0.0015
+[2025-10-22 14:47:08,883] - [INFO] - eval_accuracy: 0.8337349397590361
+[2025-10-22 14:47:08,883] - [INFO] - eval_true_accuracy: 0.8898071625344353
+[2025-10-22 14:47:08,883] - [INFO] - eval_false_accuracy: 0.4423076923076923
+[2025-10-22 14:47:08,883] - [INFO] - eval_runtime: 0.3026
+[2025-10-22 14:47:08,883] - [INFO] - eval_samples_per_second: 1371.5
+[2025-10-22 14:47:08,883] - [INFO] - eval_steps_per_second: 171.851
+[2025-10-22 14:47:08,883] - [INFO] - 
+=== Running combination ===
+[2025-10-22 14:47:08,883] - [INFO] - Over Sampling Ratio: 0.25, Under Sampling Ratio: 0.5
+[2025-10-22 14:47:10,573] - [INFO] - Original Train dataset class split: Counter({1: 2073, 0: 229}), with a total of 2302 samples
+[2025-10-22 14:47:10,716] - [INFO] - Sampled Train dataset class split: Counter({1: 1036, 0: 518}), with a total of 1554 samples
+[2025-10-22 14:47:10,721] - [INFO] - Validation dataset class split: Counter({1: 230, 0: 26}), with a total of 256 samples
+[2025-10-22 14:47:10,725] - [INFO] - Test dataset class split: Counter({1: 363, 0: 52}), with a total of 415 samples
+19.0
+[2025-10-22 14:47:12,586] - [INFO] - Starting training of model (answerability classification).
+{'eval_loss': 0.49286749958992004, 'eval_accuracy': 0.88671875, 'eval_precision_weighted': 0.8847849025974026, 'eval_recall_weighted': 0.88671875, 'eval_f1_weighted': 0.8857310142061163, 'eval_f1_macro': 0.6842329122538386, 'eval_confusion_matrix': [11, 15, 14, 216], 'eval_runtime': 0.3467, 'eval_samples_per_second': 738.319, 'eval_steps_per_second': 92.29, 'epoch': 0.1}
+{'eval_loss': 0.7439737915992737, 'eval_accuracy': 0.1015625, 'eval_precision_weighted': 0.01031494140625, 'eval_recall_weighted': 0.1015625, 'eval_f1_weighted': 0.01872783687943262, 'eval_f1_macro': 0.09219858156028368, 'eval_confusion_matrix': [26, 0, 230, 0], 'eval_runtime': 0.3471, 'eval_samples_per_second': 737.542, 'eval_steps_per_second': 92.193, 'epoch': 0.19}
+{'eval_loss': 0.4505450129508972, 'eval_accuracy': 0.89453125, 'eval_precision_weighted': 0.8713670267489713, 'eval_recall_weighted': 0.89453125, 'eval_f1_weighted': 0.8784024841437632, 'eval_f1_macro': 0.625304927630509, 'eval_confusion_matrix': [6, 20, 7, 223], 'eval_runtime': 0.6086, 'eval_samples_per_second': 420.631, 'eval_steps_per_second': 52.579, 'epoch': 0.29}
+{'eval_loss': 0.6536685228347778, 'eval_accuracy': 0.7265625, 'eval_precision_weighted': 0.8699058845029239, 'eval_recall_weighted': 0.7265625, 'eval_f1_weighted': 0.7769084768053562, 'eval_f1_macro': 0.5714968914395027, 'eval_confusion_matrix': [16, 10, 60, 170], 'eval_runtime': 0.679, 'eval_samples_per_second': 377.048, 'eval_steps_per_second': 47.131, 'epoch': 0.39}
+{'eval_loss': 0.56996750831604, 'eval_accuracy': 0.7890625, 'eval_precision_weighted': 0.869921875, 'eval_recall_weighted': 0.7890625, 'eval_f1_weighted': 0.8202903431650596, 'eval_f1_macro': 0.6079410096426546, 'eval_confusion_matrix': [14, 12, 42, 188], 'eval_runtime': 0.5764, 'eval_samples_per_second': 444.102, 'eval_steps_per_second': 55.513, 'epoch': 0.49}
+{'eval_loss': 0.6928813457489014, 'eval_accuracy': 0.69921875, 'eval_precision_weighted': 0.8714638157894736, 'eval_recall_weighted': 0.69921875, 'eval_f1_weighted': 0.7570288102940846, 'eval_f1_macro': 0.5571431780908089, 'eval_confusion_matrix': [17, 9, 68, 162], 'eval_runtime': 0.5526, 'eval_samples_per_second': 463.25, 'eval_steps_per_second': 57.906, 'epoch': 0.58}
+{'eval_loss': 0.5567280054092407, 'eval_accuracy': 0.77734375, 'eval_precision_weighted': 0.8678099189107804, 'eval_recall_weighted': 0.77734375, 'eval_f1_weighted': 0.8119614444138311, 'eval_f1_macro': 0.5979611516737843, 'eval_confusion_matrix': [14, 12, 45, 185], 'eval_runtime': 0.2782, 'eval_samples_per_second': 920.038, 'eval_steps_per_second': 115.005, 'epoch': 0.68}
+{'eval_loss': 0.5843766331672668, 'eval_accuracy': 0.77734375, 'eval_precision_weighted': 0.8876938472320934, 'eval_recall_weighted': 0.77734375, 'eval_f1_weighted': 0.8155302082531373, 'eval_f1_macro': 0.6255292940180153, 'eval_confusion_matrix': [18, 8, 49, 181], 'eval_runtime': 0.6965, 'eval_samples_per_second': 367.536, 'eval_steps_per_second': 45.942, 'epoch': 0.78}
+{'eval_loss': 0.5367147326469421, 'eval_accuracy': 0.80078125, 'eval_precision_weighted': 0.8964816442552842, 'eval_recall_weighted': 0.80078125, 'eval_f1_weighted': 0.8334790122718942, 'eval_f1_macro': 0.6531994581241534, 'eval_confusion_matrix': [19, 7, 44, 186], 'eval_runtime': 0.6077, 'eval_samples_per_second': 421.241, 'eval_steps_per_second': 52.655, 'epoch': 0.88}
+{'eval_loss': 0.5278783440589905, 'eval_accuracy': 0.796875, 'eval_precision_weighted': 0.9008423046251993, 'eval_recall_weighted': 0.796875, 'eval_f1_weighted': 0.8313599896480331, 'eval_f1_macro': 0.6554865424430641, 'eval_confusion_matrix': [20, 6, 46, 184], 'eval_runtime': 0.6071, 'eval_samples_per_second': 421.685, 'eval_steps_per_second': 52.711, 'epoch': 0.97}
+{'train_runtime': 72.5031, 'train_samples_per_second': 21.434, 'train_steps_per_second': 2.69, 'train_loss': 0.6102707300430689, 'epoch': 1.0}
+[2025-10-22 14:48:25,448] - [INFO] - Training completed.
+[2025-10-22 14:48:25,491] - [INFO] - Running evaluation...
+[2025-10-22 14:48:25,783] - [INFO] - Evaluation Results:
+[2025-10-22 14:48:25,783] - [INFO] - eval_loss: 0.40588510036468506
+[2025-10-22 14:48:25,783] - [INFO] - eval_model_preparation_time: 0.0015
+[2025-10-22 14:48:25,783] - [INFO] - eval_accuracy: 0.8554216867469879
+[2025-10-22 14:48:25,783] - [INFO] - eval_true_accuracy: 0.953168044077135
+[2025-10-22 14:48:25,783] - [INFO] - eval_false_accuracy: 0.17307692307692307
+[2025-10-22 14:48:25,783] - [INFO] - eval_runtime: 0.2846
+[2025-10-22 14:48:25,783] - [INFO] - eval_samples_per_second: 1457.967
+[2025-10-22 14:48:25,783] - [INFO] - eval_steps_per_second: 182.685
+[2025-10-22 14:48:25,784] - [INFO] - 
+=== Running combination ===
+[2025-10-22 14:48:25,784] - [INFO] - Over Sampling Ratio: 0.25, Under Sampling Ratio: 1.0
+[2025-10-22 14:48:27,412] - [INFO] - Original Train dataset class split: Counter({1: 2073, 0: 229}), with a total of 2302 samples
+[2025-10-22 14:48:27,521] - [INFO] - Sampled Train dataset class split: Counter({1: 2073, 0: 518}), with a total of 2591 samples
+[2025-10-22 14:48:27,527] - [INFO] - Validation dataset class split: Counter({1: 230, 0: 26}), with a total of 256 samples
+[2025-10-22 14:48:27,531] - [INFO] - Test dataset class split: Counter({1: 363, 0: 52}), with a total of 415 samples
+32.0
+[2025-10-22 14:48:30,966] - [INFO] - Starting training of model (answerability classification).
+{'eval_loss': 0.6873196363449097, 'eval_accuracy': 0.32421875, 'eval_precision_weighted': 0.8814805327868852, 'eval_recall_weighted': 0.32421875, 'eval_f1_weighted': 0.38637368607236705, 'eval_f1_macro': 0.3113464259613441, 'eval_confusion_matrix': [24, 2, 171, 59], 'eval_runtime': 0.2579, 'eval_samples_per_second': 992.577, 'eval_steps_per_second': 124.072, 'epoch': 0.1}
+{'eval_loss': 0.66017746925354, 'eval_accuracy': 0.78515625, 'eval_precision_weighted': 0.8643352838082315, 'eval_recall_weighted': 0.78515625, 'eval_f1_weighted': 0.8163880116582165, 'eval_f1_macro': 0.5966887227521411, 'eval_confusion_matrix': [13, 13, 42, 188], 'eval_runtime': 0.2269, 'eval_samples_per_second': 1128.423, 'eval_steps_per_second': 141.053, 'epoch': 0.2}
+{'eval_loss': 0.5526461601257324, 'eval_accuracy': 0.85546875, 'eval_precision_weighted': 0.8807897152289275, 'eval_recall_weighted': 0.85546875, 'eval_f1_weighted': 0.8663161302011525, 'eval_f1_macro': 0.6651465337434157, 'eval_confusion_matrix': [13, 13, 24, 206], 'eval_runtime': 0.2362, 'eval_samples_per_second': 1083.736, 'eval_steps_per_second': 135.467, 'epoch': 0.3}
+{'eval_loss': 0.5788440108299255, 'eval_accuracy': 0.73828125, 'eval_precision_weighted': 0.8767846454880295, 'eval_recall_weighted': 0.73828125, 'eval_f1_weighted': 0.7861662420804124, 'eval_f1_macro': 0.5868083158680831, 'eval_confusion_matrix': [17, 9, 58, 172], 'eval_runtime': 0.6528, 'eval_samples_per_second': 392.185, 'eval_steps_per_second': 49.023, 'epoch': 0.4}
+{'eval_loss': 0.6267253160476685, 'eval_accuracy': 0.58203125, 'eval_precision_weighted': 0.9031842267899652, 'eval_recall_weighted': 0.58203125, 'eval_f1_weighted': 0.6606095260684919, 'eval_f1_macro': 0.5049787656998284, 'eval_confusion_matrix': [24, 2, 105, 125], 'eval_runtime': 0.2549, 'eval_samples_per_second': 1004.43, 'eval_steps_per_second': 125.554, 'epoch': 0.49}
+{'eval_loss': 0.14498773217201233, 'eval_accuracy': 0.95703125, 'eval_precision_weighted': 0.9669168148028443, 'eval_recall_weighted': 0.95703125, 'eval_f1_weighted': 0.9597723410635746, 'eval_f1_macro': 0.897640943622551, 'eval_confusion_matrix': [25, 1, 10, 220], 'eval_runtime': 0.8778, 'eval_samples_per_second': 291.649, 'eval_steps_per_second': 36.456, 'epoch': 0.59}
+{'eval_loss': 0.15861627459526062, 'eval_accuracy': 0.9609375, 'eval_precision_weighted': 0.9690687930577637, 'eval_recall_weighted': 0.9609375, 'eval_f1_weighted': 0.9631959808259586, 'eval_f1_macro': 0.9056047197640118, 'eval_confusion_matrix': [25, 1, 9, 221], 'eval_runtime': 0.4427, 'eval_samples_per_second': 578.211, 'eval_steps_per_second': 72.276, 'epoch': 0.69}
+{'eval_loss': 0.17470280826091766, 'eval_accuracy': 0.9609375, 'eval_precision_weighted': 0.9690687930577637, 'eval_recall_weighted': 0.9609375, 'eval_f1_weighted': 0.9631959808259586, 'eval_f1_macro': 0.9056047197640118, 'eval_confusion_matrix': [25, 1, 9, 221], 'eval_runtime': 0.234, 'eval_samples_per_second': 1094.11, 'eval_steps_per_second': 136.764, 'epoch': 0.79}
+{'eval_loss': 0.18610627949237823, 'eval_accuracy': 0.9609375, 'eval_precision_weighted': 0.9690687930577637, 'eval_recall_weighted': 0.9609375, 'eval_f1_weighted': 0.9631959808259586, 'eval_f1_macro': 0.9056047197640118, 'eval_confusion_matrix': [25, 1, 9, 221], 'eval_runtime': 0.2285, 'eval_samples_per_second': 1120.275, 'eval_steps_per_second': 140.034, 'epoch': 0.89}
+{'eval_loss': 0.18635335564613342, 'eval_accuracy': 0.9609375, 'eval_precision_weighted': 0.9690687930577637, 'eval_recall_weighted': 0.9609375, 'eval_f1_weighted': 0.9631959808259586, 'eval_f1_macro': 0.9056047197640118, 'eval_confusion_matrix': [25, 1, 9, 221], 'eval_runtime': 0.4289, 'eval_samples_per_second': 596.822, 'eval_steps_per_second': 74.603, 'epoch': 0.99}
+{'train_runtime': 76.4104, 'train_samples_per_second': 33.909, 'train_steps_per_second': 4.24, 'train_loss': 0.47166179138937114, 'epoch': 1.0}
+[2025-10-22 14:49:47,734] - [INFO] - Training completed.
+[2025-10-22 14:49:47,774] - [INFO] - Running evaluation...
+[2025-10-22 14:49:48,044] - [INFO] - Evaluation Results:
+[2025-10-22 14:49:48,044] - [INFO] - eval_loss: 0.09832428395748138
+[2025-10-22 14:49:48,044] - [INFO] - eval_model_preparation_time: 0.0015
+[2025-10-22 14:49:48,044] - [INFO] - eval_accuracy: 0.9783132530120482
+[2025-10-22 14:49:48,044] - [INFO] - eval_true_accuracy: 0.9807162534435262
+[2025-10-22 14:49:48,044] - [INFO] - eval_false_accuracy: 0.9615384615384616
+[2025-10-22 14:49:48,044] - [INFO] - eval_runtime: 0.2622
+[2025-10-22 14:49:48,044] - [INFO] - eval_samples_per_second: 1582.681
+[2025-10-22 14:49:48,044] - [INFO] - eval_steps_per_second: 198.312
+[2025-10-22 14:49:48,044] - [INFO] - 
+=== Running combination ===
+[2025-10-22 14:49:48,044] - [INFO] - Over Sampling Ratio: 0.5, Under Sampling Ratio: 0.0
+[2025-10-22 14:49:49,687] - [INFO] - Original Train dataset class split: Counter({1: 2073, 0: 229}), with a total of 2302 samples
+[2025-10-22 14:49:49,849] - [INFO] - Sampled Train dataset class split: Counter({1: 2073, 0: 1036}), with a total of 3109 samples
+[2025-10-22 14:49:49,854] - [INFO] - Validation dataset class split: Counter({1: 230, 0: 26}), with a total of 256 samples
+[2025-10-22 14:49:49,858] - [INFO] - Test dataset class split: Counter({1: 363, 0: 52}), with a total of 415 samples
+38.0
+[2025-10-22 14:49:52,033] - [INFO] - Starting training of model (answerability classification).
+{'eval_loss': 0.7047338485717773, 'eval_accuracy': 0.11328125, 'eval_precision_weighted': 0.9088747529644269, 'eval_recall_weighted': 0.11328125, 'eval_f1_weighted': 0.04206494108326796, 'eval_f1_macro': 0.10606550063839279, 'eval_confusion_matrix': [26, 0, 227, 3], 'eval_runtime': 0.546, 'eval_samples_per_second': 468.843, 'eval_steps_per_second': 58.605, 'epoch': 0.1}
+{'eval_loss': 0.4334198832511902, 'eval_accuracy': 0.9140625, 'eval_precision_weighted': 0.9006143004722551, 'eval_recall_weighted': 0.9140625, 'eval_f1_weighted': 0.9022643008474576, 'eval_f1_macro': 0.7016949152542373, 'eval_confusion_matrix': [9, 17, 5, 225], 'eval_runtime': 0.2284, 'eval_samples_per_second': 1120.808, 'eval_steps_per_second': 140.101, 'epoch': 0.2}
+{'eval_loss': 0.3157254457473755, 'eval_accuracy': 0.953125, 'eval_precision_weighted': 0.9570151179941002, 'eval_recall_weighted': 0.953125, 'eval_f1_weighted': 0.9545935150375939, 'eval_f1_macro': 0.8796992481203008, 'eval_confusion_matrix': [22, 4, 8, 222], 'eval_runtime': 0.341, 'eval_samples_per_second': 750.639, 'eval_steps_per_second': 93.83, 'epoch': 0.29}
+{'eval_loss': 0.19612537324428558, 'eval_accuracy': 0.9609375, 'eval_precision_weighted': 0.9690687930577637, 'eval_recall_weighted': 0.9609375, 'eval_f1_weighted': 0.9631959808259586, 'eval_f1_macro': 0.9056047197640118, 'eval_confusion_matrix': [25, 1, 9, 221], 'eval_runtime': 0.2557, 'eval_samples_per_second': 1001.2, 'eval_steps_per_second': 125.15, 'epoch': 0.39}
+{'eval_loss': 0.18963733315467834, 'eval_accuracy': 0.9609375, 'eval_precision_weighted': 0.9690687930577637, 'eval_recall_weighted': 0.9609375, 'eval_f1_weighted': 0.9631959808259586, 'eval_f1_macro': 0.9056047197640118, 'eval_confusion_matrix': [25, 1, 9, 221], 'eval_runtime': 0.4474, 'eval_samples_per_second': 572.165, 'eval_steps_per_second': 71.521, 'epoch': 0.49}
+{'eval_loss': 0.20295502245426178, 'eval_accuracy': 0.9609375, 'eval_precision_weighted': 0.9690687930577637, 'eval_recall_weighted': 0.9609375, 'eval_f1_weighted': 0.9631959808259586, 'eval_f1_macro': 0.9056047197640118, 'eval_confusion_matrix': [25, 1, 9, 221], 'eval_runtime': 1.0912, 'eval_samples_per_second': 234.603, 'eval_steps_per_second': 29.325, 'epoch': 0.59}
+{'eval_loss': 0.2184995859861374, 'eval_accuracy': 0.9609375, 'eval_precision_weighted': 0.9690687930577637, 'eval_recall_weighted': 0.9609375, 'eval_f1_weighted': 0.9631959808259586, 'eval_f1_macro': 0.9056047197640118, 'eval_confusion_matrix': [25, 1, 9, 221], 'eval_runtime': 0.6484, 'eval_samples_per_second': 394.83, 'eval_steps_per_second': 49.354, 'epoch': 0.68}
+{'eval_loss': 0.18110403418540955, 'eval_accuracy': 0.9609375, 'eval_precision_weighted': 0.9690687930577637, 'eval_recall_weighted': 0.9609375, 'eval_f1_weighted': 0.9631959808259586, 'eval_f1_macro': 0.9056047197640118, 'eval_confusion_matrix': [25, 1, 9, 221], 'eval_runtime': 0.6544, 'eval_samples_per_second': 391.185, 'eval_steps_per_second': 48.898, 'epoch': 0.78}
+{'eval_loss': 0.207269087433815, 'eval_accuracy': 0.9609375, 'eval_precision_weighted': 0.9690687930577637, 'eval_recall_weighted': 0.9609375, 'eval_f1_weighted': 0.9631959808259586, 'eval_f1_macro': 0.9056047197640118, 'eval_confusion_matrix': [25, 1, 9, 221], 'eval_runtime': 0.597, 'eval_samples_per_second': 428.827, 'eval_steps_per_second': 53.603, 'epoch': 0.88}
+{'eval_loss': 0.20700521767139435, 'eval_accuracy': 0.9609375, 'eval_precision_weighted': 0.9690687930577637, 'eval_recall_weighted': 0.9609375, 'eval_f1_weighted': 0.9631959808259586, 'eval_f1_macro': 0.9056047197640118, 'eval_confusion_matrix': [25, 1, 9, 221], 'eval_runtime': 0.5554, 'eval_samples_per_second': 460.932, 'eval_steps_per_second': 57.616, 'epoch': 0.98}
+{'train_runtime': 74.8526, 'train_samples_per_second': 41.535, 'train_steps_per_second': 5.197, 'train_loss': 0.3395084881230921, 'epoch': 1.0}
+[2025-10-22 14:51:07,140] - [INFO] - Training completed.
+[2025-10-22 14:51:07,182] - [INFO] - Running evaluation...
+[2025-10-22 14:51:07,602] - [INFO] - Evaluation Results:
+[2025-10-22 14:51:07,602] - [INFO] - eval_loss: 0.12004116177558899
+[2025-10-22 14:51:07,602] - [INFO] - eval_model_preparation_time: 0.0015
+[2025-10-22 14:51:07,602] - [INFO] - eval_accuracy: 0.9783132530120482
+[2025-10-22 14:51:07,602] - [INFO] - eval_true_accuracy: 0.9807162534435262
+[2025-10-22 14:51:07,602] - [INFO] - eval_false_accuracy: 0.9615384615384616
+[2025-10-22 14:51:07,602] - [INFO] - eval_runtime: 0.4117
+[2025-10-22 14:51:07,602] - [INFO] - eval_samples_per_second: 1007.926
+[2025-10-22 14:51:07,602] - [INFO] - eval_steps_per_second: 126.294
+[2025-10-22 14:51:07,602] - [INFO] - 
+=== Running combination ===
+[2025-10-22 14:51:07,602] - [INFO] - Over Sampling Ratio: 0.5, Under Sampling Ratio: 0.25
+[2025-10-22 14:51:12,404] - [INFO] - Original Train dataset class split: Counter({1: 2073, 0: 229}), with a total of 2302 samples
+[2025-10-22 14:51:12,511] - [INFO] - Sampled Train dataset class split: Counter({0: 1036, 1: 518}), with a total of 1554 samples
+[2025-10-22 14:51:12,517] - [INFO] - Validation dataset class split: Counter({1: 230, 0: 26}), with a total of 256 samples
+[2025-10-22 14:51:12,521] - [INFO] - Test dataset class split: Counter({1: 363, 0: 52}), with a total of 415 samples
+19.0
+[2025-10-22 14:51:14,464] - [INFO] - Starting training of model (answerability classification).
+{'eval_loss': 0.8147248029708862, 'eval_accuracy': 0.1015625, 'eval_precision_weighted': 0.01031494140625, 'eval_recall_weighted': 0.1015625, 'eval_f1_weighted': 0.01872783687943262, 'eval_f1_macro': 0.09219858156028368, 'eval_confusion_matrix': [26, 0, 230, 0], 'eval_runtime': 0.2346, 'eval_samples_per_second': 1091.101, 'eval_steps_per_second': 136.388, 'epoch': 0.1}
+{'eval_loss': 0.686123251914978, 'eval_accuracy': 0.8984375, 'eval_precision_weighted': 0.8695186491935484, 'eval_recall_weighted': 0.8984375, 'eval_f1_weighted': 0.8734655734678809, 'eval_f1_macro': 0.5904504061038641, 'eval_confusion_matrix': [4, 22, 4, 226], 'eval_runtime': 0.2253, 'eval_samples_per_second': 1136.057, 'eval_steps_per_second': 142.007, 'epoch': 0.19}
+{'eval_loss': 0.6113739013671875, 'eval_accuracy': 0.8984375, 'eval_precision_weighted': 0.80718994140625, 'eval_recall_weighted': 0.8984375, 'eval_f1_weighted': 0.8503729423868313, 'eval_f1_macro': 0.4732510288065844, 'eval_confusion_matrix': [0, 26, 0, 230], 'eval_runtime': 0.2813, 'eval_samples_per_second': 910.173, 'eval_steps_per_second': 113.772, 'epoch': 0.29}
+{'eval_loss': 0.6969722509384155, 'eval_accuracy': 0.70703125, 'eval_precision_weighted': 0.8779126891984864, 'eval_recall_weighted': 0.70703125, 'eval_f1_weighted': 0.763339750286446, 'eval_f1_macro': 0.5686459526858529, 'eval_confusion_matrix': [18, 8, 67, 163], 'eval_runtime': 0.6141, 'eval_samples_per_second': 416.854, 'eval_steps_per_second': 52.107, 'epoch': 0.39}
+{'eval_loss': 0.6056413650512695, 'eval_accuracy': 0.64453125, 'eval_precision_weighted': 0.8882214177068306, 'eval_recall_weighted': 0.64453125, 'eval_f1_weighted': 0.7147900465213165, 'eval_f1_macro': 0.5378419663935564, 'eval_confusion_matrix': [21, 5, 86, 144], 'eval_runtime': 0.7369, 'eval_samples_per_second': 347.394, 'eval_steps_per_second': 43.424, 'epoch': 0.49}
+{'eval_loss': 0.27778539061546326, 'eval_accuracy': 0.92578125, 'eval_precision_weighted': 0.9532674486843542, 'eval_recall_weighted': 0.92578125, 'eval_f1_weighted': 0.9335000776981712, 'eval_f1_macro': 0.8408741453201165, 'eval_confusion_matrix': [25, 1, 18, 212], 'eval_runtime': 0.222, 'eval_samples_per_second': 1152.985, 'eval_steps_per_second': 144.123, 'epoch': 0.58}
+{'eval_loss': 0.2236333191394806, 'eval_accuracy': 0.93359375, 'eval_precision_weighted': 0.9561870745887692, 'eval_recall_weighted': 0.93359375, 'eval_f1_weighted': 0.939908078987087, 'eval_f1_macro': 0.8540332047627033, 'eval_confusion_matrix': [25, 1, 16, 214], 'eval_runtime': 0.2631, 'eval_samples_per_second': 972.967, 'eval_steps_per_second': 121.621, 'epoch': 0.68}
+{'eval_loss': 0.2170778512954712, 'eval_accuracy': 0.94921875, 'eval_precision_weighted': 0.9629583564729113, 'eval_recall_weighted': 0.94921875, 'eval_f1_weighted': 0.9530299916922967, 'eval_f1_macro': 0.8823487821260649, 'eval_confusion_matrix': [25, 1, 12, 218], 'eval_runtime': 0.5306, 'eval_samples_per_second': 482.451, 'eval_steps_per_second': 60.306, 'epoch': 0.78}
+{'eval_loss': 0.2018858790397644, 'eval_accuracy': 0.9609375, 'eval_precision_weighted': 0.9690687930577637, 'eval_recall_weighted': 0.9609375, 'eval_f1_weighted': 0.9631959808259586, 'eval_f1_macro': 0.9056047197640118, 'eval_confusion_matrix': [25, 1, 9, 221], 'eval_runtime': 0.437, 'eval_samples_per_second': 585.85, 'eval_steps_per_second': 73.231, 'epoch': 0.88}
+{'eval_loss': 0.16478818655014038, 'eval_accuracy': 0.9609375, 'eval_precision_weighted': 0.9690687930577637, 'eval_recall_weighted': 0.9609375, 'eval_f1_weighted': 0.9631959808259586, 'eval_f1_macro': 0.9056047197640118, 'eval_confusion_matrix': [25, 1, 9, 221], 'eval_runtime': 0.285, 'eval_samples_per_second': 898.379, 'eval_steps_per_second': 112.297, 'epoch': 0.97}
+{'train_runtime': 83.3477, 'train_samples_per_second': 18.645, 'train_steps_per_second': 2.34, 'train_loss': 0.47729625212840543, 'epoch': 1.0}
+[2025-10-22 14:52:38,062] - [INFO] - Training completed.
+[2025-10-22 14:52:38,111] - [INFO] - Running evaluation...
+[2025-10-22 14:52:38,453] - [INFO] - Evaluation Results:
+[2025-10-22 14:52:38,453] - [INFO] - eval_loss: 0.13971930742263794
+[2025-10-22 14:52:38,453] - [INFO] - eval_model_preparation_time: 0.0015
+[2025-10-22 14:52:38,453] - [INFO] - eval_accuracy: 0.9686746987951808
+[2025-10-22 14:52:38,453] - [INFO] - eval_true_accuracy: 0.9669421487603306
+[2025-10-22 14:52:38,453] - [INFO] - eval_false_accuracy: 0.9807692307692307
+[2025-10-22 14:52:38,453] - [INFO] - eval_runtime: 0.2694
+[2025-10-22 14:52:38,453] - [INFO] - eval_samples_per_second: 1540.435
+[2025-10-22 14:52:38,453] - [INFO] - eval_steps_per_second: 193.018
+[2025-10-22 14:52:38,453] - [INFO] - 
+=== Running combination ===
+[2025-10-22 14:52:38,453] - [INFO] - Over Sampling Ratio: 0.5, Under Sampling Ratio: 0.5
+[2025-10-22 14:52:40,062] - [INFO] - Original Train dataset class split: Counter({1: 2073, 0: 229}), with a total of 2302 samples
+[2025-10-22 14:52:40,198] - [INFO] - Sampled Train dataset class split: Counter({0: 1036, 1: 1036}), with a total of 2072 samples
+[2025-10-22 14:52:40,204] - [INFO] - Validation dataset class split: Counter({1: 230, 0: 26}), with a total of 256 samples
+[2025-10-22 14:52:40,208] - [INFO] - Test dataset class split: Counter({1: 363, 0: 52}), with a total of 415 samples
+25.0
+[2025-10-22 14:52:42,362] - [INFO] - Starting training of model (answerability classification).
+{'eval_loss': 0.5041441917419434, 'eval_accuracy': 0.796875, 'eval_precision_weighted': 0.8762276785714286, 'eval_recall_weighted': 0.796875, 'eval_f1_weighted': 0.8269462563811685, 'eval_f1_macro': 0.6224617129892229, 'eval_confusion_matrix': [15, 11, 41, 189], 'eval_runtime': 0.2928, 'eval_samples_per_second': 874.38, 'eval_steps_per_second': 109.298, 'epoch': 0.1}
+{'eval_loss': 0.5501091480255127, 'eval_accuracy': 0.6640625, 'eval_precision_weighted': 0.8668919917257684, 'eval_recall_weighted': 0.6640625, 'eval_f1_weighted': 0.730107355442177, 'eval_f1_macro': 0.5319727891156463, 'eval_confusion_matrix': [17, 9, 77, 153], 'eval_runtime': 0.6404, 'eval_samples_per_second': 399.774, 'eval_steps_per_second': 49.972, 'epoch': 0.19}
+{'eval_loss': 0.7059267163276672, 'eval_accuracy': 0.6640625, 'eval_precision_weighted': 0.8962787828947368, 'eval_recall_weighted': 0.6640625, 'eval_f1_weighted': 0.7305464659685865, 'eval_f1_macro': 0.5566653242045912, 'eval_confusion_matrix': [22, 4, 82, 148], 'eval_runtime': 0.624, 'eval_samples_per_second': 410.274, 'eval_steps_per_second': 51.284, 'epoch': 0.29}
+{'eval_loss': 0.4454524517059326, 'eval_accuracy': 0.828125, 'eval_precision_weighted': 0.9159513219155304, 'eval_recall_weighted': 0.828125, 'eval_f1_weighted': 0.8559846698113208, 'eval_f1_macro': 0.6981132075471699, 'eval_confusion_matrix': [22, 4, 40, 190], 'eval_runtime': 0.8157, 'eval_samples_per_second': 313.826, 'eval_steps_per_second': 39.228, 'epoch': 0.39}
+{'eval_loss': 0.21485142409801483, 'eval_accuracy': 0.9375, 'eval_precision_weighted': 0.9577546296296297, 'eval_recall_weighted': 0.9375, 'eval_f1_weighted': 0.943147846174752, 'eval_f1_macro': 0.8608506590569371, 'eval_confusion_matrix': [25, 1, 15, 215], 'eval_runtime': 0.2483, 'eval_samples_per_second': 1031.132, 'eval_steps_per_second': 128.892, 'epoch': 0.48}
+{'eval_loss': 0.20756550133228302, 'eval_accuracy': 0.9609375, 'eval_precision_weighted': 0.9690687930577637, 'eval_recall_weighted': 0.9609375, 'eval_f1_weighted': 0.9631959808259586, 'eval_f1_macro': 0.9056047197640118, 'eval_confusion_matrix': [25, 1, 9, 221], 'eval_runtime': 0.3332, 'eval_samples_per_second': 768.369, 'eval_steps_per_second': 96.046, 'epoch': 0.58}
+{'eval_loss': 0.2267361283302307, 'eval_accuracy': 0.9609375, 'eval_precision_weighted': 0.9690687930577637, 'eval_recall_weighted': 0.9609375, 'eval_f1_weighted': 0.9631959808259586, 'eval_f1_macro': 0.9056047197640118, 'eval_confusion_matrix': [25, 1, 9, 221], 'eval_runtime': 0.2257, 'eval_samples_per_second': 1134.072, 'eval_steps_per_second': 141.759, 'epoch': 0.68}
+{'eval_loss': 0.24943743646144867, 'eval_accuracy': 0.95703125, 'eval_precision_weighted': 0.9669168148028443, 'eval_recall_weighted': 0.95703125, 'eval_f1_weighted': 0.9597723410635746, 'eval_f1_macro': 0.897640943622551, 'eval_confusion_matrix': [25, 1, 10, 220], 'eval_runtime': 0.6142, 'eval_samples_per_second': 416.793, 'eval_steps_per_second': 52.099, 'epoch': 0.77}
+{'eval_loss': 0.2606757879257202, 'eval_accuracy': 0.95703125, 'eval_precision_weighted': 0.9669168148028443, 'eval_recall_weighted': 0.95703125, 'eval_f1_weighted': 0.9597723410635746, 'eval_f1_macro': 0.897640943622551, 'eval_confusion_matrix': [25, 1, 10, 220], 'eval_runtime': 0.3637, 'eval_samples_per_second': 703.856, 'eval_steps_per_second': 87.982, 'epoch': 0.87}
+{'eval_loss': 0.25190043449401855, 'eval_accuracy': 0.95703125, 'eval_precision_weighted': 0.9669168148028443, 'eval_recall_weighted': 0.95703125, 'eval_f1_weighted': 0.9597723410635746, 'eval_f1_macro': 0.897640943622551, 'eval_confusion_matrix': [25, 1, 10, 220], 'eval_runtime': 0.3091, 'eval_samples_per_second': 828.273, 'eval_steps_per_second': 103.534, 'epoch': 0.97}
+{'train_runtime': 45.6913, 'train_samples_per_second': 45.348, 'train_steps_per_second': 5.668, 'train_loss': 0.36377409710387004, 'epoch': 1.0}
+[2025-10-22 14:53:28,462] - [INFO] - Training completed.
+[2025-10-22 14:53:28,501] - [INFO] - Running evaluation...
+[2025-10-22 14:53:28,788] - [INFO] - Evaluation Results:
+[2025-10-22 14:53:28,788] - [INFO] - eval_loss: 0.09471315890550613
+[2025-10-22 14:53:28,788] - [INFO] - eval_model_preparation_time: 0.0015
+[2025-10-22 14:53:28,788] - [INFO] - eval_accuracy: 0.983132530120482
+[2025-10-22 14:53:28,788] - [INFO] - eval_true_accuracy: 0.9834710743801653
+[2025-10-22 14:53:28,788] - [INFO] - eval_false_accuracy: 0.9807692307692307
+[2025-10-22 14:53:28,788] - [INFO] - eval_runtime: 0.2641
+[2025-10-22 14:53:28,788] - [INFO] - eval_samples_per_second: 1571.485
+[2025-10-22 14:53:28,788] - [INFO] - eval_steps_per_second: 196.909
+[2025-10-22 14:53:28,789] - [INFO] - 
+=== Running combination ===
+[2025-10-22 14:53:28,789] - [INFO] - Over Sampling Ratio: 0.5, Under Sampling Ratio: 1.0
+[2025-10-22 14:54:15,411] - [INFO] - Original Train dataset class split: Counter({1: 2073, 0: 229}), with a total of 2302 samples
+[2025-10-22 14:54:15,543] - [INFO] - Sampled Train dataset class split: Counter({1: 2073, 0: 1036}), with a total of 3109 samples
+[2025-10-22 14:54:15,548] - [INFO] - Validation dataset class split: Counter({1: 230, 0: 26}), with a total of 256 samples
+[2025-10-22 14:54:15,552] - [INFO] - Test dataset class split: Counter({1: 363, 0: 52}), with a total of 415 samples
+38.0
+[2025-10-22 14:54:18,798] - [INFO] - Starting training of model (answerability classification).
+{'eval_loss': 0.7047338485717773, 'eval_accuracy': 0.11328125, 'eval_precision_weighted': 0.9088747529644269, 'eval_recall_weighted': 0.11328125, 'eval_f1_weighted': 0.04206494108326796, 'eval_f1_macro': 0.10606550063839279, 'eval_confusion_matrix': [26, 0, 227, 3], 'eval_runtime': 0.3927, 'eval_samples_per_second': 651.889, 'eval_steps_per_second': 81.486, 'epoch': 0.1}
+{'eval_loss': 0.4334198832511902, 'eval_accuracy': 0.9140625, 'eval_precision_weighted': 0.9006143004722551, 'eval_recall_weighted': 0.9140625, 'eval_f1_weighted': 0.9022643008474576, 'eval_f1_macro': 0.7016949152542373, 'eval_confusion_matrix': [9, 17, 5, 225], 'eval_runtime': 0.2494, 'eval_samples_per_second': 1026.485, 'eval_steps_per_second': 128.311, 'epoch': 0.2}
+{'eval_loss': 0.3157254457473755, 'eval_accuracy': 0.953125, 'eval_precision_weighted': 0.9570151179941002, 'eval_recall_weighted': 0.953125, 'eval_f1_weighted': 0.9545935150375939, 'eval_f1_macro': 0.8796992481203008, 'eval_confusion_matrix': [22, 4, 8, 222], 'eval_runtime': 0.3543, 'eval_samples_per_second': 722.616, 'eval_steps_per_second': 90.327, 'epoch': 0.29}
+{'eval_loss': 0.19612537324428558, 'eval_accuracy': 0.9609375, 'eval_precision_weighted': 0.9690687930577637, 'eval_recall_weighted': 0.9609375, 'eval_f1_weighted': 0.9631959808259586, 'eval_f1_macro': 0.9056047197640118, 'eval_confusion_matrix': [25, 1, 9, 221], 'eval_runtime': 0.2735, 'eval_samples_per_second': 936.078, 'eval_steps_per_second': 117.01, 'epoch': 0.39}
+{'eval_loss': 0.18963733315467834, 'eval_accuracy': 0.9609375, 'eval_precision_weighted': 0.9690687930577637, 'eval_recall_weighted': 0.9609375, 'eval_f1_weighted': 0.9631959808259586, 'eval_f1_macro': 0.9056047197640118, 'eval_confusion_matrix': [25, 1, 9, 221], 'eval_runtime': 0.5034, 'eval_samples_per_second': 508.497, 'eval_steps_per_second': 63.562, 'epoch': 0.49}
+{'eval_loss': 0.20295502245426178, 'eval_accuracy': 0.9609375, 'eval_precision_weighted': 0.9690687930577637, 'eval_recall_weighted': 0.9609375, 'eval_f1_weighted': 0.9631959808259586, 'eval_f1_macro': 0.9056047197640118, 'eval_confusion_matrix': [25, 1, 9, 221], 'eval_runtime': 0.2292, 'eval_samples_per_second': 1116.773, 'eval_steps_per_second': 139.597, 'epoch': 0.59}
+{'eval_loss': 0.2184995859861374, 'eval_accuracy': 0.9609375, 'eval_precision_weighted': 0.9690687930577637, 'eval_recall_weighted': 0.9609375, 'eval_f1_weighted': 0.9631959808259586, 'eval_f1_macro': 0.9056047197640118, 'eval_confusion_matrix': [25, 1, 9, 221], 'eval_runtime': 0.4838, 'eval_samples_per_second': 529.163, 'eval_steps_per_second': 66.145, 'epoch': 0.68}
+{'eval_loss': 0.18110403418540955, 'eval_accuracy': 0.9609375, 'eval_precision_weighted': 0.9690687930577637, 'eval_recall_weighted': 0.9609375, 'eval_f1_weighted': 0.9631959808259586, 'eval_f1_macro': 0.9056047197640118, 'eval_confusion_matrix': [25, 1, 9, 221], 'eval_runtime': 0.4044, 'eval_samples_per_second': 633.004, 'eval_steps_per_second': 79.125, 'epoch': 0.78}
+{'eval_loss': 0.207269087433815, 'eval_accuracy': 0.9609375, 'eval_precision_weighted': 0.9690687930577637, 'eval_recall_weighted': 0.9609375, 'eval_f1_weighted': 0.9631959808259586, 'eval_f1_macro': 0.9056047197640118, 'eval_confusion_matrix': [25, 1, 9, 221], 'eval_runtime': 0.2287, 'eval_samples_per_second': 1119.261, 'eval_steps_per_second': 139.908, 'epoch': 0.88}
+{'eval_loss': 0.20700521767139435, 'eval_accuracy': 0.9609375, 'eval_precision_weighted': 0.9690687930577637, 'eval_recall_weighted': 0.9609375, 'eval_f1_weighted': 0.9631959808259586, 'eval_f1_macro': 0.9056047197640118, 'eval_confusion_matrix': [25, 1, 9, 221], 'eval_runtime': 0.4937, 'eval_samples_per_second': 518.552, 'eval_steps_per_second': 64.819, 'epoch': 0.98}
+{'train_runtime': 47.28, 'train_samples_per_second': 65.757, 'train_steps_per_second': 8.228, 'train_loss': 0.3395084881230921, 'epoch': 1.0}
+[2025-10-22 14:55:06,321] - [INFO] - Training completed.
+[2025-10-22 14:55:06,363] - [INFO] - Running evaluation...
+[2025-10-22 14:55:06,635] - [INFO] - Evaluation Results:
+[2025-10-22 14:55:06,635] - [INFO] - eval_loss: 0.12004116177558899
+[2025-10-22 14:55:06,635] - [INFO] - eval_model_preparation_time: 0.0016
+[2025-10-22 14:55:06,635] - [INFO] - eval_accuracy: 0.9783132530120482
+[2025-10-22 14:55:06,635] - [INFO] - eval_true_accuracy: 0.9807162534435262
+[2025-10-22 14:55:06,635] - [INFO] - eval_false_accuracy: 0.9615384615384616
+[2025-10-22 14:55:06,635] - [INFO] - eval_runtime: 0.264
+[2025-10-22 14:55:06,635] - [INFO] - eval_samples_per_second: 1572.213
+[2025-10-22 14:55:06,635] - [INFO] - eval_steps_per_second: 197.0
+[2025-10-22 14:55:06,635] - [INFO] - 
+=== Running combination ===
+[2025-10-22 14:55:06,635] - [INFO] - Over Sampling Ratio: 1.0, Under Sampling Ratio: 0.0
+[2025-10-22 14:55:08,129] - [INFO] - Original Train dataset class split: Counter({1: 2073, 0: 229}), with a total of 2302 samples
+[2025-10-22 14:55:27,915] - [INFO] - Sampled Train dataset class split: Counter({0: 2073, 1: 2073}), with a total of 4146 samples
+[2025-10-22 14:55:31,222] - [INFO] - Validation dataset class split: Counter({1: 230, 0: 26}), with a total of 256 samples
+[2025-10-22 14:55:31,226] - [INFO] - Test dataset class split: Counter({1: 363, 0: 52}), with a total of 415 samples
+51.0
+[2025-10-22 14:55:53,256] - [INFO] - Starting training of model (answerability classification).
+{'eval_loss': 0.8657597303390503, 'eval_accuracy': 0.45703125, 'eval_precision_weighted': 0.9043539522725773, 'eval_recall_weighted': 0.45703125, 'eval_f1_weighted': 0.5386717918161417, 'eval_f1_macro': 0.4171048536373614, 'eval_confusion_matrix': [25, 1, 138, 92], 'eval_runtime': 0.3838, 'eval_samples_per_second': 666.983, 'eval_steps_per_second': 83.373, 'epoch': 0.1}
+{'eval_loss': 0.16600215435028076, 'eval_accuracy': 0.9609375, 'eval_precision_weighted': 0.9690687930577637, 'eval_recall_weighted': 0.9609375, 'eval_f1_weighted': 0.9631959808259586, 'eval_f1_macro': 0.9056047197640118, 'eval_confusion_matrix': [25, 1, 9, 221], 'eval_runtime': 0.2731, 'eval_samples_per_second': 937.467, 'eval_steps_per_second': 117.183, 'epoch': 0.2}
+{'eval_loss': 0.226774662733078, 'eval_accuracy': 0.9609375, 'eval_precision_weighted': 0.9690687930577637, 'eval_recall_weighted': 0.9609375, 'eval_f1_weighted': 0.9631959808259586, 'eval_f1_macro': 0.9056047197640118, 'eval_confusion_matrix': [25, 1, 9, 221], 'eval_runtime': 0.2571, 'eval_samples_per_second': 995.554, 'eval_steps_per_second': 124.444, 'epoch': 0.29}
+{'eval_loss': 0.254728764295578, 'eval_accuracy': 0.9609375, 'eval_precision_weighted': 0.9690687930577637, 'eval_recall_weighted': 0.9609375, 'eval_f1_weighted': 0.9631959808259586, 'eval_f1_macro': 0.9056047197640118, 'eval_confusion_matrix': [25, 1, 9, 221], 'eval_runtime': 0.2329, 'eval_samples_per_second': 1099.353, 'eval_steps_per_second': 137.419, 'epoch': 0.39}
+{'eval_loss': 0.2382122427225113, 'eval_accuracy': 0.9609375, 'eval_precision_weighted': 0.9690687930577637, 'eval_recall_weighted': 0.9609375, 'eval_f1_weighted': 0.9631959808259586, 'eval_f1_macro': 0.9056047197640118, 'eval_confusion_matrix': [25, 1, 9, 221], 'eval_runtime': 0.7979, 'eval_samples_per_second': 320.833, 'eval_steps_per_second': 40.104, 'epoch': 0.49}
+{'eval_loss': 0.22758707404136658, 'eval_accuracy': 0.9609375, 'eval_precision_weighted': 0.9690687930577637, 'eval_recall_weighted': 0.9609375, 'eval_f1_weighted': 0.9631959808259586, 'eval_f1_macro': 0.9056047197640118, 'eval_confusion_matrix': [25, 1, 9, 221], 'eval_runtime': 0.5644, 'eval_samples_per_second': 453.609, 'eval_steps_per_second': 56.701, 'epoch': 0.59}
+{'eval_loss': 0.2316087931394577, 'eval_accuracy': 0.9609375, 'eval_precision_weighted': 0.9690687930577637, 'eval_recall_weighted': 0.9609375, 'eval_f1_weighted': 0.9631959808259586, 'eval_f1_macro': 0.9056047197640118, 'eval_confusion_matrix': [25, 1, 9, 221], 'eval_runtime': 0.3732, 'eval_samples_per_second': 686.042, 'eval_steps_per_second': 85.755, 'epoch': 0.69}
+{'eval_loss': 0.20696701109409332, 'eval_accuracy': 0.9609375, 'eval_precision_weighted': 0.9690687930577637, 'eval_recall_weighted': 0.9609375, 'eval_f1_weighted': 0.9631959808259586, 'eval_f1_macro': 0.9056047197640118, 'eval_confusion_matrix': [25, 1, 9, 221], 'eval_runtime': 0.3066, 'eval_samples_per_second': 835.009, 'eval_steps_per_second': 104.376, 'epoch': 0.79}
+{'eval_loss': 0.24340802431106567, 'eval_accuracy': 0.9609375, 'eval_precision_weighted': 0.9690687930577637, 'eval_recall_weighted': 0.9609375, 'eval_f1_weighted': 0.9631959808259586, 'eval_f1_macro': 0.9056047197640118, 'eval_confusion_matrix': [25, 1, 9, 221], 'eval_runtime': 0.238, 'eval_samples_per_second': 1075.501, 'eval_steps_per_second': 134.438, 'epoch': 0.88}
+{'loss': 0.2454, 'grad_norm': 0.10105534642934799, 'learning_rate': 7.707129094412331e-07, 'epoch': 0.96}
+{'eval_loss': 0.23261131346225739, 'eval_accuracy': 0.9609375, 'eval_precision_weighted': 0.9690687930577637, 'eval_recall_weighted': 0.9609375, 'eval_f1_weighted': 0.9631959808259586, 'eval_f1_macro': 0.9056047197640118, 'eval_confusion_matrix': [25, 1, 9, 221], 'eval_runtime': 1.0243, 'eval_samples_per_second': 249.925, 'eval_steps_per_second': 31.241, 'epoch': 0.98}
+{'train_runtime': 55.1081, 'train_samples_per_second': 75.234, 'train_steps_per_second': 9.418, 'train_loss': 0.24366062454635237, 'epoch': 1.0}
+[2025-10-22 14:56:48,672] - [INFO] - Training completed.
+[2025-10-22 14:56:48,714] - [INFO] - Running evaluation...
+[2025-10-22 14:56:49,006] - [INFO] - Evaluation Results:
+[2025-10-22 14:56:49,006] - [INFO] - eval_loss: 0.09899596869945526
+[2025-10-22 14:56:49,006] - [INFO] - eval_model_preparation_time: 0.0015
+[2025-10-22 14:56:49,006] - [INFO] - eval_accuracy: 0.9759036144578314
+[2025-10-22 14:56:49,006] - [INFO] - eval_true_accuracy: 0.9752066115702479
+[2025-10-22 14:56:49,006] - [INFO] - eval_false_accuracy: 0.9807692307692307
+[2025-10-22 14:56:49,006] - [INFO] - eval_runtime: 0.2628
+[2025-10-22 14:56:49,006] - [INFO] - eval_samples_per_second: 1578.897
+[2025-10-22 14:56:49,006] - [INFO] - eval_steps_per_second: 197.838
+[2025-10-22 14:56:49,006] - [INFO] - 
+=== Running combination ===
+[2025-10-22 14:56:49,006] - [INFO] - Over Sampling Ratio: 1.0, Under Sampling Ratio: 0.25
+[2025-10-22 14:56:54,973] - [INFO] - Original Train dataset class split: Counter({1: 2073, 0: 229}), with a total of 2302 samples
+[2025-10-22 14:56:55,987] - [INFO] - Sampled Train dataset class split: Counter({0: 2073, 1: 518}), with a total of 2591 samples
+[2025-10-22 14:56:55,992] - [INFO] - Validation dataset class split: Counter({1: 230, 0: 26}), with a total of 256 samples
+[2025-10-22 14:56:55,996] - [INFO] - Test dataset class split: Counter({1: 363, 0: 52}), with a total of 415 samples
+32.0
+[2025-10-22 14:56:58,276] - [INFO] - Starting training of model (answerability classification).
+{'eval_loss': 0.9098156690597534, 'eval_accuracy': 0.1015625, 'eval_precision_weighted': 0.01031494140625, 'eval_recall_weighted': 0.1015625, 'eval_f1_weighted': 0.01872783687943262, 'eval_f1_macro': 0.09219858156028368, 'eval_confusion_matrix': [26, 0, 230, 0], 'eval_runtime': 0.345, 'eval_samples_per_second': 741.978, 'eval_steps_per_second': 92.747, 'epoch': 0.1}
+{'eval_loss': 0.8477609157562256, 'eval_accuracy': 0.1015625, 'eval_precision_weighted': 0.01031494140625, 'eval_recall_weighted': 0.1015625, 'eval_f1_weighted': 0.01872783687943262, 'eval_f1_macro': 0.09219858156028368, 'eval_confusion_matrix': [26, 0, 230, 0], 'eval_runtime': 1.0022, 'eval_samples_per_second': 255.447, 'eval_steps_per_second': 31.931, 'epoch': 0.2}
+{'eval_loss': 0.5573322772979736, 'eval_accuracy': 0.7109375, 'eval_precision_weighted': 0.857250548245614, 'eval_recall_weighted': 0.7109375, 'eval_f1_weighted': 0.7641603897656623, 'eval_f1_macro': 0.5470109995217599, 'eval_confusion_matrix': [14, 12, 62, 168], 'eval_runtime': 0.8286, 'eval_samples_per_second': 308.936, 'eval_steps_per_second': 38.617, 'epoch': 0.3}
+{'eval_loss': 0.41984227299690247, 'eval_accuracy': 0.87890625, 'eval_precision_weighted': 0.9447642543859649, 'eval_recall_weighted': 0.87890625, 'eval_f1_weighted': 0.897144960962732, 'eval_f1_macro': 0.7771224759176567, 'eval_confusion_matrix': [26, 0, 31, 199], 'eval_runtime': 0.956, 'eval_samples_per_second': 267.769, 'eval_steps_per_second': 33.471, 'epoch': 0.4}
+{'eval_loss': 0.19846244156360626, 'eval_accuracy': 0.9609375, 'eval_precision_weighted': 0.9690687930577637, 'eval_recall_weighted': 0.9609375, 'eval_f1_weighted': 0.9631959808259586, 'eval_f1_macro': 0.9056047197640118, 'eval_confusion_matrix': [25, 1, 9, 221], 'eval_runtime': 0.7266, 'eval_samples_per_second': 352.322, 'eval_steps_per_second': 44.04, 'epoch': 0.49}
+{'eval_loss': 0.21937862038612366, 'eval_accuracy': 0.9609375, 'eval_precision_weighted': 0.9690687930577637, 'eval_recall_weighted': 0.9609375, 'eval_f1_weighted': 0.9631959808259586, 'eval_f1_macro': 0.9056047197640118, 'eval_confusion_matrix': [25, 1, 9, 221], 'eval_runtime': 0.9734, 'eval_samples_per_second': 263.002, 'eval_steps_per_second': 32.875, 'epoch': 0.59}
+{'eval_loss': 0.238587886095047, 'eval_accuracy': 0.9609375, 'eval_precision_weighted': 0.9690687930577637, 'eval_recall_weighted': 0.9609375, 'eval_f1_weighted': 0.9631959808259586, 'eval_f1_macro': 0.9056047197640118, 'eval_confusion_matrix': [25, 1, 9, 221], 'eval_runtime': 0.4484, 'eval_samples_per_second': 570.972, 'eval_steps_per_second': 71.372, 'epoch': 0.69}
+{'eval_loss': 0.2832663655281067, 'eval_accuracy': 0.95703125, 'eval_precision_weighted': 0.9669168148028443, 'eval_recall_weighted': 0.95703125, 'eval_f1_weighted': 0.9597723410635746, 'eval_f1_macro': 0.897640943622551, 'eval_confusion_matrix': [25, 1, 10, 220], 'eval_runtime': 0.2261, 'eval_samples_per_second': 1132.179, 'eval_steps_per_second': 141.522, 'epoch': 0.79}
+{'eval_loss': 0.29721999168395996, 'eval_accuracy': 0.95703125, 'eval_precision_weighted': 0.9669168148028443, 'eval_recall_weighted': 0.95703125, 'eval_f1_weighted': 0.9597723410635746, 'eval_f1_macro': 0.897640943622551, 'eval_confusion_matrix': [25, 1, 10, 220], 'eval_runtime': 0.5713, 'eval_samples_per_second': 448.077, 'eval_steps_per_second': 56.01, 'epoch': 0.89}
+{'eval_loss': 0.2990809977054596, 'eval_accuracy': 0.95703125, 'eval_precision_weighted': 0.9669168148028443, 'eval_recall_weighted': 0.95703125, 'eval_f1_weighted': 0.9597723410635746, 'eval_f1_macro': 0.897640943622551, 'eval_confusion_matrix': [25, 1, 10, 220], 'eval_runtime': 0.4627, 'eval_samples_per_second': 553.313, 'eval_steps_per_second': 69.164, 'epoch': 0.99}
+{'train_runtime': 50.7872, 'train_samples_per_second': 51.017, 'train_steps_per_second': 6.38, 'train_loss': 0.37221202143916376, 'epoch': 1.0}
+[2025-10-22 14:57:49,394] - [INFO] - Training completed.
+[2025-10-22 14:57:49,416] - [INFO] - Running evaluation...
+[2025-10-22 14:57:49,707] - [INFO] - Evaluation Results:
+[2025-10-22 14:57:49,707] - [INFO] - eval_loss: 0.1137162521481514
+[2025-10-22 14:57:49,707] - [INFO] - eval_model_preparation_time: 0.0015
+[2025-10-22 14:57:49,707] - [INFO] - eval_accuracy: 0.9783132530120482
+[2025-10-22 14:57:49,707] - [INFO] - eval_true_accuracy: 0.9807162534435262
+[2025-10-22 14:57:49,707] - [INFO] - eval_false_accuracy: 0.9615384615384616
+[2025-10-22 14:57:49,707] - [INFO] - eval_runtime: 0.2632
+[2025-10-22 14:57:49,707] - [INFO] - eval_samples_per_second: 1576.619
+[2025-10-22 14:57:49,707] - [INFO] - eval_steps_per_second: 197.552
+[2025-10-22 14:57:49,707] - [INFO] - 
+=== Running combination ===
+[2025-10-22 14:57:49,707] - [INFO] - Over Sampling Ratio: 1.0, Under Sampling Ratio: 0.5
+[2025-10-22 14:58:10,111] - [INFO] - Original Train dataset class split: Counter({1: 2073, 0: 229}), with a total of 2302 samples
+[2025-10-22 14:58:12,226] - [INFO] - Sampled Train dataset class split: Counter({0: 2073, 1: 1036}), with a total of 3109 samples
+[2025-10-22 14:58:12,232] - [INFO] - Validation dataset class split: Counter({1: 230, 0: 26}), with a total of 256 samples
+[2025-10-22 14:58:12,236] - [INFO] - Test dataset class split: Counter({1: 363, 0: 52}), with a total of 415 samples
+38.0
+[2025-10-22 14:58:16,428] - [INFO] - Starting training of model (answerability classification).
+{'eval_loss': 0.87629234790802, 'eval_accuracy': 0.14453125, 'eval_precision_weighted': 0.9092155612244898, 'eval_recall_weighted': 0.14453125, 'eval_f1_weighted': 0.10150304887384973, 'eval_f1_macro': 0.14158411293656506, 'eval_confusion_matrix': [26, 0, 219, 11], 'eval_runtime': 0.9193, 'eval_samples_per_second': 278.464, 'eval_steps_per_second': 34.808, 'epoch': 0.1}
+{'eval_loss': 0.6597768068313599, 'eval_accuracy': 0.8359375, 'eval_precision_weighted': 0.8706741898148149, 'eval_recall_weighted': 0.8359375, 'eval_f1_weighted': 0.850763096208724, 'eval_f1_macro': 0.6347329800244599, 'eval_confusion_matrix': [12, 14, 28, 202], 'eval_runtime': 0.4543, 'eval_samples_per_second': 563.445, 'eval_steps_per_second': 70.431, 'epoch': 0.2}
+{'eval_loss': 1.041205644607544, 'eval_accuracy': 0.640625, 'eval_precision_weighted': 0.9071650296515938, 'eval_recall_weighted': 0.640625, 'eval_f1_weighted': 0.7110647081413211, 'eval_f1_macro': 0.5477726574500767, 'eval_confusion_matrix': [24, 2, 90, 140], 'eval_runtime': 0.3699, 'eval_samples_per_second': 692.017, 'eval_steps_per_second': 86.502, 'epoch': 0.29}
+{'eval_loss': 0.21637007594108582, 'eval_accuracy': 0.9609375, 'eval_precision_weighted': 0.9690687930577637, 'eval_recall_weighted': 0.9609375, 'eval_f1_weighted': 0.9631959808259586, 'eval_f1_macro': 0.9056047197640118, 'eval_confusion_matrix': [25, 1, 9, 221], 'eval_runtime': 0.6932, 'eval_samples_per_second': 369.29, 'eval_steps_per_second': 46.161, 'epoch': 0.39}
+{'eval_loss': 0.2493632286787033, 'eval_accuracy': 0.9609375, 'eval_precision_weighted': 0.9690687930577637, 'eval_recall_weighted': 0.9609375, 'eval_f1_weighted': 0.9631959808259586, 'eval_f1_macro': 0.9056047197640118, 'eval_confusion_matrix': [25, 1, 9, 221], 'eval_runtime': 0.4298, 'eval_samples_per_second': 595.587, 'eval_steps_per_second': 74.448, 'epoch': 0.49}
+{'eval_loss': 0.2736044228076935, 'eval_accuracy': 0.9609375, 'eval_precision_weighted': 0.9690687930577637, 'eval_recall_weighted': 0.9609375, 'eval_f1_weighted': 0.9631959808259586, 'eval_f1_macro': 0.9056047197640118, 'eval_confusion_matrix': [25, 1, 9, 221], 'eval_runtime': 0.2286, 'eval_samples_per_second': 1119.995, 'eval_steps_per_second': 139.999, 'epoch': 0.59}
+{'eval_loss': 0.26047876477241516, 'eval_accuracy': 0.9609375, 'eval_precision_weighted': 0.9690687930577637, 'eval_recall_weighted': 0.9609375, 'eval_f1_weighted': 0.9631959808259586, 'eval_f1_macro': 0.9056047197640118, 'eval_confusion_matrix': [25, 1, 9, 221], 'eval_runtime': 0.2253, 'eval_samples_per_second': 1136.333, 'eval_steps_per_second': 142.042, 'epoch': 0.68}
+{'eval_loss': 0.2756757438182831, 'eval_accuracy': 0.9609375, 'eval_precision_weighted': 0.9690687930577637, 'eval_recall_weighted': 0.9609375, 'eval_f1_weighted': 0.9631959808259586, 'eval_f1_macro': 0.9056047197640118, 'eval_confusion_matrix': [25, 1, 9, 221], 'eval_runtime': 0.5583, 'eval_samples_per_second': 458.559, 'eval_steps_per_second': 57.32, 'epoch': 0.78}
+{'eval_loss': 0.2852141857147217, 'eval_accuracy': 0.95703125, 'eval_precision_weighted': 0.9669168148028443, 'eval_recall_weighted': 0.95703125, 'eval_f1_weighted': 0.9597723410635746, 'eval_f1_macro': 0.897640943622551, 'eval_confusion_matrix': [25, 1, 10, 220], 'eval_runtime': 0.2684, 'eval_samples_per_second': 953.809, 'eval_steps_per_second': 119.226, 'epoch': 0.88}
+{'eval_loss': 0.30489790439605713, 'eval_accuracy': 0.94921875, 'eval_precision_weighted': 0.9629583564729113, 'eval_recall_weighted': 0.94921875, 'eval_f1_weighted': 0.9530299916922967, 'eval_f1_macro': 0.8823487821260649, 'eval_confusion_matrix': [25, 1, 12, 218], 'eval_runtime': 0.5987, 'eval_samples_per_second': 427.568, 'eval_steps_per_second': 53.446, 'epoch': 0.98}
+{'train_runtime': 65.3039, 'train_samples_per_second': 47.608, 'train_steps_per_second': 5.957, 'train_loss': 0.33560518004900386, 'epoch': 1.0}
+[2025-10-22 14:59:22,079] - [INFO] - Training completed.
+[2025-10-22 14:59:22,119] - [INFO] - Running evaluation...
+[2025-10-22 14:59:22,388] - [INFO] - Evaluation Results:
+[2025-10-22 14:59:22,388] - [INFO] - eval_loss: 0.10800547897815704
+[2025-10-22 14:59:22,388] - [INFO] - eval_model_preparation_time: 0.0015
+[2025-10-22 14:59:22,389] - [INFO] - eval_accuracy: 0.980722891566265
+[2025-10-22 14:59:22,389] - [INFO] - eval_true_accuracy: 0.9834710743801653
+[2025-10-22 14:59:22,389] - [INFO] - eval_false_accuracy: 0.9615384615384616
+[2025-10-22 14:59:22,389] - [INFO] - eval_runtime: 0.2619
+[2025-10-22 14:59:22,389] - [INFO] - eval_samples_per_second: 1584.544
+[2025-10-22 14:59:22,389] - [INFO] - eval_steps_per_second: 198.545
+[2025-10-22 14:59:22,389] - [INFO] - 
+=== Running combination ===
+[2025-10-22 14:59:22,389] - [INFO] - Over Sampling Ratio: 1.0, Under Sampling Ratio: 1.0
+[2025-10-22 14:59:27,079] - [INFO] - Original Train dataset class split: Counter({1: 2073, 0: 229}), with a total of 2302 samples
+[2025-10-22 14:59:27,253] - [INFO] - Sampled Train dataset class split: Counter({0: 2073, 1: 2073}), with a total of 4146 samples
+[2025-10-22 14:59:27,258] - [INFO] - Validation dataset class split: Counter({1: 230, 0: 26}), with a total of 256 samples
+[2025-10-22 14:59:27,262] - [INFO] - Test dataset class split: Counter({1: 363, 0: 52}), with a total of 415 samples
+51.0
+[2025-10-22 14:59:33,905] - [INFO] - Starting training of model (answerability classification).
+{'eval_loss': 0.8657597303390503, 'eval_accuracy': 0.45703125, 'eval_precision_weighted': 0.9043539522725773, 'eval_recall_weighted': 0.45703125, 'eval_f1_weighted': 0.5386717918161417, 'eval_f1_macro': 0.4171048536373614, 'eval_confusion_matrix': [25, 1, 138, 92], 'eval_runtime': 0.3998, 'eval_samples_per_second': 640.389, 'eval_steps_per_second': 80.049, 'epoch': 0.1}
+{'eval_loss': 0.16600215435028076, 'eval_accuracy': 0.9609375, 'eval_precision_weighted': 0.9690687930577637, 'eval_recall_weighted': 0.9609375, 'eval_f1_weighted': 0.9631959808259586, 'eval_f1_macro': 0.9056047197640118, 'eval_confusion_matrix': [25, 1, 9, 221], 'eval_runtime': 0.4236, 'eval_samples_per_second': 604.287, 'eval_steps_per_second': 75.536, 'epoch': 0.2}
+{'eval_loss': 0.226774662733078, 'eval_accuracy': 0.9609375, 'eval_precision_weighted': 0.9690687930577637, 'eval_recall_weighted': 0.9609375, 'eval_f1_weighted': 0.9631959808259586, 'eval_f1_macro': 0.9056047197640118, 'eval_confusion_matrix': [25, 1, 9, 221], 'eval_runtime': 0.2435, 'eval_samples_per_second': 1051.177, 'eval_steps_per_second': 131.397, 'epoch': 0.29}
+{'eval_loss': 0.254728764295578, 'eval_accuracy': 0.9609375, 'eval_precision_weighted': 0.9690687930577637, 'eval_recall_weighted': 0.9609375, 'eval_f1_weighted': 0.9631959808259586, 'eval_f1_macro': 0.9056047197640118, 'eval_confusion_matrix': [25, 1, 9, 221], 'eval_runtime': 0.3802, 'eval_samples_per_second': 673.398, 'eval_steps_per_second': 84.175, 'epoch': 0.39}
+{'eval_loss': 0.2382122427225113, 'eval_accuracy': 0.9609375, 'eval_precision_weighted': 0.9690687930577637, 'eval_recall_weighted': 0.9609375, 'eval_f1_weighted': 0.9631959808259586, 'eval_f1_macro': 0.9056047197640118, 'eval_confusion_matrix': [25, 1, 9, 221], 'eval_runtime': 0.3785, 'eval_samples_per_second': 676.435, 'eval_steps_per_second': 84.554, 'epoch': 0.49}
+{'eval_loss': 0.22758707404136658, 'eval_accuracy': 0.9609375, 'eval_precision_weighted': 0.9690687930577637, 'eval_recall_weighted': 0.9609375, 'eval_f1_weighted': 0.9631959808259586, 'eval_f1_macro': 0.9056047197640118, 'eval_confusion_matrix': [25, 1, 9, 221], 'eval_runtime': 0.5734, 'eval_samples_per_second': 446.479, 'eval_steps_per_second': 55.81, 'epoch': 0.59}
+{'eval_loss': 0.2316087931394577, 'eval_accuracy': 0.9609375, 'eval_precision_weighted': 0.9690687930577637, 'eval_recall_weighted': 0.9609375, 'eval_f1_weighted': 0.9631959808259586, 'eval_f1_macro': 0.9056047197640118, 'eval_confusion_matrix': [25, 1, 9, 221], 'eval_runtime': 0.699, 'eval_samples_per_second': 366.248, 'eval_steps_per_second': 45.781, 'epoch': 0.69}
+{'eval_loss': 0.20696701109409332, 'eval_accuracy': 0.9609375, 'eval_precision_weighted': 0.9690687930577637, 'eval_recall_weighted': 0.9609375, 'eval_f1_weighted': 0.9631959808259586, 'eval_f1_macro': 0.9056047197640118, 'eval_confusion_matrix': [25, 1, 9, 221], 'eval_runtime': 0.4366, 'eval_samples_per_second': 586.368, 'eval_steps_per_second': 73.296, 'epoch': 0.79}
+{'eval_loss': 0.24340802431106567, 'eval_accuracy': 0.9609375, 'eval_precision_weighted': 0.9690687930577637, 'eval_recall_weighted': 0.9609375, 'eval_f1_weighted': 0.9631959808259586, 'eval_f1_macro': 0.9056047197640118, 'eval_confusion_matrix': [25, 1, 9, 221], 'eval_runtime': 0.608, 'eval_samples_per_second': 421.04, 'eval_steps_per_second': 52.63, 'epoch': 0.88}
+{'loss': 0.2454, 'grad_norm': 0.10105534642934799, 'learning_rate': 7.707129094412331e-07, 'epoch': 0.96}
+{'eval_loss': 0.23261131346225739, 'eval_accuracy': 0.9609375, 'eval_precision_weighted': 0.9690687930577637, 'eval_recall_weighted': 0.9609375, 'eval_f1_weighted': 0.9631959808259586, 'eval_f1_macro': 0.9056047197640118, 'eval_confusion_matrix': [25, 1, 9, 221], 'eval_runtime': 0.6594, 'eval_samples_per_second': 388.233, 'eval_steps_per_second': 48.529, 'epoch': 0.98}
+{'train_runtime': 54.7519, 'train_samples_per_second': 75.723, 'train_steps_per_second': 9.479, 'train_loss': 0.24366062454635237, 'epoch': 1.0}
+[2025-10-22 15:00:28,911] - [INFO] - Training completed.
+[2025-10-22 15:00:28,950] - [INFO] - Running evaluation...
+[2025-10-22 15:00:29,222] - [INFO] - Evaluation Results:
+[2025-10-22 15:00:29,222] - [INFO] - eval_loss: 0.09899596869945526
+[2025-10-22 15:00:29,222] - [INFO] - eval_model_preparation_time: 0.0015
+[2025-10-22 15:00:29,222] - [INFO] - eval_accuracy: 0.9759036144578314
+[2025-10-22 15:00:29,222] - [INFO] - eval_true_accuracy: 0.9752066115702479
+[2025-10-22 15:00:29,222] - [INFO] - eval_false_accuracy: 0.9807692307692307
+[2025-10-22 15:00:29,222] - [INFO] - eval_runtime: 0.2634
+[2025-10-22 15:00:29,222] - [INFO] - eval_samples_per_second: 1575.403
+[2025-10-22 15:00:29,222] - [INFO] - eval_steps_per_second: 197.4
+[2025-10-22 15:00:29,420] - [INFO] - Saved tuning metrics at: roberta_classifier_results_ar/ar_tuning_metrics.csv
+-----------------------------------------------
+Finished model training.
+-----------------------------------------------
