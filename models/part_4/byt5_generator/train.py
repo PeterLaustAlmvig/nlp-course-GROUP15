@@ -56,16 +56,6 @@ def compute_metrics(eval_pred, tokenizer, answerable_flags):
     # F1 Score
     # ===============================
     f1_scores = np.array([char_level_f1(p, r) for p, r in zip(preds, refs)])
-    print(f"Predicted: {preds[0]}")
-    print(f"Target: {refs[0]}")
-    print(f"F1 Score: {f1_scores[0]}")
-    print(f"Answerable: {answerable_flags[0]}")
-    
-    
-    print(f"Predicted: {preds[2]}")
-    print(f"Target: {refs[2]}")
-    print(f"F1 Score: {f1_scores[2]}")
-    print(f"Answerable: {answerable_flags[2]}")
     f1_overall = float(np.mean(f1_scores))
     f1_answerable = float(np.mean(f1_scores[answerable_flags])) if np.any(answerable_flags) else np.nan
     f1_unanswerable = float(np.mean(f1_scores[~answerable_flags])) if np.any(~answerable_flags) else np.nan
@@ -122,9 +112,6 @@ def train_seq2seq(model, train_set, val_set, tokenizer, epochs, output_dir):
 
     # Extract the answerability flags from validation set
     answerable_flags = np.array(val_set["answerable"], dtype=bool)
-    print(f"Question: {val_set['question'][0]}")
-    print(f"Context: {val_set['context'][0]}")
-    print(f"Answerable: {val_set['answerable'][0]}")
 
     training_args = Seq2SeqTrainingArguments(
         output_dir=output_dir,
