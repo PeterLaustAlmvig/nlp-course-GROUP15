@@ -1,0 +1,11 @@
+{
+    "eval_f1_overall": 0.242668205716932,
+    "eval_f1_answerable": 0.1090909090909091,
+    "eval_f1_unanswerable": 0.2543562191717091,
+    "eval_bertscore_overall": 0.5884029567241669,
+    "eval_bertscore_answerable": 0.5623760563986642,
+    "eval_bertscore_unanswerable": 0.5906803105026484,
+    "eval_semantic_overall": 0.47665199637413025,
+    "eval_semantic_answerable": 0.40577980875968933,
+    "eval_semantic_unanswerable": 0.48285332322120667
+}
