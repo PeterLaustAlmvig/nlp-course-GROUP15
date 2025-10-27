@@ -1,7 +1,4 @@
-import numpy as np
-
-from datasets import load_dataset, concatenate_datasets, ClassLabel, Dataset
-from collections import Counter
+from datasets import load_dataset
 from transformers import (
     AutoTokenizer
 )
@@ -13,10 +10,21 @@ CONTEXT_KEY = "context"
 ANSWER_KEY = "answer_inlang"
 LANGUAGE_KEY = "lang"
 
-#### LOADING DATASETS FOR TRAINING AND VALIDATION
-def load_datasets(language=None, val_split=0.1):
+def correct_labels(context, answer, answerable):
+    context = str(context).lower().strip()
+    answer = str(answer).lower().strip()
+    return (answer in context and answerable) or (answer not in context and not answerable)
+    
+def load_datasets(val_split=0.1):
     dataset = load_dataset("coastalcph/tydi_xor_rc")
     dataset = dataset.filter(lambda x: x[LANGUAGE_KEY] in ["te"] and x[ANSWER_KEY] is not None)
+    
+    mislabelled_dataset = dataset.filter(lambda x: not correct_labels(x[CONTEXT_KEY], x["answer"], x["answerable"]))
+    info_logger(f"Found {len(mislabelled_dataset)} mislabelled instances")
+    for split_name, split_dataset in mislabelled_dataset.items():
+        split_dataset.to_csv(f"byt5_training_results/mislabels_{split_name}.csv")
+    
+    dataset = dataset.filter(lambda x: correct_labels(x[CONTEXT_KEY], x["answer"], x["answerable"]))
     
     split_set = dataset["train"].train_test_split(test_size=val_split, seed=42)
     train_set, val_set = split_set["train"], split_set["test"]
@@ -25,7 +33,7 @@ def load_datasets(language=None, val_split=0.1):
     
     return train_set, val_set, test_set
 
-def preprocess(samples, tokenizer, max_input_length=256, max_target_length=128):
+def preprocess(samples, tokenizer, max_input_length=512):
     inputs = tokenizer(
         text=samples[QUESTION_KEY],
         text_pair=samples[CONTEXT_KEY],
@@ -43,8 +51,8 @@ def preprocess(samples, tokenizer, max_input_length=256, max_target_length=128):
     inputs["label"] = answers["input_ids"]
     return inputs
 
-def prepare_datasets(model_name, oversample_ratio=1.0, undersample_ratio=1.0, language=None):
-    train_set, val_set, test_set = load_datasets(language)
+def prepare_datasets(model_name):
+    train_set, val_set, test_set = load_datasets()
     
     info_logger(f"Train dataset has total of {len(train_set)} samples")
     info_logger(f"Validation dataset has total of {len(val_set)} samples")

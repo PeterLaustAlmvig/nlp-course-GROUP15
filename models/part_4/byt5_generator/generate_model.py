@@ -18,7 +18,7 @@ def save_results(result_dir, step_logs, test_logs):
 
     # Save test evaluation logs
     test_file = os.path.join(result_dir, f"test_evaluation_metrics.csv")
-    pd.DataFrame(test_logs).to_json(test_file)
+    pd.DataFrame(test_logs).to_csv(test_file)
     info_logger(f"Saved test evaluation metrics at: {test_file}")
     divider_logger()
 
@@ -31,9 +31,9 @@ def save_model(model, tokenizer, model_dir):
     info_logger(f"Model and tokenizer saved at {model_dir}")
 
 if __name__ == "__main__":
-    model_name = "google/byt5-large"
+    model_name = "google/byt5-base"
     output_dir = f"byt5_training_results"
-    epochs = 5
+    epochs = 30
 
     enforce_reproducibility(42)
 
