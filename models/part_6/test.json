@@ -1,0 +1,92 @@
+[
+    {
+        "question": "Hvad er hovedstaden i Frankrig?",
+        "context": "France is a country in Western Europe. Its capital city is Paris, known for the Eiffel Tower and rich culture.",
+        "lang": "dk",
+        "answerable": true,
+        "answer_start": 55,
+        "answer": "Paris",
+        "answer_inlang": "Paris"
+    },
+    {
+        "question": "Hvornår blev internettet offentligt tilgængeligt?",
+        "context": "The internet became publicly available in the early 1990s, revolutionizing communication and information sharing.",
+        "lang": "dk",
+        "answerable": true,
+        "answer_start": 47,
+        "answer": "the early 1990s",
+        "answer_inlang": "i begyndelsen af 1990'erne"
+    },
+    {
+        "question": "Hvem skrev romanen '1984'?",
+        "context": "The novel '1984' was written by George Orwell and published in 1949. It explores themes of surveillance and totalitarianism.",
+        "lang": "dk",
+        "answerable": true,
+        "answer_start": 32,
+        "answer": "George Orwell",
+        "answer_inlang": "George Orwell"
+    },
+    {
+        "question": "Hvad er Jordens største hav?",
+        "context": "Earth has five major oceans. The Pacific Ocean is the largest and deepest of them all.",
+        "lang": "dk",
+        "answerable": true,
+        "answer_start": 39,
+        "answer": "The Pacific Ocean",
+        "answer_inlang": "Stillehavet"
+    },
+    {
+        "question": "Hvor mange planeter er der i solsystemet?",
+        "context": "Our solar system contains eight planets, orbiting the Sun along with dwarf planets and other celestial bodies.",
+        "lang": "dk",
+        "answerable": true,
+        "answer_start": 30,
+        "answer": "eight",
+        "answer_inlang": "otte"
+    },
+    {
+        "question": "Hvad er navnet på den første menneskelige koloni på Mars?",
+        "context": "Scientists have not yet established any human colonies on Mars, but several missions aim to make it possible in the future.",
+        "lang": "dk",
+        "answerable": false,
+        "answer_start": -1,
+        "answer": "Aries Base",
+        "answer_inlang": "Aries Base"
+    },
+    {
+        "question": "Hvilket dyr er kendt som 'menneskets bedste ven'?",
+        "context": "Dogs are often called man's best friend due to their loyalty and companionship throughout history.",
+        "lang": "dk",
+        "answerable": true,
+        "answer_start": 0,
+        "answer": "Dogs",
+        "answer_inlang": "Hunde"
+    },
+    {
+        "question": "Hvornår blev FN grundlagt?",
+        "context": "The United Nations was established in 1945 after World War II to promote peace and cooperation among countries.",
+        "lang": "dk",
+        "answerable": true,
+        "answer_start": 36,
+        "answer": "1945",
+        "answer_inlang": "1945"
+    },
+    {
+        "question": "Hvad er hovedstaden i Canada?",
+        "context": "Canada is known for its vast forests, cold climate, and multicultural cities such as Toronto and Vancouver.",
+        "lang": "dk",
+        "answerable": false,
+        "answer_start": -1,
+        "answer": "Ottawa",
+        "answer_inlang": "Ottawa"
+    },
+    {
+        "question": "Hvilken farve var Napoleons yndlingshest?",
+        "context": "Napoleon Bonaparte was a French military leader who rose to prominence during the French Revolution and became Emperor of France.",
+        "lang": "dk",
+        "answerable": false,
+        "answer_start": -1,
+        "answer": "White",
+        "answer_inlang": "Hvid"
+    }
+]
