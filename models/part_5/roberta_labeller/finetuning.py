@@ -86,7 +86,7 @@ def sampling_tuning(model_name, output_dir):
         )
 
         # ==== TRAIN MODEL ====
-        model, tokenizer, _ = train_binary(model, train_set, val_set, tokenizer, 1, output_dir)
+        model, tokenizer, _ = train_binary(model, train_set, val_set, tokenizer, 3, output_dir)
 
         # ==== EVALUATE MODEL ====
         overall_test_set = concatenate_datasets(list(test_sets.values()))
@@ -95,8 +95,8 @@ def sampling_tuning(model_name, output_dir):
         parameters["over_sampling"].append(over_sampling_ratio)
         parameters["under_sampling"].append(under_sampling_ratio)
         parameters["accuracy"].append(eval_results["eval_accuracy"])
-        parameters["true_accuracy"].append(eval_results["accuracy_answerable_true"])
-        parameters["false_accuracy"].append(eval_results["accuracy_answerable_false"])
+        parameters["true_accuracy"].append(eval_results["eval_accuracy_answerable_true"])
+        parameters["false_accuracy"].append(eval_results["eval_accuracy_answerable_false"])
         parameters["loss"].append(eval_results["eval_loss"])
         divider_logger()
         divider_logger()
