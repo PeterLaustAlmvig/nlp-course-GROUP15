@@ -1,0 +1,119 @@
+Starting model finetuning...
+[2025-10-28 21:55:39,708] - [INFO] - 
+=== Running combination ===
+[2025-10-28 21:55:39,708] - [INFO] - Over Sampling Ratio: 0.0, Under Sampling Ratio: 0.0
+[2025-10-28 21:55:41,467] - [INFO] - Found 3 mislabelled instances
+[2025-10-28 21:55:41,563] - [INFO] - Original Train dataset class split: Counter({1: 5375, 0: 123}), with a total of 5498 samples
+[2025-10-28 21:55:41,723] - [INFO] - Sampled Train dataset class split: Counter({1: 5375, 0: 123}), with a total of 5498 samples
+[2025-10-28 21:55:41,729] - [INFO] - Validation dataset class split: Counter({1: 597, 0: 14}), with a total of 611 samples
+[2025-10-28 21:55:41,738] - [INFO] - Test dataset class split: Counter({1: 991, 0: 105}), with a total of 1096 samples
+[2025-10-28 21:55:43,452] - [INFO] - Starting training of model (answerability classification).
+{'eval_loss': 0.12552222609519958, 'eval_accuracy': 0.022913256955810146, 'eval_f1': 0.0, 'eval_accuracy_answerable_true': 0.0, 'eval_accuracy_answerable_false': 1.0, 'eval_cm': [0, 597, 0, 14], 'eval_runtime': 0.7986, 'eval_samples_per_second': 765.076, 'eval_steps_per_second': 96.417, 'epoch': 0.1}
+{'eval_loss': 0.12351029366254807, 'eval_accuracy': 0.022913256955810146, 'eval_f1': 0.0, 'eval_accuracy_answerable_true': 0.0, 'eval_accuracy_answerable_false': 1.0, 'eval_cm': [0, 597, 0, 14], 'eval_runtime': 0.7939, 'eval_samples_per_second': 769.596, 'eval_steps_per_second': 96.987, 'epoch': 0.2}
+{'eval_loss': 0.12186071276664734, 'eval_accuracy': 0.022913256955810146, 'eval_f1': 0.0, 'eval_accuracy_answerable_true': 0.0016750418760469012, 'eval_accuracy_answerable_false': 1.0, 'eval_cm': [1, 596, 0, 14], 'eval_runtime': 0.795, 'eval_samples_per_second': 768.576, 'eval_steps_per_second': 96.858, 'epoch': 0.3}
+{'eval_loss': 0.12152864784002304, 'eval_accuracy': 0.03273322422258593, 'eval_f1': 0.01990049751243781, 'eval_accuracy_answerable_true': 0.17252931323283083, 'eval_accuracy_answerable_false': 1.0, 'eval_cm': [103, 494, 0, 14], 'eval_runtime': 0.8, 'eval_samples_per_second': 763.739, 'eval_steps_per_second': 96.249, 'epoch': 0.4}
+{'eval_loss': 0.11884470283985138, 'eval_accuracy': 0.022913256955810146, 'eval_f1': 0.0, 'eval_accuracy_answerable_true': 0.04020100502512563, 'eval_accuracy_answerable_false': 1.0, 'eval_cm': [24, 573, 0, 14], 'eval_runtime': 0.796, 'eval_samples_per_second': 767.552, 'eval_steps_per_second': 96.729, 'epoch': 0.49}
+{'eval_loss': 0.11685273051261902, 'eval_accuracy': 0.024549918166939442, 'eval_f1': 0.006666666666666667, 'eval_accuracy_answerable_true': 0.06197654941373534, 'eval_accuracy_answerable_false': 0.9285714285714286, 'eval_cm': [37, 560, 1, 13], 'eval_runtime': 0.7984, 'eval_samples_per_second': 765.327, 'eval_steps_per_second': 96.449, 'epoch': 0.59}
+{'eval_loss': 0.11800558120012283, 'eval_accuracy': 0.03600654664484452, 'eval_f1': 0.029654036243822075, 'eval_accuracy_answerable_true': 0.11892797319932999, 'eval_accuracy_answerable_false': 0.9285714285714286, 'eval_cm': [71, 526, 1, 13], 'eval_runtime': 0.7986, 'eval_samples_per_second': 765.136, 'eval_steps_per_second': 96.425, 'epoch': 0.69}
+{'loss': 0.1193, 'grad_norm': 0.7118126153945923, 'learning_rate': 5.4941860465116285e-06, 'epoch': 0.73}
+{'eval_loss': 0.11549773067235947, 'eval_accuracy': 0.07855973813420622, 'eval_f1': 0.11058451816745654, 'eval_accuracy_answerable_true': 0.19262981574539365, 'eval_accuracy_answerable_false': 0.9285714285714286, 'eval_cm': [115, 482, 1, 13], 'eval_runtime': 0.7956, 'eval_samples_per_second': 768.009, 'eval_steps_per_second': 96.787, 'epoch': 0.79}
+{'eval_loss': 0.11550384014844894, 'eval_accuracy': 0.09328968903436989, 'eval_f1': 0.13707165109034267, 'eval_accuracy_answerable_true': 0.21608040201005024, 'eval_accuracy_answerable_false': 0.9285714285714286, 'eval_cm': [129, 468, 1, 13], 'eval_runtime': 0.7971, 'eval_samples_per_second': 766.561, 'eval_steps_per_second': 96.604, 'epoch': 0.89}
+{'eval_loss': 0.11569835990667343, 'eval_accuracy': 0.10147299509001637, 'eval_f1': 0.15146831530139104, 'eval_accuracy_answerable_true': 0.22445561139028475, 'eval_accuracy_answerable_false': 0.9285714285714286, 'eval_cm': [134, 463, 1, 13], 'eval_runtime': 0.7975, 'eval_samples_per_second': 766.135, 'eval_steps_per_second': 96.551, 'epoch': 0.99}
+{'train_runtime': 72.9133, 'train_samples_per_second': 75.405, 'train_steps_per_second': 9.436, 'train_loss': 0.11475512870522432, 'epoch': 1.0}
+[2025-10-28 21:56:56,533] - [INFO] - Training completed.
+[2025-10-28 21:56:56,590] - [INFO] - Running evaluation...
+[2025-10-28 21:56:58,059] - [INFO] - Evaluation Results:
+[2025-10-28 21:56:58,059] - [INFO] - eval_loss: 0.09112119674682617
+[2025-10-28 21:56:58,059] - [INFO] - eval_model_preparation_time: 0.0015
+[2025-10-28 21:56:58,059] - [INFO] - eval_accuracy: 0.1395985401459854
+[2025-10-28 21:56:58,059] - [INFO] - eval_f1: 0.10953729933899906
+[2025-10-28 21:56:58,059] - [INFO] - eval_accuracy_answerable_true: 0.19475277497477295
+[2025-10-28 21:56:58,059] - [INFO] - eval_accuracy_answerable_false: 0.9047619047619048
+[2025-10-28 21:56:58,059] - [INFO] - eval_cm: [193, 798, 10, 95]
+[2025-10-28 21:56:58,059] - [INFO] - eval_runtime: 1.4608
+[2025-10-28 21:56:58,059] - [INFO] - eval_samples_per_second: 750.251
+[2025-10-28 21:56:58,059] - [INFO] - eval_steps_per_second: 93.781
+-----------------------------------------------
+Finished model training.
+-----------------------------------------------
+Starting model creation...
+[2025-10-28 21:57:06,801] - [INFO] - Found 3 mislabelled instances
+[2025-10-28 21:57:06,941] - [INFO] - Original Train dataset class split: Counter({1: 5375, 0: 123}), with a total of 5498 samples
+[2025-10-28 21:57:07,104] - [INFO] - Sampled Train dataset class split: Counter({1: 5375, 0: 123}), with a total of 5498 samples
+[2025-10-28 21:57:07,110] - [INFO] - Validation dataset class split: Counter({1: 597, 0: 14}), with a total of 611 samples
+[2025-10-28 21:57:07,119] - [INFO] - Test dataset class split: Counter({1: 991, 0: 105}), with a total of 1096 samples
+[2025-10-28 21:57:08,842] - [INFO] - Starting training of model (answerability classification).
+{'eval_loss': 0.12409880757331848, 'eval_accuracy': 0.022913256955810146, 'eval_f1': 0.0, 'eval_accuracy_answerable_true': 0.0, 'eval_accuracy_answerable_false': 1.0, 'eval_cm': [0, 597, 0, 14], 'eval_runtime': 0.8004, 'eval_samples_per_second': 763.405, 'eval_steps_per_second': 96.207, 'epoch': 0.3}
+{'eval_loss': 0.11874856799840927, 'eval_accuracy': 0.03600654664484452, 'eval_f1': 0.029654036243822075, 'eval_accuracy_answerable_true': 0.11222780569514237, 'eval_accuracy_answerable_false': 0.9285714285714286, 'eval_cm': [67, 530, 1, 13], 'eval_runtime': 0.7974, 'eval_samples_per_second': 766.26, 'eval_steps_per_second': 96.566, 'epoch': 0.6}
+{'loss': 0.1197, 'grad_norm': 0.5108413696289062, 'learning_rate': 1.5164728682170544e-05, 'epoch': 0.73}
+{'eval_loss': 0.11466874927282333, 'eval_accuracy': 0.1260229132569558, 'eval_f1': 0.1933534743202417, 'eval_accuracy_answerable_true': 0.32663316582914576, 'eval_accuracy_answerable_false': 0.9285714285714286, 'eval_cm': [195, 402, 1, 13], 'eval_runtime': 0.7989, 'eval_samples_per_second': 764.847, 'eval_steps_per_second': 96.388, 'epoch': 0.9}
+{'eval_loss': 0.11223423480987549, 'eval_accuracy': 0.14893617021276595, 'eval_f1': 0.24198250728862974, 'eval_accuracy_answerable_true': 0.35510887772194305, 'eval_accuracy_answerable_false': 0.5714285714285714, 'eval_cm': [212, 385, 6, 8], 'eval_runtime': 0.7969, 'eval_samples_per_second': 766.706, 'eval_steps_per_second': 96.623, 'epoch': 1.2}
+{'loss': 0.0964, 'grad_norm': 0.4083298444747925, 'learning_rate': 1.0319767441860467e-05, 'epoch': 1.45}
+{'eval_loss': 0.11601359397172928, 'eval_accuracy': 0.24222585924713586, 'eval_f1': 0.37516869095816463, 'eval_accuracy_answerable_true': 0.6834170854271356, 'eval_accuracy_answerable_false': 0.6428571428571429, 'eval_cm': [408, 189, 5, 9], 'eval_runtime': 0.7987, 'eval_samples_per_second': 764.96, 'eval_steps_per_second': 96.403, 'epoch': 1.5}
+{'eval_loss': 0.10350435972213745, 'eval_accuracy': 0.2602291325695581, 'eval_f1': 0.3941018766756032, 'eval_accuracy_answerable_true': 0.541038525963149, 'eval_accuracy_answerable_false': 0.8571428571428571, 'eval_cm': [323, 274, 2, 12], 'eval_runtime': 0.8005, 'eval_samples_per_second': 763.312, 'eval_steps_per_second': 96.195, 'epoch': 1.8}
+{'eval_loss': 0.11020833998918533, 'eval_accuracy': 0.29623567921440264, 'eval_f1': 0.4501278772378517, 'eval_accuracy_answerable_true': 0.8592964824120602, 'eval_accuracy_answerable_false': 0.35714285714285715, 'eval_cm': [513, 84, 9, 5], 'eval_runtime': 0.7951, 'eval_samples_per_second': 768.454, 'eval_steps_per_second': 96.843, 'epoch': 2.1}
+{'loss': 0.081, 'grad_norm': 2.228586196899414, 'learning_rate': 5.474806201550388e-06, 'epoch': 2.18}
+{'eval_loss': 0.10727409273386002, 'eval_accuracy': 0.32242225859247137, 'eval_f1': 0.471938775510204, 'eval_accuracy_answerable_true': 0.7721943048576214, 'eval_accuracy_answerable_false': 0.8571428571428571, 'eval_cm': [461, 136, 2, 12], 'eval_runtime': 0.7968, 'eval_samples_per_second': 766.786, 'eval_steps_per_second': 96.633, 'epoch': 2.4}
+{'eval_loss': 0.10227354615926743, 'eval_accuracy': 0.32078559738134205, 'eval_f1': 0.4713375796178344, 'eval_accuracy_answerable_true': 0.7420435510887772, 'eval_accuracy_answerable_false': 0.7857142857142857, 'eval_cm': [443, 154, 3, 11], 'eval_runtime': 0.7962, 'eval_samples_per_second': 767.431, 'eval_steps_per_second': 96.714, 'epoch': 2.69}
+{'loss': 0.067, 'grad_norm': 5.923393249511719, 'learning_rate': 6.298449612403102e-07, 'epoch': 2.91}
+{'eval_loss': 0.10560213029384613, 'eval_accuracy': 0.3355155482815057, 'eval_f1': 0.48994974874371866, 'eval_accuracy_answerable_true': 0.7839195979899497, 'eval_accuracy_answerable_false': 0.7142857142857143, 'eval_cm': [468, 129, 4, 10], 'eval_runtime': 0.7993, 'eval_samples_per_second': 764.434, 'eval_steps_per_second': 96.336, 'epoch': 2.99}
+{'train_runtime': 143.0577, 'train_samples_per_second': 115.296, 'train_steps_per_second': 14.428, 'train_loss': 0.09015366065409756, 'epoch': 3.0}
+[2025-10-28 21:59:32,082] - [INFO] - Training completed.
+[2025-10-28 21:59:32,125] - [INFO] - Running evaluation...
+[2025-10-28 21:59:32,588] - [INFO] - Evaluation Results:
+[2025-10-28 21:59:32,588] - [INFO] - eval_loss: 0.10143231600522995
+[2025-10-28 21:59:32,588] - [INFO] - eval_model_preparation_time: 0.0015
+[2025-10-28 21:59:32,588] - [INFO] - eval_accuracy: 0.3313953488372093
+[2025-10-28 21:59:32,588] - [INFO] - eval_f1: 0.4866071428571429
+[2025-10-28 21:59:32,588] - [INFO] - eval_accuracy_answerable_true: 0.744807121661721
+[2025-10-28 21:59:32,588] - [INFO] - eval_accuracy_answerable_false: 0.7142857142857143
+[2025-10-28 21:59:32,588] - [INFO] - eval_cm: [251, 86, 2, 5]
+[2025-10-28 21:59:32,588] - [INFO] - eval_runtime: 0.4562
+[2025-10-28 21:59:32,588] - [INFO] - eval_samples_per_second: 754.102
+[2025-10-28 21:59:32,588] - [INFO] - eval_steps_per_second: 94.263
+[2025-10-28 21:59:32,698] - [INFO] - Saved per-epoch metrics at: roberta_labeller_results/ko_train_metrics_per_epoch.csv
+[2025-10-28 21:59:32,941] - [INFO] - Saved test metrics at: roberta_labeller_results/ko_test_evaluation_metrics.csv
+[2025-10-28 21:59:32,966] - [INFO] - Running evaluation...
+[2025-10-28 21:59:33,510] - [INFO] - Evaluation Results:
+[2025-10-28 21:59:33,510] - [INFO] - eval_loss: 0.09319160878658295
+[2025-10-28 21:59:33,510] - [INFO] - eval_model_preparation_time: 0.0015
+[2025-10-28 21:59:33,510] - [INFO] - eval_accuracy: 0.32808398950131235
+[2025-10-28 21:59:33,510] - [INFO] - eval_f1: 0.46887966804979253
+[2025-10-28 21:59:33,510] - [INFO] - eval_accuracy_answerable_true: 0.7988980716253443
+[2025-10-28 21:59:33,510] - [INFO] - eval_accuracy_answerable_false: 0.6666666666666666
+[2025-10-28 21:59:33,510] - [INFO] - eval_cm: [290, 73, 6, 12]
+[2025-10-28 21:59:33,510] - [INFO] - eval_runtime: 0.5379
+[2025-10-28 21:59:33,510] - [INFO] - eval_samples_per_second: 708.334
+[2025-10-28 21:59:33,510] - [INFO] - eval_steps_per_second: 89.239
+[2025-10-28 21:59:33,517] - [INFO] - Saved per-epoch metrics at: roberta_labeller_results/ar_train_metrics_per_epoch.csv
+[2025-10-28 21:59:33,785] - [INFO] - Saved test metrics at: roberta_labeller_results/ar_test_evaluation_metrics.csv
+[2025-10-28 21:59:33,809] - [INFO] - Running evaluation...
+[2025-10-28 21:59:34,287] - [INFO] - Evaluation Results:
+[2025-10-28 21:59:34,287] - [INFO] - eval_loss: 0.07130897045135498
+[2025-10-28 21:59:34,287] - [INFO] - eval_model_preparation_time: 0.0015
+[2025-10-28 21:59:34,287] - [INFO] - eval_accuracy: 0.32345013477088946
+[2025-10-28 21:59:34,287] - [INFO] - eval_f1: 0.3980815347721822
+[2025-10-28 21:59:34,287] - [INFO] - eval_accuracy_answerable_true: 0.7457044673539519
+[2025-10-28 21:59:34,287] - [INFO] - eval_accuracy_answerable_false: 0.4625
+[2025-10-28 21:59:34,287] - [INFO] - eval_cm: [217, 74, 43, 37]
+[2025-10-28 21:59:34,287] - [INFO] - eval_runtime: 0.4719
+[2025-10-28 21:59:34,287] - [INFO] - eval_samples_per_second: 786.259
+[2025-10-28 21:59:34,287] - [INFO] - eval_steps_per_second: 99.607
+[2025-10-28 21:59:34,327] - [INFO] - Saved per-epoch metrics at: roberta_labeller_results/te_train_metrics_per_epoch.csv
+[2025-10-28 21:59:34,546] - [INFO] - Saved test metrics at: roberta_labeller_results/te_test_evaluation_metrics.csv
+[2025-10-28 21:59:34,581] - [INFO] - Running evaluation...
+[2025-10-28 21:59:36,047] - [INFO] - Evaluation Results:
+[2025-10-28 21:59:36,047] - [INFO] - eval_loss: 0.08833728730678558
+[2025-10-28 21:59:36,047] - [INFO] - eval_model_preparation_time: 0.0015
+[2025-10-28 21:59:36,047] - [INFO] - eval_accuracy: 0.3266423357664234
+[2025-10-28 21:59:36,047] - [INFO] - eval_f1: 0.45170876671619614
+[2025-10-28 21:59:36,047] - [INFO] - eval_accuracy_answerable_true: 0.7648839556004037
+[2025-10-28 21:59:36,047] - [INFO] - eval_accuracy_answerable_false: 0.5142857142857142
+[2025-10-28 21:59:36,047] - [INFO] - eval_cm: [758, 233, 51, 54]
+[2025-10-28 21:59:36,047] - [INFO] - eval_runtime: 1.4585
+[2025-10-28 21:59:36,047] - [INFO] - eval_samples_per_second: 751.449
+[2025-10-28 21:59:36,047] - [INFO] - eval_steps_per_second: 93.931
+[2025-10-28 21:59:36,056] - [INFO] - Saved per-epoch metrics at: roberta_labeller_results/all_train_metrics_per_epoch.csv
+[2025-10-28 21:59:36,209] - [INFO] - Saved test metrics at: roberta_labeller_results/all_test_evaluation_metrics.csv
+Cleaning up runs/ and checkpoint* folders...
+Cleanup complete.
