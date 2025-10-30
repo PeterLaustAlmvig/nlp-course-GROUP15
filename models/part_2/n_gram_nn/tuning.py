@@ -2,6 +2,7 @@ import itertools
 import math
 import os
 import argparse
+import torch
 
 import torch.nn as nn
 import torch.optim as optim
