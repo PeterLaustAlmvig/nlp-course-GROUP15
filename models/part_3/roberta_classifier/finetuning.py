@@ -29,7 +29,7 @@ def save_results(result_dir, language, epoch_logs, test_logs):
     
     plot_two_curves(epoch_df["eval_loss"].to_list(), epoch_df["eval_accuracy"].to_list(), save_path=f"{result_dir}/{language}_training_plot.pdf")
 
-    test_file = os.path.join(result_dir, f"{language}_test_evaluation_metrics.csv")
+    test_file = os.path.join(result_dir, f"{language}_test_evaluation_metrics.json")
     test_df = pd.DataFrame(test_logs)
     test_df.to_json(test_file)
     info_logger(f"Saved test metrics at: {test_file}")
