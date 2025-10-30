@@ -25,7 +25,7 @@ def save_results(result_dir, epoch_logs, test_logs, language="all"):
     
     plot_two_curves(epoch_df["eval_loss"].to_list(), epoch_df["eval_accuracy"].to_list(), save_path=f"{result_dir}/{language}_training_plot.pdf")
 
-    test_file = os.path.join(result_dir, f"{language}_test_evaluation_metrics.csv")
+    test_file = os.path.join(result_dir, f"{language}_test_evaluation_metrics.json")
     test_df = pd.DataFrame(test_logs)
     test_df.to_json(test_file)
     info_logger(f"Saved test metrics at: {test_file}")
@@ -86,7 +86,7 @@ def sampling_tuning(model_name, output_dir):
         )
 
         # ==== TRAIN MODEL ====
-        model, tokenizer, _ = train_binary(model, train_set, val_set, tokenizer, 3, output_dir)
+        model, tokenizer, _ = train_binary(model, train_set, val_set, tokenizer, 1, output_dir)
 
         # ==== EVALUATE MODEL ====
         overall_test_set = concatenate_datasets(list(test_sets.values()))

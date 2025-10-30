@@ -119,7 +119,7 @@ def train_binary(model, train_set, val_set, tokenizer, epochs, output_dir):
     return model, tokenizer, step_logs
 
 
-def evaluate_binary(model, tokenizer, test_set):
+def evaluate_binary(model, tokenizer, test_set, evaluation="All"):
     data_collator = DataCollatorForTokenClassification(tokenizer=tokenizer)
     answerable_flags = np.array(test_set["answerable"], dtype=bool)
 
@@ -136,7 +136,7 @@ def evaluate_binary(model, tokenizer, test_set):
     results = trainer.evaluate()
 
     # Log metrics nicely
-    info_logger("Evaluation Results:")
+    info_logger(f"Evaluation Results {evaluation}:")
     for k, v in results.items():
         if k.startswith("eval_"):
             info_logger(f"{k}: {v}")

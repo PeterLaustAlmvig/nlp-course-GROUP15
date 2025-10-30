@@ -51,8 +51,7 @@ if __name__ == "__main__":
         os.makedirs(results_dir)
 
     model_name = "FacebookAI/xlm-roberta-base"
-    #oversample_ratio, undersample_ratio = get_balanced_top_configs(f"{results_dir}/tuning_metrics.csv")
-    oversample_ratio, undersample_ratio = 0.0, 0.0
+    oversample_ratio, undersample_ratio = get_balanced_top_configs(f"{results_dir}/tuning_metrics.csv")
     enforce_reproducibility(42)
 
     # ==== PREPARE DATASETS ====
@@ -64,16 +63,16 @@ if __name__ == "__main__":
     )
 
     # ==== TRAIN MODEL ====
-    model, tokenizer, epoch_history = train_binary(model, train_set, val_set, tokenizer, 3, results_dir)
+    model, tokenizer, epoch_history = train_binary(model, train_set, val_set, tokenizer, 10, results_dir)
 
     # ==== EVALUATE MODEL ====
-    eval_results = evaluate_binary(model, tokenizer, test_sets["ko"])
+    eval_results = evaluate_binary(model, tokenizer, test_sets["ko"], "ko")
     save_results(results_dir, epoch_history, eval_results, "ko")
     
-    eval_results = evaluate_binary(model, tokenizer, test_sets["ar"])
+    eval_results = evaluate_binary(model, tokenizer, test_sets["ar"], "ar")
     save_results(results_dir, epoch_history, eval_results, "ar")
     
-    eval_results = evaluate_binary(model, tokenizer, test_sets["te"])
+    eval_results = evaluate_binary(model, tokenizer, test_sets["te"], "te")
     save_results(results_dir, epoch_history, eval_results, "te")
     
     overall_test_set = concatenate_datasets(list(test_sets.values()))
