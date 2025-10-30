@@ -19,14 +19,10 @@ from tabulate import tabulate
 def get_balanced_top_configs(csv_path, top_k=3):
     df = pd.read_csv(csv_path)
 
-    # Normalize accuracy columns to [0, 1] for fair comparison
-    for col in ["accuracy", "true_accuracy", "false_accuracy"]:
-        df[col + "_norm"] = (df[col] - df[col].min()) / (df[col].max() - df[col].min())
-
     # Compute a "balance score" that rewards configs good on all accuracies
     # Using geometric mean instead of arithmetic mean to penalize imbalance
     df["balance_score"] = (
-        (df["accuracy_norm"] * df["true_accuracy_norm"] * df["false_accuracy_norm"]) ** (1/3)
+        (df["accuracy"] * df["true_accuracy"] * df["false_accuracy"]) ** (1/3)
     )
 
     # Sort and pick the best ones
@@ -63,7 +59,7 @@ if __name__ == "__main__":
     )
 
     # ==== TRAIN MODEL ====
-    model, tokenizer, epoch_history = train_binary(model, train_set, val_set, tokenizer, 10, results_dir)
+    model, tokenizer, epoch_history = train_binary(model, train_set, val_set, tokenizer, 3, results_dir)
 
     # ==== EVALUATE MODEL ====
     eval_results = evaluate_binary(model, tokenizer, test_sets["ko"], "ko")
