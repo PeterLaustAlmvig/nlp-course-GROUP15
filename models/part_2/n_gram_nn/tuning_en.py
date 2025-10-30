@@ -2,7 +2,6 @@ import itertools
 import math
 import os
 import argparse
-import torch
 
 import torch.nn as nn
 import torch.optim as optim
@@ -35,25 +34,12 @@ def save_parameters_to_csv(parameters, output_folder, filename="experiment_resul
     df.to_csv(f"{output_folder}/{filename}", index=False)
     info_logger(f"Saved {len(df)} experiment results to '{filename}'")
 
-def parameter_tuning(language):
+def parameter_tuning(language, embedding_dim_options, hidden_dim_options, top_fraction_options, replace_freq_options, replace_fraction_options, context_window_options):
     # -------------------------
     # Hyperparameter options
     # -------------------------
-    replace_freq_options = [True, False]
-    top_fraction_options = [0.01, 0.05, 0.1]               # Top fraction of words to replace
-    replace_fraction_options = [0.1, 0.05, 0.01]
-    embedding_dim_options = [64, 128, 256]
-    hidden_dim_options = [128, 256, 512]
-    if language == "en":
-        batch_size = 64
-        epochs = 5
-    else:
-        batch_size = 16
-        epochs = 10
-    max_window = [calculate_max_context_window(language)]
-    context_window_options = calculate_possible_windows(max_window)
-    info_logger(f"For {language} possible context windows are: {context_window_options}")
-    info_logger(f"The max context window is: {max_window}")
+    batch_size = 64
+    epochs = 5
     
     parameters = {
         "replace_type": [],
@@ -109,6 +95,12 @@ def parameter_tuning(language):
         parameters["context_window"].append(context_window)
         parameters["replace_frac"].append(replace_fraction)
         parameters["loss"].append(val_losses[-1])
+        
+        print(f"Current combination results:")
+        print(f"{'Replace':<12} | {'TopFrac':<8} | {'EmbedDim':<8} | {'HiddenDim':<9} | {'ContextWin':<11} | {'ReplaceFrac':<12} | {'Loss':<8}")
+        print("-"*80)
+        print(f"{replace_type!s:<12} | {top_frac:<8} | {embed_dim:<8} | {hidden_dim:<9} | {context_window:<11} | {replace_fraction:<12} | {val_losses[-1]:<8.4f}")
+
         divider_logger()
         divider_logger()
     
@@ -116,18 +108,32 @@ def parameter_tuning(language):
         
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Run n-gram NN hyperparameter tuning for a language")
-    parser.add_argument(
-        "--language", 
-        type=str, 
-        required=True,
-        help="Language code to run tuning on, e.g., 'en', 'te', 'ar', or 'ko'"
-    )
+    parser.add_argument("--language", type=str, required=True, 
+                        help="Language code to run tuning on, e.g., 'en', 'te', 'ar', or 'ko'")
+    parser.add_argument("--embedding_dims", type=str, default="64,128,256",
+                        help="Comma-separated list of embedding dimensions")
+    parser.add_argument("--hidden_dims", type=str, default="64,128,256",
+                        help="Comma-separated list of hidden dimensions")
+    parser.add_argument("--top_fractions", type=str, default="0.01,0.05,0.1",
+                        help="Comma-separated list of top fraction options")
+    parser.add_argument("--replace_types", type=str, default="True,False",
+                        help="Comma-separated list of replace frequency options")
+    parser.add_argument("--replace_fractions", type=str, default="0.01,0.05,0.1",
+                        help="Comma-separated list of replace fractions")
+    parser.add_argument("--context_windows", type=int, default="auto",
+                        help="context window to use")
     args = parser.parse_args()
     
     language = args.language
+    embedding_dim_options = [int(x) for x in args.embedding_dims.split(",")]
+    hidden_dim_options = [int(x) for x in args.hidden_dims.split(",")]
+    top_fraction_options = [float(x) for x in args.top_fractions.split(",")]
+    replace_freq_options = [x.lower() == "true" for x in args.replace_types.split(",")]
+    replace_fraction_options = [float(x) for x in args.replace_fractions.split(",")]
+    context_window_options = [int(args.context_windows)]
     
     # Run parameter tuning for the selected language
-    parameters = parameter_tuning(language)
+    parameters = parameter_tuning(language, embedding_dim_options, hidden_dim_options, top_fraction_options, replace_freq_options, replace_fraction_options, context_window_options)
     
     # Save results
     folder = "n_gram_nn_results"

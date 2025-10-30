@@ -23,26 +23,31 @@ UNKNOWN_TOKEN = "<UNK>"
 START_TOKEN = "<STRT>"
 
 #### LOADING DATASETS FOR TRAINING AND VALIDATION
-def load_datasets(column, language=None, val_split=0.1):
+def load_datasets(column, language=None, val_split=0.1, subset_size=2000, val_size=250):
     # Load datasets for training and evaluation
     dataset = load_dataset("coastalcph/tydi_xor_rc")
     df_train = dataset["train"].to_pandas()
     df_val = dataset["validation"].to_pandas()
 
-    # Datasets
+    # Filter by language if needed
     if language is None:
-        train_set = list(df_train[column])
+        full_train_set = list(df_train[column])
         test_set = list(df_val[column])
     else:
-        train_set = list(df_train[df_train['lang'] == language][column])
+        full_train_set = list(df_train[df_train['lang'] == language][column])
         test_set = list(df_val[df_val['lang'] == language][column])
-    
-    train_array = np.array(train_set)
 
-    val_mask = np.array([random.random() <= val_split for _ in range(len(train_array))])
-    val_set = train_array[val_mask].tolist()
-    train_set = train_array[~val_mask].tolist()
+    # Randomly sample up to subset_size
+    if subset_size is not None and subset_size < len(full_train_set):
+        full_train_set = random.sample(full_train_set, subset_size)
+
+    # Split fixed-size validation set
+    if val_size >= len(full_train_set):
+        raise ValueError("Validation size must be smaller than the training set.")
     
+    val_set = random.sample(full_train_set, val_size)
+    train_set = [x for x in full_train_set if x not in val_set]
+
     return train_set, val_set, test_set
     
 #### PREPROCESSING OF THE SENTENCES INTO TOKENS
