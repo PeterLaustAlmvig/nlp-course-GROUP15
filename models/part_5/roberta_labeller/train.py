@@ -60,12 +60,15 @@ def compute_metrics(eval_pred, answerable_flags):
     acc_true = cm[0, 0] / cm[0].sum() if cm[0].sum() > 0 else 0.0
     acc_false = cm[1, 1] / cm[1].sum() if cm[1].sum() > 0 else 0.0
     cm = cm.flatten().tolist()
+    
+    mean_acc = (acc_true + acc_false + accuracy) / 3
 
     return {
         "accuracy": accuracy,
         "f1": f1,
         "accuracy_answerable_true": acc_true,
         "accuracy_answerable_false": acc_false,
+        "mean_accuracy": mean_acc,
         "cm": cm
     }
 
@@ -88,7 +91,7 @@ def train_binary(model, train_set, val_set, tokenizer, epochs, output_dir):
         eval_strategy="steps",
         eval_steps=no_steps_pr_eval,
         load_best_model_at_end=True,
-        metric_for_best_model="f1",
+        metric_for_best_model="mean_accuracy",
         greater_is_better=True,
         do_train=True,
         do_eval=True

@@ -28,7 +28,9 @@ def load_datasets(language=None, val_split=0.1):
     split_set = dataset["train"].train_test_split(test_size=val_split, seed=42, stratify_by_column="label")
     train_set, val_set = split_set["train"], split_set["test"]
     
-    test_set = dataset["validation"]
+    test_set = Dataset.from_json("test.json")
+    test_set = test_set.cast_column(ANSWERABILITY_KEY, ClassLabel(num_classes=2, names=[False, True]))
+    test_set = test_set.rename_column(ANSWERABILITY_KEY, "label")
     
     return train_set, val_set, test_set
 
